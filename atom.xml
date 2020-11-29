@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://tomzhu0225.github.io</id>
-    <title>Gridea</title>
-    <updated>2020-11-29T14:20:06.802Z</updated>
+    <id>http://tomzhu0225.github.io</id>
+    <title>FUSION!</title>
+    <updated>2020-11-29T14:30:33.775Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://tomzhu0225.github.io"/>
-    <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
-    <icon>https://tomzhu0225.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <link rel="alternate" href="http://tomzhu0225.github.io"/>
+    <link rel="self" href="http://tomzhu0225.github.io/atom.xml"/>
+    <subtitle>我叫朱博文，一个有奇思妙想的学生</subtitle>
+    <logo>http://tomzhu0225.github.io/images/avatar.png</logo>
+    <icon>http://tomzhu0225.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, FUSION!</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://tomzhu0225.github.io/post/hello-gridea/</id>
-        <link href="https://tomzhu0225.github.io/post/hello-gridea/">
+        <id>http://tomzhu0225.github.io/post/hello-gridea/</id>
+        <link href="http://tomzhu0225.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
