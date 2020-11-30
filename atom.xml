@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-11-30T01:11:53.183Z</updated>
+    <updated>2020-11-30T11:25:42.275Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://tomzhu0225.github.io"/>
     <link rel="self" href="http://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>http://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>http://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[关于]]></title>
+        <id>http://tomzhu0225.github.io/post/about/</id>
+        <link href="http://tomzhu0225.github.io/post/about/">
+        </link>
+        <updated>2020-11-30T11:24:35.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+</blockquote>
+<h2 id="关于本站这是一个表达情感记录技术灵感成长过程的网站">关于本站：这是一个表达情感，记录技术灵感，成长过程的网站</h2>
+<h2 id="博主是谁博主是西安交通大学在读本科生微软学生大使">博主是谁：博主是西安交通大学在读本科生，微软学生大使</h2>
+<h2 id="兴趣爱好fusion量子计算机器学习数学等等">兴趣爱好：FUSION，量子计算，机器学习，数学等等</h2>
+<h2 id="联系我呀邮箱tomzhu0225stuxjtueducn">联系我呀：邮箱：tomzhu0225@stu.xjtu.edu.cn</h2>
+<pre><code>                   QQ:2062141317
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[早安，全世界]]></title>
         <id>http://tomzhu0225.github.io/post/zao-an-quan-shi-jie/</id>
