@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-12-01T09:59:38.165Z</updated>
+    <updated>2020-12-05T11:30:49.794Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://tomzhu0225.github.io"/>
     <link rel="self" href="http://tomzhu0225.github.io/atom.xml"/>
@@ -11,13 +11,12 @@
     <icon>http://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
     <entry>
-        <title type="html"><![CDATA[一种高阶齐次微分方程解法及无解微分方程理解方式（待更新）]]></title>
-        <id>http://tomzhu0225.github.io/post/yi-chong-gao-jie-qi-ci-wei-fen-fang-cheng-jie-fa-ji-wu-jie-wei-fen-fang-cheng-li-jie-fang-shi-dai-geng-xin/</id>
-        <link href="http://tomzhu0225.github.io/post/yi-chong-gao-jie-qi-ci-wei-fen-fang-cheng-jie-fa-ji-wu-jie-wei-fen-fang-cheng-li-jie-fang-shi-dai-geng-xin/">
+        <title type="html"><![CDATA[一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法]]></title>
+        <id>http://tomzhu0225.github.io/post/mAtH001/</id>
+        <link href="http://tomzhu0225.github.io/post/mAtH001/">
         </link>
         <updated>2020-12-01T09:51:49.000Z</updated>
-        <content type="html"><![CDATA[<p>老师说写的还是太简单，所以还得改...<br>
-<img src="http://tomzhu0225.github.io/post-images/1606816669032.png" alt="" loading="lazy"></p>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="http://tomzhu0225.github.io/post-images/1607167641960.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
