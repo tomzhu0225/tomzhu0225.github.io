@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-12-06T12:45:48.397Z</updated>
+    <updated>2020-12-07T02:11:47.486Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Bonjour à tous!]]></title>
+        <id>https://tomzhu0225.github.io/post/bonjour-a-tous/</id>
+        <link href="https://tomzhu0225.github.io/post/bonjour-a-tous/">
+        </link>
+        <updated>2020-12-07T02:11:12.000Z</updated>
+        <content type="html"><![CDATA[<p>Bonjour à tous. Je m'appelle Zhu bowen et Je suis chinoise. Je viens du Liaoning, une province au Nord-est de la chine. Plus précisement de Dalian. C'est tré bel ville, il y a mer a trois côte partout du ville. il est appeler la gemme dan la est au chine. Quand j'etai petit, j'ai entendu que le françai est tré rigoureux et extremement grâse. Plus important, le Réacteur thermonuclaire expérimental International étre construit en France. Au cas où tu ne le saurais pas. Je suis un passionné de voitures et il y a beaucoup de constructeurs automobiles fameux, par exemple Renault, peugeot , citroën et autre. En résumé, J'espère pouvoir un jour me rendre en france pour des échanges d'études et J'espère pouvoir un jour que je pourrai corriger la légende de ce texte!</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[即将建模完成的转子发动机！]]></title>
         <id>https://tomzhu0225.github.io/post/ji-jiang-jian-mo-wan-cheng-de-zhuan-zi-fa-dong-ji/</id>
