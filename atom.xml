@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-12-07T02:11:47.486Z</updated>
+    <updated>2020-12-07T07:37:27.366Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[以惯性约束聚变为推进方式的深空殖民探索方案]]></title>
+        <id>https://tomzhu0225.github.io/post/yi-guan-xing-yue-shu-ju-bian-wei-tui-jin-fang-shi-de-shen-kong-zhi-min-tan-suo-fang-an/</id>
+        <link href="https://tomzhu0225.github.io/post/yi-guan-xing-yue-shu-ju-bian-wei-tui-jin-fang-shi-de-shen-kong-zhi-min-tan-suo-fang-an/">
+        </link>
+        <updated>2020-12-07T07:23:34.000Z</updated>
+        <content type="html"><![CDATA[<p>因为是结课作业也别想什么严谨了，大家看个乐呵就行。<br>
+<img src="https://tomzhu0225.github.io/post-images/1607325830431.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Bonjour à tous!]]></title>
         <id>https://tomzhu0225.github.io/post/bonjour-a-tous/</id>
