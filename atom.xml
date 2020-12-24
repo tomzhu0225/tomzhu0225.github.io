@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-12-23T10:18:10.339Z</updated>
+    <updated>2020-12-24T10:37:35.024Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -11,18 +11,18 @@
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
     <entry>
-        <title type="html"><![CDATA[随机生成的噪声图像中识别特定特征（更新日志）]]></title>
+        <title type="html"><![CDATA[随机生成的噪声图像中识别特定特征（更新日志12/24日更新）]]></title>
         <id>https://tomzhu0225.github.io/post/sui-ji-sheng-cheng-de-zao-sheng-tu-xiang-zhong-shi-bie-te-ding-te-zheng-geng-xin-ri-zhi/</id>
         <link href="https://tomzhu0225.github.io/post/sui-ji-sheng-cheng-de-zao-sheng-tu-xiang-zhong-shi-bie-te-ding-te-zheng-geng-xin-ri-zhi/">
         </link>
         <updated>2020-12-23T10:07:40.000Z</updated>
-        <summary type="html"><![CDATA[<p>未完待续</p>
+        <summary type="html"><![CDATA[<p>未完待续，如果有什么想法和意见欢迎评论。对于分类器的设计，笔者还没有完整的构思。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>未完待续</p>
+        <content type="html"><![CDATA[<p>未完待续，如果有什么想法和意见欢迎评论。对于分类器的设计，笔者还没有完整的构思。</p>
 <!-- more -->
 <p><img src="https://tomzhu0225.github.io/post-images/1608718084215.png" alt="" loading="lazy"><br>
 本文遵守：署名-非商业性使用-相同方式共享（BY-NC-SA）：使用者可以对本创作进行转载、节选、混编、二次创作，但不得运用于商业目的，且使用时须进行署名，采用本创作的内容必须同样采用本协议进行授权。<br>
-<img src="https://tomzhu0225.github.io/post-images/1608718632716.png" alt="" loading="lazy"></p>
+<img src="https://tomzhu0225.github.io/post-images/1608806197096.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
