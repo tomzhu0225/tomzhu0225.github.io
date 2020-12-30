@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2020-12-30T10:51:49.896Z</updated>
+    <updated>2020-12-30T12:35:44.407Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, FUSION!</rights>
     <entry>
-        <title type="html"><![CDATA[随机生成的噪声图像中识别特定特征（更新日志12/27日更新）]]></title>
+        <title type="html"><![CDATA[随机生成的噪声图像中识别特定特征（完整版）]]></title>
         <id>https://tomzhu0225.github.io/post/sui-ji-sheng-cheng-de-zao-sheng-tu-xiang-zhong-shi-bie-te-ding-te-zheng-geng-xin-ri-zhi/</id>
         <link href="https://tomzhu0225.github.io/post/sui-ji-sheng-cheng-de-zao-sheng-tu-xiang-zhong-shi-bie-te-ding-te-zheng-geng-xin-ri-zhi/">
         </link>
@@ -21,10 +21,9 @@
 12.27<br>
 进行了若干修改，增加在前面的话，增加逻辑斯蒂分类器设计；遗憾的是通过笔者的多次实验，这样的方法并不能很好的从随机矩阵中学习，来分辨特定的随机矩阵。就在刚才我想到了吴恩达教授的一句至理名言：人做不到的事情，就不要妄想机器学习和神经网络来做到！<br>
 12.30<br>
-大结局，编写完成求解器，在附录增加完整的代码。增加聊一聊版块。<br>
-<img src="https://tomzhu0225.github.io/post-images/1609325109369.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1609325175818.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1609325354503.png" alt="" loading="lazy"></p>
+大结局，编写完成求解器，在附录增加完整的代码。和大家聊一聊!<br>
+<img src="https://tomzhu0225.github.io/post-images/1609331715378.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1609331727578.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
