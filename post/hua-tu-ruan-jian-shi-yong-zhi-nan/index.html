@@ -4,9 +4,9 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>画图软件使用指南 | FUSION!</title>
+<title>画图软件使用指南&amp;画图软件python代码 | FUSION!</title>
 
-<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1617357349359">
+<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1617927230684">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://tomzhu0225.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1617357349359" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1617927230684" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -89,7 +89,7 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    画图软件使用指南
+                    画图软件使用指南&amp;画图软件python代码
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
@@ -98,7 +98,11 @@
                     
                 </div>
                 <div class="post-content">
-                    <p>对应功能的详细代码稍后上线</p>
+                    <p>将我的代码的一些冗余部分进行了删减。要正常运行该代码，首先需要pip本代码使用的库，或者直接下载anaconda的环境；其次主菜单启动图片的加载是载入记录在另一个py文件中的图片的base64编码的，若直接复制代码运行会出错，若要运行请将‘from memory_pic import *’删除，将get_pic函数删除并修改‘a=random.randint(1,3)<br>
+name=&quot;bizhi&quot;+str(a)+'_gif'<br>
+filename=&quot;bizhi&quot;+str(a)+'.gif'<br>
+get_pic(eval(name), filename)<br>
+photo = tk.PhotoImage(file=filename)’换成您的图片的绝对地址（只能是gif图片），</p>
 <!-- more -->
 <h1 id="软件主界面">软件主界面</h1>
 <figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1617357086090.jpg" alt="软件主界面" loading="lazy"></figure>
@@ -172,6 +176,652 @@
 键盘按键：ｂ　转换画笔颜色为蓝色。
 键盘按键：ｙ　转换画笔颜色为黄色。
 </code></pre>
+<pre><code>
+import tkinter as tk
+from tkinter import messagebox
+from tkinter.colorchooser import askcolor
+from tkinter import *
+import random
+from memory_pic import *
+from base64 import * 
+import ctypes
+import tkinter.filedialog
+from tkinter.ttk import *
+from os.path import exists
+import PIL.Image
+import os, sys
+import numpy as np
+import math
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+import webbrowser
+#创建窗口，root可替换成自己定义的窗口
+sys.setrecursionlimit(1000000) #重新设置栈空间
+root = tk.Tk()
+#调用api设置成由应用程序缩放
+ctypes.windll.shcore.SetProcessDpiAwareness(1)
+#调用api获得当前的缩放因子
+ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
+#设置缩放因子
+root.tk.call('tk', 'scaling', ScaleFactor/75)
+
+col_1=(0,'#000000')
+width_b=0
+height_b=0
+global i #对于插入文本功能的全局计数器
+i=0
+
+win_width = 1000* ScaleFactor/100
+win_height = 500 * ScaleFactor/100
+
+class Application(Frame):
+    &quot;&quot;&quot;一个经典的GUI写法&quot;&quot;&quot;
+
+    def __init__(self, master=None):
+        &quot;&quot;&quot;初始化方法&quot;&quot;&quot;
+        super().__init__(master)  # 调用父类的初始化方法
+        self.x = 0
+        self.y = 0
+        self.fgcolor = 'yellow'
+        self.lastdraw = 0
+        self.start_flag = False
+        self.master = master
+        self.pack()
+        self.createWidget()
+        self.Tbar()
+        self.start_flag_text= True
+        self.thickness=5
+        self.stlist=[]
+        self.w=None
+        self.start_flag_pic=True
+        self.start_fill=True
+        self.coordsrect=[]
+        self.chosenlist=[]
+        self.j=0
+        self.penmarklist=[]
+        self.pencount=0
+        self.pencountflag=False
+
+    def createWidget(self):
+        &quot;&quot;&quot;创建画图区域&quot;&quot;&quot;
+        self.drawpad = tk.Canvas(self, width=width_b, height=height_b, bg=col_1[1])
+        self.drawpad.grid()
+        self.drawpad.bind('&lt;ButtonRelease-1&gt;', self.stopDraw)  
+        
+        # 创建按钮
+        self.xsb = tk.Scrollbar(self, orient=&quot;horizontal&quot;, command=self.drawpad.xview)
+        self.ysb = tk.Scrollbar(self, orient=&quot;vertical&quot;, command=self.drawpad.yview)
+        self.drawpad.configure(yscrollcommand=self.ysb.set, xscrollcommand=self.xsb.set)
+        self.drawpad.configure(scrollregion=(0,0,1000,1000))
+        # draw
+        
+        self.layout()
+        # This is what enables scrolling with the mouse:
+        self.drawpad.bind(&quot;&lt;ButtonPress-1&gt;&quot;, self.scroll_start)
+        self.drawpad.bind(&quot;&lt;B1-Motion&gt;&quot;, self.scroll_move)
+        self.drawpad.bind(&quot;&lt;B3-Motion&gt;&quot;, self.movethechosen)
+        #windows scroll
+        self.drawpad.bind(&quot;&lt;MouseWheel&gt;&quot;,self.zoomer)
+    
+    def tocanvasxy(self, event):
+        return int(self.drawpad.canvasx(event.x)), int(self.drawpad.canvasy(event.y))
+        
+    def scroll_start(self, event):
+        x, y = self.tocanvasxy(event)
+        self.drawpad.scan_mark(x, y)
+
+    def scroll_move(self, event):
+        x, y = self.tocanvasxy(event)
+        self.drawpad.scan_dragto(x, y, gain=1)
+        
+
+    def zoomer(self, event):
+        x, y = self.tocanvasxy(event)
+        if (event.delta &gt; 0):
+            self.drawpad.scale(&quot;all&quot;, x, y, 1.1, 1.1)
+        elif (event.delta &lt; 0):
+            self.drawpad.scale(&quot;all&quot;, x, y, 0.9, 0.9)
+        self.drawpad.configure(scrollregion = self.drawpad.bbox(&quot;all&quot;))
+    
+    
+    def layout(self):
+        self.xsb.grid(row=1, column=0, sticky=&quot;ew&quot;)
+        self.ysb.grid(row=0, column=1, sticky=&quot;ns&quot;)
+        self.drawpad.grid(row=0, column=0, sticky=&quot;nsew&quot;)
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        
+    def scroll_start(self, event):
+        self.drawpad.scan_mark(event.x, event.y)
+
+    def scroll_move(self, event):
+        self.drawpad.scan_dragto(event.x, event.y, gain=1)
+    
+    
+    
+    def cancel_1(self):
+        self.quest_1.destroy()    
+    def cancel_2(self):
+        self.quest_2.destroy()  
+    #创建悬浮工具窗
+    def confirm_1(self):
+        
+        self.text = self.text_w.get()
+        self.start_flag_text= True            
+        
+        self.quest_1.destroy()
+        #画板外框宽
+    def confirm_2(self):
+        
+        
+                  
+        
+        self.quest_2.destroy()    
+        self.start_flag_pic=True
+    def Tbar(self):
+        def thicknessslider(v):
+            self.thickness = v
+        self.tbar=tk.Tk()
+        
+        
+        self.menubar=Frame(self.tbar)
+        #self.tbar.overrideredirect(True)
+        self.tbar.attributes(&quot;-topmost&quot;, True)
+        self.tbar.attributes(&quot;-toolwindow&quot;, 1)
+        self.menubar.pack()
+        
+        self.slider = tk.Scale(self.tbar, label='粗细', from_=0, to=100, orient=tk.VERTICAL, length=500, showvalue=1,tickinterval=2, resolution=1, command=thicknessslider)
+        self.slider.pack(side='right')
+
+        self.btn_start = Button(self.tbar, name='start', text='开始')
+        self.btn_start.pack(side='top', pady=10,ipadx=20)
+        self.btn_pen = Button(self.tbar, name='pen', text='画笔')
+        self.btn_pen.pack(side='top', pady=10,ipadx=20)
+        self.btn_rect = Button(self.tbar, name='rect', text='矩形')
+        self.btn_rect.pack(side='top', pady=10,ipadx=20)
+        self.btn_oval = Button(self.tbar, name='oval', text='椭圆')
+        self.btn_oval.pack(side='top', pady=10,ipadx=20)
+        self.btn_circle = Button(self.tbar, name='circle', text='圆')
+        self.btn_circle.pack(side='top', pady=10,ipadx=20)
+        self.btn_clear = Button(self.tbar, name='clear', text='清屏')
+        self.btn_clear.pack(side='top', pady=10,ipadx=20)
+        self.btn_erasor = Button(self.tbar, name='erasor', text='橡皮擦')
+        self.btn_erasor.pack(side='top', pady=10,ipadx=20)
+        self.btn_line = Button(self.tbar, name='line', text='直线')
+        self.btn_line.pack(side='top', pady=10,ipadx=20)
+        self.btn_line_arrow = Button(self.tbar, name='line_arrow', text='箭头直线')
+        self.btn_line_arrow.pack(side='top', pady=10,ipadx=20)
+        self.btn_color = Button(self.tbar, name='color', text='颜色')
+        self.btn_color.pack(side='top', pady=10,ipadx=20)
+        self.btn_text=Button(self.tbar,name='text',text='新建文本')
+        self.btn_text.pack(side='top',pady=10,ipadx=20)
+        self.btn_pic=Button(self.tbar,name='pic',text='插入图片')
+        self.btn_pic.pack(side='top',pady=10,ipadx=20)
+        self.btn_cho=Button(self.tbar,name='choose',text='选择')
+        self.btn_cho.pack(side='top',pady=10,ipadx=20)
+        self.btn_fill=Button(self.tbar,name='fill',text='填充')
+        self.btn_fill.pack(side='top',pady=10,ipadx=20)
+        # 绑定事件
+        self.btn_line.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_line_arrow.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_rect.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_oval.bind('&lt;Button-1&gt;', self.eventManager)
+        self.btn_circle.bind('&lt;Button-1&gt;', self.eventManager)
+        self.btn_pen.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_erasor.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_clear.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_color.bind('&lt;Button-1&gt;', self.eventManager)  # 点击按钮事件
+        self.btn_cho.bind('&lt;Button-1&gt;', self.eventManager)
+        self.btn_fill.bind('&lt;Button-1&gt;', self.eventManager)
+        self.master.bind('&lt;KeyPress-r&gt;', self.hotKey)  # 绑定快捷键
+        self.master.bind('&lt;KeyPress-g&gt;', self.hotKey)  # 绑定快捷键
+        self.master.bind('&lt;KeyPress-b&gt;', self.hotKey)  # 绑定快捷键
+        self.master.bind('&lt;KeyPress-y&gt;', self.hotKey)  # 绑定快捷键
+        self.master.bind('&lt;Control-z&gt;', self.callback)
+        self.btn_text.bind('&lt;Button-1&gt;',self.eventManager)
+        self.btn_pic.bind('&lt;Button-1&gt;',self.eventManager)
+        # 左键释放按钮
+    
+    
+        
+    
+    def eventManager(self, event):
+        name = event.widget.winfo_name()
+        print(name)
+        self.start_flag = True
+        if name == 'line':
+            # 左键拖动
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.myline)
+            self.pencountflag=False
+        elif name == 'line_arrow':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.myline_arrow)
+            self.pencountflag=False
+        elif name == 'rect':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.myrect)
+            self.pencountflag=False
+        elif name == 'oval':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.myoval)
+            self.pencountflag=False
+        elif name == 'circle':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.mycircle)
+            self.pencountflag=False
+        elif name == 'pen':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.mypen)
+            self.pencountflag=True
+        elif name == 'erasor':
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.myerasor)
+            self.pencountflag=False
+        elif name == 'clear':
+            self.drawpad.delete('all')
+            self.penmarklist=[]
+            self.pencountflag=False
+            self.pencount=0
+        elif name == 'text':
+            self.quest_1 = tk.Toplevel()
+            self.quest_1.title('请输入文本')
+            self.quest_1.geometry('300x150+800+500')
+            self.text_w = tk.StringVar() 
+            self.text_w.set('插入文本') 
+            self.pencountflag=False
+            #tk.Label(quest, text='画布长度 ').place(x=20, y=20) 
+    
+            self.entry_text = tk.Entry(self.quest_1, textvariable=self.text_w) 
+                
+            self.entry_text.place(x=10, y=20)
+            self.confirm = tk.Button(self.quest_1, text='确认', command=self.confirm_1)
+            self.confirm.place(x=100,y=70)
+            self.cancel = tk.Button(self.quest_1, text='取消', command=self.cancel_1)
+            self.cancel.place(x=200,y=70)
+            self.drawpad.bind('&lt;Button-1&gt;', self.createtext) 
+        elif name == 'pic':
+            def rat(b):
+                
+                self.ratio=b
+                
+            self.fn=tkinter.filedialog.askopenfilename(title='选择一个图片', filetypes=[('bmp文件','.bmp'),('gif文件','.gif'),('jpg文件','.jpg'),('png文件','.png')])
+            self.quest_2 = tk.Toplevel()
+            self.quest_2.title(&quot;插入图片大小&quot;)
+            self.quest_2.geometry('400x200+800+500')
+            self.scalpic=tk.Scale(self.quest_2, label='图片比例', from_=0, to=1, orient=tk.HORIZONTAL, length=320, showvalue=1,tickinterval=2, resolution=0.01, command=rat)
+            self.scalpic.pack(side=&quot;top&quot;) 
+            self.file_path = self.fn
+            confirm = tk.Button(self.quest_2, text='插入图片', command=self.confirm_2)
+            confirm.place(x=50,y=130)
+            cancel = tk.Button(self.quest_2, text='取消', command=self.cancel_2)
+            cancel.place(x=200,y=130)
+            self.drawpad.bind('&lt;Button-1&gt;', self.putpic)  
+            self.pencountflag=False
+        elif name == 'color':
+            c = askcolor(color=self.fgcolor, title='请选择颜色')
+            print(c)  # c的值 ((128.5, 255.99609375, 0.0), '#80ff00')
+            self.fgcolor = c[1]
+            self.pencountflag=False
+        elif name==&quot;choose&quot;:
+            self.drawpad.bind('&lt;B1-Motion&gt;', self.choose_and_move)
+            self.pencountflag=False
+        elif  name=='fill':
+            self.drawpad.bind('&lt;Button-1&gt;', self.floodfill)
+            self.start_fill=True
+            self.pencountflag=False
+    def startDraw(self, event):
+        self.drawpad.delete(self.lastdraw)
+        self.coordsrect=[]
+        self.x11=0
+        self.y11=0
+
+        self.j=0
+        
+        if self.start_flag:
+            self.start_flag = False
+            self.x = self.drawpad.canvasx(event.x)
+            self.y = self.drawpad.canvasy(event.y)
+
+    def stopDraw(self, event):
+        self.start_flag = True
+        self.lastdraw = 0
+        if self.pencountflag:
+            self.pencount=self.pencount+1
+    def myline(self, event):
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_line(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y), fill=self.fgcolor,width=self.thickness)
+        self.stack()
+    def myline_arrow(self, event):
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_line(self.x, self.y,  self.drawpad.canvasx(event.x),self.drawpad.canvasy(event.y), arrow=LAST, fill=self.fgcolor,width=self.thickness)
+        self.stack()
+    def myrect(self, event):
+        #print('f')
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_rectangle(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y), outline=self.fgcolor,width=self.thickness)
+        self.stack()
+    def myoval(self, event):
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_oval(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y), outline=self.fgcolor,width=self.thickness)
+        self.stack()
+    def mycircle(self, event):
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_oval(self.x, self.y, self.drawpad.canvasx(event.x), self.y+(self.drawpad.canvasx(event.x)-self.x), outline=self.fgcolor,width=self.thickness)
+        self.stack()
+    def mypen(self, event):
+        self.startDraw(event)
+        #print('self.x=', self.x, ',self.y=', self.y)
+        
+        self.w=self.drawpad.create_line(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y), fill=self.fgcolor,capstyle=&quot;round&quot;,width=self.thickness)
+        self.penonly=self.w
+        self.x = self.drawpad.canvasx(event.x)
+        self.y = self.drawpad.canvasy(event.y)
+        self.stack()
+        self.stack_pen()
+    def myerasor(self, event):
+        self.startDraw(event)
+        self.w=self.drawpad.create_line(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y), fill=col_1[1],width=self.thickness,capstyle=&quot;round&quot;)
+        self.x = self.drawpad.canvasx(event.x)
+        self.y = self.drawpad.canvasy(event.y)
+        self.stack()
+    def hotKey(self, event):
+        c = event.char
+        if c == 'r':
+            self.fgcolor = 'red'
+        elif c == 'g':
+            self.fgcolor = 'green'
+        elif c == 'b':
+            self.fgcolor = 'blue'
+        elif c == 'y':
+            self.fgcolor = 'yellow'
+
+    def createtext(self, event):
+        
+        if self.start_flag_text:
+            
+            self.startDraw(event)
+            global i
+            i=i+1
+            print(i)
+            
+            if i%2==1:
+                self.x1=self.x
+                
+                self.y1=self.y
+               
+            elif i%2==0:
+                a=len(self.text)**(0.8)
+                self.x2=self.x
+                self.y2=self.y
+                self.deltax=(self.x2-self.x1)**(0.9)
+                self.deltay=self.y1-self.y2
+                self.meanx=(self.x1+self.x2)/2
+                self.meany=(self.y1+self.y2)/2
+                self.size=round(self.deltax/a)
+                self.w=self.drawpad.create_text(self.meanx,self.meany,text=self.text,fill=self.fgcolor,font=('Times', self.size, 'bold italic'))
+                self.stack()
+                self.start_flag_text=False 
+    def putpic(self,event):
+        if self.start_flag_pic:
+            self.photo_o = PIL.Image.open(self.file_path)
+            
+            w=round(int(self.photo_o.width)*float(self.ratio))
+            h=round(int(self.photo_o.height)*float(self.ratio))
+            self.photo_o = self.photo_o.resize((w,h)) # 将图片大小转换为（width，height）200x300大小
+            file_path_list=list(self.file_path)
+            del file_path_list[-4:-1]
+            self.fp=&quot;&quot;.join(file_path_list)+'.gif'
+            print(self.fp)
+            self.photo_o.save(self.fp)
+            
+            self.startDraw(event)
+            self.x= self.drawpad.canvasx(event.x)
+            self.y= self.drawpad.canvasy(event.y)
+            print(self.x)
+            global photo_1
+            photo_1= tk.PhotoImage(file=self.fp)
+            self.w=self.drawpad.create_image(self.x, self.y,image=photo_1)                   
+            self.stack()
+            self.start_flag_pic=False
+    
+       
+    def choose_and_move(self,event):
+        
+        self.startDraw(event)
+        self.lastdraw = self.drawpad.create_rectangle(self.x, self.y, self.drawpad.canvasx(event.x), self.drawpad.canvasy(event.y),dash=(3,5),outline='grey')
+        self.coordsrect.append(self.drawpad.coords(self.lastdraw))
+        print(self.coordsrect)
+        coords_cho=self.coordsrect[-1]
+        x1=coords_cho[0]
+        y1=coords_cho[1]
+        x2=coords_cho[2]
+        y2=coords_cho[3]
+            
+        self.item_cho=self.drawpad.find_enclosed(x1, y1, x2, y2)
+        self.stack_1()
+    def movethechosen(self,event):
+        for i in range(len(self.chosenlist)):
+            self.drawpad.delete(self.chosenlist.pop(-1)) 
+        if self.coordsrect:
+            self.j=self.j+1
+            if self.j%2==1:
+                self.x11=self.drawpad.canvasx(event.x)
+                self.y11=self.drawpad.canvasy(event.y) 
+            else:
+                a=len(self.item_cho)
+                
+                self.delx=(ScaleFactor/75)*(self.drawpad.canvasx(event.x)-self.x11)
+                self.dely=(ScaleFactor/75)*(self.drawpad.canvasy(event.y)-self.y11)
+                for i in range(a):
+                
+                    self.drawpad.move(self.item_cho[i-1],self.delx,self.dely)
+                
+        else:
+            None
+    def floodfill(self,event):
+        
+        self.startDraw(event)
+        if self.start_fill:
+            coord_pen=[]
+            a=len(self.penmarklist)
+            for k in range(a):
+                coord_pen.append(self.drawpad.coords(self.penmarklist[k-1]))
+            b=len(coord_pen)
+            c=np.array(coord_pen)
+            x=(c[:,0]+c[:,2])/2
+            y=(c[:,1]+c[:,3])/2
+            for i in range(b):
+                x[i-1]=self.drawpad.canvasx(x[i-1])
+                y[i-1]=self.drawpad.canvasy(y[i-1])
+            self.xfill=self.drawpad.canvasx(event.x)
+            self.yfill=self.drawpad.canvasy(event.y)
+                 
+            delx=x-self.xfill
+            dely=y-self.yfill
+            eps=10**(-8)
+            x=np.array(x)
+            y=np.array(y)
+            
+            
+            xy=np.concatenate((x,y),axis=0)
+            
+            xy=xy.reshape(2,-1).T
+            print(xy)
+            x_avil=[]
+            y_avil=[]
+            center=[self.xfill,self.yfill]
+            r_list=[]
+            theta_list=[]
+            for i in range(len(x)):
+                x_1=xy[i-1,:]
+                r=math.sqrt(math.pow(x_1[0]-center[0],2)+math.pow(x_1[1]-center[1],2))
+                theta=math.atan2(x_1[1]-center[1],x_1[0]-center[0])/math.pi*180#转换为角度
+                if theta&lt;0:
+                    theta=360+theta
+                r_list.append(r)
+                theta_list.append(theta)
+            print(theta_list)
+            theta_r=np.concatenate((theta_list,r_list),axis=0)
+            theta_r=theta_r.reshape(2,-1).T
+            print(theta_r)
+       
+            num_clusters = self.pencount
+            estimator = KMeans(n_clusters=num_clusters)
+            estimator.fit(xy)#聚类
+            label_pred = estimator.labels_ #获取聚类标签
+            centroids = estimator.cluster_centers_ #获取聚类中心
+            inertia = estimator.inertia_ # 获
+            print(centroids)
+            
+            print((centroids-np.array([self.xfill, self.yfill]))**2)
+            
+            a=np.argsort(np.sum((centroids-np.array([self.xfill ,self.yfill]).T)**2))
+            
+            num=a[0]
+            
+            for i in range(len(x)-1):
+                if label_pred[i-1]==num:
+                    x_avil.append(x[i-1])
+                    y_avil.append(y[i-1])                    
+            print(num)
+            for i in range(len(x_avil)-1):
+                for k in range(len(x_avil)-1):
+                    self.w=self.drawpad.create_line(x_avil[i-1], y_avil[i-1], x_avil[k-1], y_avil[k-1] , fill=self.fgcolor,width=20)
+                    self.stack()
+            self.start_fill= False    
+            
+    def stack(self):     #对于撤回功能的栈
+        if self.w == None: 
+            self.stlist.append(self.lastdraw)
+        else:
+            self.stlist.append(self.lastdraw)
+            self.stlist.append(self.w)
+    def stack_1(self):    #对于撤回功能的栈
+        if self.w == None: 
+            self.chosenlist.append(self.lastdraw)
+        else:
+            self.chosenlist.append(self.lastdraw)
+            self.chosenlist.append(self.w)
+    def stack_pen(self):
+        self.penmarklist.append(self.penonly)
+        
+    def callback(self,event):
+        
+        #print(self.stlist)
+        for i in range(5):
+            self.drawpad.delete(self.stlist.pop(-i))
+        
+
+def get_pic(pic_code, pic_name):
+    image = open(pic_name, 'wb')
+    image.write(b64decode(pic_code))
+    image.close()
+
+
+
+
+def newdraw():
+   
+    def askcolor_1():
+        
+        global col_1
+        quest.attributes(&quot;-topmost&quot;, False)
+        col_1=askcolor(color='black', title='请选择颜色')   
+        quest.attributes(&quot;-topmost&quot;, True)
+       
+#新建画布    
+    
+    def confirm_1():
+        global width_b
+        global height_b
+        width_b = int(drawboard_w.get())
+        height_b = int(drawboard_h.get())    
+              
+        quest.destroy()
+        #画板外框宽
+        wid=width_b
+        hei=height_b+50
+        root.state('icon')
+        
+        draw= Toplevel() 
+        draw.geometry(&quot;%dx%d&quot; % (wid,hei))
+        app = Application(master=draw)
+        draw.mainloop()       
+        
+    def cancel_1():
+        quest.destroy()
+    
+    quest = tk.Toplevel(root)
+    quest.title('画布设置')
+    quest.geometry('500x300')
+    drawboard_w = tk.StringVar() 
+    drawboard_w.set('1920') 
+    tk.Label(quest, text='画布长度 ').place(x=20, y=20) 
+    
+    entry_w = tk.Entry(quest, textvariable=drawboard_w) 
+    
+    entry_w.place(x=130, y=20)
+    
+    drawboard_h = tk.StringVar() 
+    drawboard_h.set('1080') 
+    tk.Label(quest, text='画布高度 ').place(x=20, y=70)  
+    entry_h= tk.Entry(quest, textvariable=drawboard_h)  
+    entry_h.place(x=130, y=70)
+    
+    color_c = tk.Button(quest, text='选择画布颜色', command=askcolor_1)
+    color_c.place(x=20, y=120)
+    confirm = tk.Button(quest, text='新建画布', command=confirm_1)
+    confirm.place(x=200,y=220)
+    cancel = tk.Button(quest, text='取消', command=cancel_1)
+    cancel.place(x=400,y=220)
+    
+
+#draw= Tk()
+    #draw.geometry(&quot;%dx%d&quot; % (win_width, win_height))
+    #app = Application(master=draw)
+    #draw.mainloop()
+def browser():
+    
+    webbrowser.open('https://drawingsword.com/post/hua-tu-ruan-jian-shi-yong-zhi-nan/')
+
+
+#创建主菜单
+root.title(&quot;画图（design by zhu sir）&quot;)
+
+root.geometry(&quot;%dx%d&quot; % (win_width, win_height))
+
+
+menubar = tk.Menu(root)
+#新画板菜单栏
+filemenu = tk.Menu(menubar,tearoff=0)
+menubar.add_cascade(label='画图', menu=filemenu)
+filemenu.add_command(label='新画板', command = newdraw)
+filemenu.add_command(label='保存', command= None)
+#设置菜单栏
+settingmenu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label='设置', menu=settingmenu)
+settingmenu.add_command(label='快捷键', command = None)
+
+#帮助菜单栏
+helpmenu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label='帮助', menu=helpmenu)
+helpmenu.add_command(label=&quot;软件使用指南&quot;, command = browser)
+a=random.randint(1,3)
+name=&quot;bizhi&quot;+str(a)+'_gif'
+filename=&quot;bizhi&quot;+str(a)+'.gif'
+get_pic(eval(name), filename)
+#增加背景图片
+
+photo = tk.PhotoImage(file=filename)
+theLabel = tk.Label(root,text =&quot;新建画布以开始&quot;,justify=tk.LEFT,image=photo,compound = tk.CENTER,font=(&quot;微软雅黑light&quot;,50),fg = &quot;white&quot;)
+
+theLabel.pack()
+
+root.config(menu=menubar)
+
+root.mainloop()
+
+
+
+
+
+
+</code></pre>
 
                 </div>
             </article>
@@ -187,7 +837,7 @@
         
 
         
-            <span id="/post/hua-tu-ruan-jian-shi-yong-zhi-nan/" class="leancloud_visitors" data-flag-title="画图软件使用指南">
+            <span id="/post/hua-tu-ruan-jian-shi-yong-zhi-nan/" class="leancloud_visitors" data-flag-title="画图软件使用指南&amp;画图软件python代码">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
