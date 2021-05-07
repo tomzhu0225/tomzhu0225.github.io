@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2021-04-09T00:13:59.070Z</updated>
+    <updated>2021-05-07T13:42:09.530Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[使用示波器显示图片（视频）]]></title>
+        <id>https://tomzhu0225.github.io/post/shi-yong-shi-bo-qi-xian-shi-tu-pian-shi-pin/</id>
+        <link href="https://tomzhu0225.github.io/post/shi-yong-shi-bo-qi-xian-shi-tu-pian-shi-pin/">
+        </link>
+        <updated>2021-05-07T10:46:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>本论文本为物理实验改进的作业。<s>有望发表</s>。但是把目前图像处理部分不太行，原来的设计太简单，将要换成基于opencv的边缘检测，目前示波器上观察到的图像是一团浆糊，正在努力查找原因中。反正论文是要大改。现在啊<s>叔叔</s>最想要的就是一台大屏幕加上触屏有各种探头的示波器了，自制探头还是不太行。论文源码最后会放到YouTube中。注意本文使用MIT licence。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本论文本为物理实验改进的作业。<s>有望发表</s>。但是把目前图像处理部分不太行，原来的设计太简单，将要换成基于opencv的边缘检测，目前示波器上观察到的图像是一团浆糊，正在努力查找原因中。反正论文是要大改。现在啊<s>叔叔</s>最想要的就是一台大屏幕加上触屏有各种探头的示波器了，自制探头还是不太行。论文源码最后会放到YouTube中。注意本文使用MIT licence。</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1620394692900.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394699984.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394709488.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394724704.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394731891.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394738569.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394745963.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1620394754152.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[画图软件使用指南&画图软件python代码]]></title>
         <id>https://tomzhu0225.github.io/post/hua-tu-ruan-jian-shi-yong-zhi-nan/</id>
@@ -917,15 +937,6 @@ root.mainloop()
         </link>
         <updated>2020-12-07T02:11:12.000Z</updated>
         <content type="html"><![CDATA[<p>Bonjour à tous. Je m'appelle Zhu bowen et Je suis chinoise. Je viens du Liaoning, une province au Nord-est de la chine. Plus précisement de Dalian. C'est tré bel ville, il y a mer a trois côte partout du ville. il est appeler la gemme dan la est au chine. Quand j'etai petit, j'ai entendu que le françai est tré rigoureux et extremement grâse. Plus important, le Réacteur thermonuclaire expérimental International étre construit en France. Au cas où tu ne le saurais pas. Je suis un passionné de voitures et il y a beaucoup de constructeurs automobiles fameux, par exemple Renault, peugeot , citroën et autre. En résumé, J'espère pouvoir un jour me rendre en france pour des échanges d'études et J'espère pouvoir un jour que je pourrai corriger la légende de ce texte!</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法]]></title>
-        <id>https://tomzhu0225.github.io/post/mAtH001/</id>
-        <link href="https://tomzhu0225.github.io/post/mAtH001/">
-        </link>
-        <updated>2020-12-01T09:51:49.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1607168676561.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
