@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2021-05-14T12:24:44.024Z</updated>
+    <updated>2021-06-08T07:55:23.023Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[椭圆形船过水道问题]]></title>
+        <id>https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/</id>
+        <link href="https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/">
+        </link>
+        <updated>2021-06-08T07:50:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1623138741269.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138635560.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138644296.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138652261.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138660950.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138673941.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138681855.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138689931.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138702363.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138716853.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1623138725355.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[使用示波器显示图片（视频）]]></title>
         <id>https://tomzhu0225.github.io/post/shi-yong-shi-bo-qi-xian-shi-tu-pian-shi-pin/</id>
@@ -933,15 +956,6 @@ root.mainloop()
         <updated>2020-12-07T07:23:34.000Z</updated>
         <content type="html"><![CDATA[<p>因为是结课作业也别想什么严谨了，大家看个乐呵就行。<br>
 <img src="https://tomzhu0225.github.io/post-images/1607325830431.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Bonjour à tous!]]></title>
-        <id>https://tomzhu0225.github.io/post/bonjour-a-tous/</id>
-        <link href="https://tomzhu0225.github.io/post/bonjour-a-tous/">
-        </link>
-        <updated>2020-12-07T02:11:12.000Z</updated>
-        <content type="html"><![CDATA[<p>Bonjour à tous. Je m'appelle Zhu bowen et Je suis chinoise. Je viens du Liaoning, une province au Nord-est de la chine. Plus précisement de Dalian. C'est tré bel ville, il y a mer a trois côte partout du ville. il est appeler la gemme dan la est au chine. Quand j'etai petit, j'ai entendu que le françai est tré rigoureux et extremement grâse. Plus important, le Réacteur thermonuclaire expérimental International étre construit en France. Au cas où tu ne le saurais pas. Je suis un passionné de voitures et il y a beaucoup de constructeurs automobiles fameux, par exemple Renault, peugeot , citroën et autre. En résumé, J'espère pouvoir un jour me rendre en france pour des échanges d'études et J'espère pouvoir un jour que je pourrai corriger la légende de ce texte!</p>
 ]]></content>
     </entry>
 </feed>
