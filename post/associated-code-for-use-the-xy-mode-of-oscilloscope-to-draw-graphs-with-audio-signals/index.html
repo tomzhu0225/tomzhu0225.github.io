@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>本站知识共享协议（CC协议） | FUSION!</title>
+<title> associated code for Use the XY mode of oscilloscope to draw graphs with audio signals | FUSION!</title>
 
 <link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1623721725169">
 
@@ -89,31 +89,166 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    本站知识共享协议（CC协议）
+                     associated code for Use the XY mode of oscilloscope to draw graphs with audio signals
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-12-23 ·
+                        · 2021-06-13 ·
                     </time>
                     
                 </div>
                 <div class="post-content">
-                    <figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1608718018397.png" alt="" loading="lazy"></figure>
-<p>署名-非商业性使用-相同方式共享 4.0 国际版 (CC BY-NC-SA 4.0)</p>
-<p>*这是一份非官方、未本地化的翻译文本，仅供参考。</p>
-<p>这是一份易于普通人阅读与理解的许可证文本（并非法律性质的授权条款的替代内容）。</p>
-<p>你可以自由地：</p>
-<p>分享 – 在任何媒介或格式下再分发、传播本创作。</p>
-<p>修改 – 重混、转换、依据本创作进行再创作。</p>
-<p>只要遵守下述条款规定，授权人将不能撤回你使用本创作的自由。</p>
-<p>唯须遵循以下条款：</p>
-<p>署名 – 你必须以给予姓名标注，并提供本许可证的链接。同时你需要声明公开的创作是否经过修改。你可以采用恰当的形式将相关信息表述出来，但不得以任何形式暗示授权人已正式认可了你以及你的使用行为。</p>
-<p>非商业性 – 你不得将本创作运用于商业目的。</p>
-<p>相同方式共享 – 如果你对本创作进行了重混、转换、依据本创作进行再创作，你必须依据本创作采用的许可证来分发你的创作。</p>
-<p>不得增加额外限制 – 你不能增设任何法律限制或是技术限制，来限制他人进行本许可证已经允许的行为。</p>
-<p>声明：</p>
-<p>当你使用本创作中属于公众领域的元素，或当法律有额外或限制条款允许你的使用行为时，则你不需要遵守本授权协议。</p>
-<p>不提供保证。本授权协议并不能完全提供你预期需要的所有许可，例如：公共形象权，隐私权，著作人身权等其他权利，这些权利的法律限制可能会限制你使用本创作。</p>
+                    <pre><code>MIT License
+
+Copyright (c) 1998-2021 RIGOL co.,ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+Vector WaveForm Converter 
+Based On Python,OpenCV,Numpy
+Powered By Dave Xue 
+
+'''
+
+import cv2 as cv
+import numpy as np
+from numpy.core.defchararray import count
+from numpy.lib.function_base import append
+
+#Target Video Path and Name
+videoPaths = r&quot;C:\Users\tomkeen\Desktop\physicswriting\bapiece.mp4&quot;
+#Images Output Path
+imgPaths = &quot;mc2.img&quot;
+#Quantity Of Points Per Frame
+ptsPerFrame = 10
+#Prefix Of File Name Of WaveForm Output
+fileName = &quot;nonWFM&quot;
+
+imgShape = []
+xData = []
+yData = []
+FrameCountEnd = 0
+FrameCountStart = 1
+
+#Converd Video To Images
+def v2p(videoPath, imgPath):
+   global FrameCountAll
+   videoObj = cv.VideoCapture(videoPath)
+   frameCount = 1
+   saveCountDown = 1
+   saveCount = 0
+
+   if videoObj.isOpened():
+       rval, frame = videoObj.read()
+       FrameCountAll = videoObj.get(cv.CAP_PROP_FRAME_COUNT)
+   else:
+       print(&quot;Video Err&quot;)
+       rval = False
+   
+   while rval:
+       rval, frame = videoObj.read()
+       if (not rval):
+           break
+       if (frameCount % saveCountDown == 0):
+           saveCount += 1
+           print(&quot;NOW Frame is &quot; + str(saveCount) + &quot; Of All Frame &quot; +
+            str(FrameCountAll) + &quot; &quot; + str(100*(saveCount/FrameCountAll)) + &quot; % &quot;,end='\r' )
+           cv.imwrite(imgPath+str(saveCount)+&quot;.jpg&quot;, frame)
+       frameCount += 1
+       cv.waitKey(1)
+   videoObj.release()
+
+
+#Use OpenCV To Find Contours In Each Frame
+def contours(image):
+   dst = cv.GaussianBlur(image, (3, 3), 0) #Use Gaussian Blur To Against Noises
+   gray = cv.cvtColor(dst, cv.COLOR_RGB2GRAY)
+   ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU) #Binaryzation The Image By OSTU
+   c_canny_img  = cv.Canny(gray,10,150)#Use Canny Algorithm To Find Edges
+   cv.imshow(&quot;canny image&quot;, c_canny_img)
+   contours, heriachy = cv.findContours(c_canny_img, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)#Get Contours
+   print(&quot;Find &quot;+str(np.size(contours))+&quot; Contours&quot;,end = '')
+   cv.drawContours(image, contours, -1, (0, 0, 255), 2)
+   cv.imshow(&quot;COU&quot;,image)
+   cv.waitKey(2)
+   return contours
+
+
+#Write Points Into Buffer
+def write2data(ptsList):
+   global xData,yData
+   ptsCount = 0
+   ptsloop = 0
+   xTmp = []
+   yTmp = []
+   for pts in ptsList:
+       pts = np.transpose([pts]).tolist()
+       for ptC in range(0,np.size(pts[0][0])-1): 
+           xTmp.append(int(((pts[0][0][ptC][0]/(imgShape[1]/2))-1.0)*65535))
+           yTmp.append(int(((pts[1][0][ptC][0]/(imgShape[0]/2))-1.0)*65535))
+           ptsCount += 1
+   if (ptsCount &lt; ptsPerFrame and ptsCount &gt; 0):
+       ptsloop = int(ptsPerFrame/ptsCount)
+       ptsCount = (ptsPerFrame-(ptsloop*ptsCount))
+       for i in range(0,ptsloop+1):
+           xData += xTmp
+           yData += yTmp
+   elif(ptsCount &gt;= ptsPerFrame and ptsCount &gt; 0):
+       xData += xTmp
+       yData += yTmp
+   else:
+       xData.append(0)
+       yData.append(0)
+   print(&quot;pts: &quot;+str(ptsCount*ptsloop))
+
+
+#Config File Names
+def contoursAll(imgsPath,filaName):
+   global imgShape,FrameCountAll,ptL
+   for i in range(int(FrameCountStart),int(FrameCountEnd)):
+       ipath = imgsPath+str(i)+&quot;.jpg&quot;
+       src = cv.imread(ipath)
+       imgShape = src.shape
+       ptL = contours(src)
+       write2data(ptL)
+   xFile = open(filaName+'zheshizhendx.txt', 'a', newline='')
+   yFile = open(filaName+'zheshizhendy.txt', 'a', newline='')
+   
+   for i in range(np.size(xData)-1):
+       xFile.writelines(str(xData[i])+'\n')
+       yFile.writelines(str(yData[i])+'\n')
+   
+   xFile.close()
+   yFile.close()
+   
+
+
+if __name__ == &quot;__main__&quot;:
+   print(&quot;Input Frame Num To Start From Images Or 'c' From Video&quot;)
+   frame = input()
+   if (frame != 'c'):
+       FrameCountStart = int(frame)
+       print(&quot;Input The End  Of Frames&quot;)
+       FrameTotal = int(input())
+   else:       
+       v2p(videoPaths, imgPaths)
+   FrameCountEnd = FrameTotal
+   contoursAll(imgPaths, fileName)
+</code></pre>
 
                 </div>
             </article>
@@ -122,14 +257,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://tomzhu0225.github.io/post/ji-jiang-jian-mo-wan-cheng-de-zhuan-zi-fa-dong-ji/" class="post-title gt-a-link">
-                    转子发动机建模日志！（14/12日更新）
+                <a href="https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/" class="post-title gt-a-link">
+                    椭圆形船过水道问题
                 </a>
             </div>
         
 
         
-            <span id="/post/ben-zhan-zhi-shi-gong-xiang-xie-yi-cc-xie-yi/" class="leancloud_visitors" data-flag-title="本站知识共享协议（CC协议）">
+            <span id="/post/associated-code-for-use-the-xy-mode-of-oscilloscope-to-draw-graphs-with-audio-signals/" class="leancloud_visitors" data-flag-title=" associated code for Use the XY mode of oscilloscope to draw graphs with audio signals">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
