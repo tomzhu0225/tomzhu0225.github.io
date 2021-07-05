@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2021-07-05T06:08:28.458Z</updated>
+    <updated>2021-07-05T06:23:10.433Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Using the XY mode of oscilloscope to draw graphs]]></title>
+        <id>https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/</id>
+        <link href="https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/">
+        </link>
+        <updated>2021-07-05T06:17:26.000Z</updated>
+        <summary type="html"><![CDATA[<p>尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1625465889329.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465908166.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465918937.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465928245.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465935849.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465943135.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465949942.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465958540.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465965363.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465972179.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1625465978388.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ associated code for Use the XY mode of oscilloscope to draw graphs with audio signals]]></title>
         <id>https://tomzhu0225.github.io/post/associated-code-for-use-the-xy-mode-of-oscilloscope-to-draw-graphs-with-audio-signals/</id>
@@ -1081,33 +1104,6 @@ root.mainloop()
 <img src="https://tomzhu0225.github.io/post-images/1607436979090.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1607436989608.png" alt="" loading="lazy"></p>
 <p>怎么说转子发动机一直是我的梦想吧，毕竟弱者打败强者的故事不论何时都不过时，马自达在1991年的勒芒比赛中Mazda 787B 凭借着转子发动机赢得了勒芒比赛的总冠军，成为历史上唯一夺得过勒芒24小时耐力赛总冠军的亚洲厂商，以至于第二年国际汽联不惜动用手段禁止转子发动机参赛！这种凭借着个人能力而让规则不惜做出改变也要扼杀的，是多么的年少轻狂。多年以来纵然转子发动机有诸多缺陷，马自达从未停止改良她的脚步，在其他技术领域马自达也总是最另类的那一批：创驰蓝天，均质压燃......电动机当道，纵然知道最终要消亡，汽油机总要发出最后的一声低吼，压榨出最后一丝潜力，让世人知道汽油机永不为奴！卖车挣钱，花钱搞转子，没钱再卖车，马自达的工程师和高层一定有发自内心的热爱！时间不多，我先写这么多，思绪甚是杂乱，来日再梳理。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[网站使用指南（评论系统开启！）]]></title>
-        <id>https://tomzhu0225.github.io/post/ping-lun-xi-tong-kai-qi/</id>
-        <link href="https://tomzhu0225.github.io/post/ping-lun-xi-tong-kai-qi/">
-        </link>
-        <updated>2020-12-09T08:18:58.000Z</updated>
-        <summary type="html"><![CDATA[<p>大家评论要遵守社会主义价值规范哦</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>大家评论要遵守社会主义价值规范哦</p>
-<!-- more -->
-<p>一. 界面功能</p>
-<p>在网页版的页面的右上角，或者手机版的下拉菜单中会找到3枚菜单：首页、归档、标签。<br>
-首页按钮会带你来到主界面，其中展示的文章是按照时间发布顺序排序的。<br>
-归档按钮会来到一个页面展示了文章的初始发布时间线。<br>
-标签按钮会出现几个标签，文章大多数按照标签所示分类，可以按需引索。<br>
-同时网站本身也带有文章的关键字的搜索功能。</p>
-<h2 id="关于按钮">关于按钮</h2>
-<p>第一次入站请一定要看关于！</p>
-<p>二. 评论功能</p>
-<p>每篇文章都有评论功能，请善用这个功能。互联网非法外之地。<br>
-在评论时请填写自己的昵称（我的老熟人就用一个我能认出来的昵称吧），邮箱。</p>
-<p>三. 文章加载</p>
-<p>请尽量不要用手机中的微信或者qq自带浏览器打开这个网页，而应使用独立浏览器打开。要得到最佳的使用体验请用电脑浏览。因为网站使用的是境外服务器一些带有图片的文章可能加载较慢，请坐和放宽耐心等待。</p>
-<p>四. 写作</p>
-<p>文章都使用markdown语法写作，但是我目前并没有学习markdown语法，所以文章版面朴实无华，这一点会在日后改变。数学类的文章我用latex写作，但是不知道是否可以将tex文件直接上传进行编译，所以暂时的解决办法是转换成图片上传（加载较慢）</p>
 ]]></content>
     </entry>
 </feed>
