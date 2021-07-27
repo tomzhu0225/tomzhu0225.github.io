@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2021-07-05T06:25:16.550Z</updated>
+    <updated>2021-07-27T00:34:19.182Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[ESPBOY-Arduboy on ESP-12E]]></title>
+        <id>https://tomzhu0225.github.io/post/espboy-arduboy-on-esp-12e/</id>
+        <link href="https://tomzhu0225.github.io/post/espboy-arduboy-on-esp-12e/">
+        </link>
+        <updated>2021-07-27T00:28:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>hand held gaming console based on ESP-12E!</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>hand held gaming console based on ESP-12E!</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1627345922682.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345929995.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345935855.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345942001.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345947693.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345953428.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345959844.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345967300.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345973679.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345980730.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345987545.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627345993830.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1627346000442.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Using the XY mode of oscilloscope to draw graphs]]></title>
         <id>https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/</id>
@@ -1073,37 +1098,6 @@ root.mainloop()
 <p>声明：</p>
 <p>当你使用本创作中属于公众领域的元素，或当法律有额外或限制条款允许你的使用行为时，则你不需要遵守本授权协议。</p>
 <p>不提供保证。本授权协议并不能完全提供你预期需要的所有许可，例如：公共形象权，隐私权，著作人身权等其他权利，这些权利的法律限制可能会限制你使用本创作。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[转子发动机建模日志！（14/12日更新）]]></title>
-        <id>https://tomzhu0225.github.io/post/ji-jiang-jian-mo-wan-cheng-de-zhuan-zi-fa-dong-ji/</id>
-        <link href="https://tomzhu0225.github.io/post/ji-jiang-jian-mo-wan-cheng-de-zhuan-zi-fa-dong-ji/">
-        </link>
-        <updated>2020-12-14T14:52:04.000Z</updated>
-        <summary type="html"><![CDATA[<p>自己解决问题真的很爽！综合运用数学物理matlab以及inventor解决问题！（14/12更新）</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>自己解决问题真的很爽！综合运用数学物理matlab以及inventor解决问题！（14/12更新）</p>
-<!-- more -->
-<p>2020/12/14<br>
-在实际应用建模中，我们团队遇到了问题。转子发动机的转子部分是绕着一个固定的太阳轮做旋转运动，转子不但绕定子做公转，而且因两个齿轮传动比的作用，转子也自己做自转运动，这就导致转子的中心距最大的三点（转子的三个顶点）的运动包络线不是一个单纯的由圆弧和直线构成的简单图形。事实上我的小组成员在对着已有模型建模时候就出现了问题，对于已有模型的缸盖的测量太过复杂，曲率等太多根本无法有效的复原转子的缸壁形状。<br>
-<img src="https://tomzhu0225.github.io/post-images/1607954973623.png" alt="" loading="lazy"><br>
-在今天早晨的数学实验课上，数学老师让我们自行探索matlab软件的相关命令，而我之前因为学过一点ML课程，对matlab还算熟悉，再加上我主张个人对于编程软件的命令的态度是并不需要完全掌握，像很多知识一样，只要你知道matlab可以实现这个功能，对于其具体的实现方法你总是可以用“面向百度编程”的方法解决。我的信条是数学是为了实际应用服务的，于是在课上我想转子顶点的运动过程这个实际上我的团队面对的工程问题一定很有趣。要想研究转子顶点的轨迹那我们一定要将其进行抽象化，变成可以用数学语言描述的问题。<br>
-<img src="https://tomzhu0225.github.io/post-images/1607955413379.jpg" alt="" loading="lazy"><br>
-而手头的matlab软件可以可视化的，可以让我立刻了解我试想的函数（参数）方程的模样，接着我可以将函数图像，与inventor软件模拟的外形相比对（大概是一个八字形），这样我就可以验证我的模型的正确与否。而实际的验证过程并不是一番风顺的，最开始我主观的忽略了齿轮传动比的影响，认为转子自转的角度和公转的角度相等，这样的模型求出来的图像自然是不对的，具体来说是一个椭圆（而这个椭圆甚至不是对称图形）；模型出现了错误，自然需要修正模型，而另一个问题出现了，对于一个没有学习过机械原理的大一学生来讲，我该如何知道一个转动比为1.5的行星齿轮组，各自旋转的比例呢？他们各自自转的角度的比例是3：2吗？我重新计算，但是函数输出仍然和真实模型相差甚远。（甚至于我也并不清楚传动比是什么概念，仅仅传动比就决定了两个齿轮各自旋转的角度了吗，那圆心距，两个齿轮直径呢？）我退而求其次观察inventor中已经建模好的模型<br>
-<img src="https://tomzhu0225.github.io/post-images/1607956096993.png" alt="" loading="lazy"><br>
-模型中我已经进行了约束，而我完全可以观察在inventor仿真中两个齿轮的各自旋转的比例。我观察到旋转的比例大概是1：3（当两个齿轮的接触点旋转theta时，转子自转1/3*theta）。接下来就是验证，我在matlab里输入再次计算的结果<br>
-<img src="https://tomzhu0225.github.io/post-images/1607956489068.png" alt="" loading="lazy"><br>
-图形奇迹般的和真实情况吻合。但是如何将这个函数输入到inventor的草图中来进行拉伸建模进而和已知模型对比来进一步确认真实性呢？这时候我的脑子里其实已经有了两种预案，首先如果inventor中有直接输入函数的功能那就很方便，如若没有或许我们就得把函数分成多个数据点来输入inventor,用小直线段来近似曲线。经过我的一番搜索，inventor在2013年加入了函数草图的功能，这样我就可以直接输入函数了！<br>
-<img src="https://tomzhu0225.github.io/post-images/1607956812477.png" alt="" loading="lazy"><br>
-有意思的一点是我们设计参照的原模型似乎就是在2013之前建模完成的，作者使用的就是细分为直线段建的模！这样导致缸体内壁并不平整，在之前我对已有模型做力学仿真的时候做的极不顺利，仿真根本没法进行下去。而新方法在力学仿真里效果如何还得之后去验证。<br>
-<strong>写这些不是为了炫耀我的思想多么严谨，而是我认为这种研究问题的方法是很有价值的，在这个新的时代人早就不能穷尽所有知识了，我们做的是在自己已有知识的基础上，充分利用外界的软件，互联网，自己直觉上的猜想，来验证自己想要解决的问题。我们站在巨人的肩膀上！</strong></p>
-<hr>
-<p>2020/12/6<br>
-<img src="https://tomzhu0225.github.io/post-images/1607257937625.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1607436979090.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1607436989608.png" alt="" loading="lazy"></p>
-<p>怎么说转子发动机一直是我的梦想吧，毕竟弱者打败强者的故事不论何时都不过时，马自达在1991年的勒芒比赛中Mazda 787B 凭借着转子发动机赢得了勒芒比赛的总冠军，成为历史上唯一夺得过勒芒24小时耐力赛总冠军的亚洲厂商，以至于第二年国际汽联不惜动用手段禁止转子发动机参赛！这种凭借着个人能力而让规则不惜做出改变也要扼杀的，是多么的年少轻狂。多年以来纵然转子发动机有诸多缺陷，马自达从未停止改良她的脚步，在其他技术领域马自达也总是最另类的那一批：创驰蓝天，均质压燃......电动机当道，纵然知道最终要消亡，汽油机总要发出最后的一声低吼，压榨出最后一丝潜力，让世人知道汽油机永不为奴！卖车挣钱，花钱搞转子，没钱再卖车，马自达的工程师和高层一定有发自内心的热爱！时间不多，我先写这么多，思绪甚是杂乱，来日再梳理。</p>
 ]]></content>
     </entry>
 </feed>
