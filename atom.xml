@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2021-07-29T00:41:16.457Z</updated>
+    <updated>2021-08-30T02:06:38.162Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -1078,7 +1078,7 @@ root.mainloop()
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Fully automatic AI player in the fps game]]></title>
+        <title type="html"><![CDATA[Reinforcement AI player in the fps game]]></title>
         <id>https://tomzhu0225.github.io/post/fully-automatic-ai-player-in-the-fps-game/</id>
         <link href="https://tomzhu0225.github.io/post/fully-automatic-ai-player-in-the-fps-game/">
         </link>
@@ -1087,9 +1087,22 @@ root.mainloop()
 ]]></summary>
         <content type="html"><![CDATA[<p>The passage will be updated in the long run and If you have any idea or you've examined any grammar mistake in the passage, feel free to leave a comment</p>
 <!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1610525744405.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1610525751182.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1610525757579.png" alt="" loading="lazy"></p>
+<p><img src="https://tomzhu0225.github.io/post-images/1630289033984.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289041576.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289066104.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289085156.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289105802.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289111840.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289117745.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289124714.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289130250.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289134972.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289140156.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289145038.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289149010.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289153288.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289157737.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1630289162475.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
