@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-01-12T11:45:35.814Z</updated>
+    <updated>2022-01-12T12:03:03.046Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[一个看似不可能的现象-翼型螺帽的规则翻转]]></title>
+        <id>https://tomzhu0225.github.io/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/</id>
+        <link href="https://tomzhu0225.github.io/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/">
+        </link>
+        <updated>2022-01-12T11:50:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1641988902089.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988908881.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988913893.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988920781.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988925922.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988931065.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988937070.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988943238.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988947990.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988952555.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1641988958087.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[伽罗瓦第一论文（代数方程有代数解的充分必要条件）]]></title>
         <id>https://tomzhu0225.github.io/post/jia-luo-wa-di-yi-lun-wen-dai-shu-fang-cheng-you-dai-shu-jie-de-chong-fen-bi-yao-tiao-jian/</id>
@@ -1074,45 +1097,6 @@ root.mainloop()
 
 
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[算法女孩]]></title>
-        <id>https://tomzhu0225.github.io/post/fiction/</id>
-        <link href="https://tomzhu0225.github.io/post/fiction/">
-        </link>
-        <updated>2021-02-18T23:35:30.000Z</updated>
-        <summary type="html"><![CDATA[<p>科普小说连载中……</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>科普小说连载中……</p>
-<!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1613696987241.jpg" alt="" loading="lazy"></figure>
-<p><img src="https://tomzhu0225.github.io/post-images/1615472027447.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472043737.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472049812.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472054861.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472067050.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472072546.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472078481.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472084559.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472091046.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472097450.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472112516.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472118831.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472122984.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472127664.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472132866.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472138103.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472145121.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472163911.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472173905.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472202083.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472235342.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472240775.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472245657.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472251384.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472255696.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1615472260930.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
