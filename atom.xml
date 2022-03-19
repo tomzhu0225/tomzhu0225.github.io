@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-01-15T01:28:26.000Z</updated>
+    <updated>2022-03-19T12:04:11.232Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[用ISM方法研究课程支持关系]]></title>
+        <id>https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/</id>
+        <link href="https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/">
+        </link>
+        <updated>2022-03-19T12:03:13.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://tomzhu0225.github.io/post-images/1647691422969.jpg" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1647691429061.jpg" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1647691433418.jpg" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1647691437299.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[氢原子薛定谔方程的解析解]]></title>
         <id>https://tomzhu0225.github.io/post/qing-yuan-zi-xie-ding-e-fang-cheng-de-jie-xi-jie/</id>
@@ -351,29 +363,6 @@ if __name__ == &quot;__main__&quot;:
    contoursAll(imgPaths, fileName)
    
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[椭圆形船过水道问题]]></title>
-        <id>https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/</id>
-        <link href="https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/">
-        </link>
-        <updated>2021-06-08T07:50:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1623138741269.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138635560.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138644296.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138652261.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138660950.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138673941.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138681855.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138689931.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138702363.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138716853.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1623138725355.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
