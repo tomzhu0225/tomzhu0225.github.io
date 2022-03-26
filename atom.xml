@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-03-19T12:06:38.345Z</updated>
+    <updated>2022-03-26T11:12:54.689Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[某电力设备制造公司运营效率诊断]]></title>
+        <id>https://tomzhu0225.github.io/post/ism/</id>
+        <link href="https://tomzhu0225.github.io/post/ism/">
+        </link>
+        <updated>2022-03-26T11:08:14.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://tomzhu0225.github.io/post-images/1648293039306.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293047686.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293055986.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293064415.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293088721.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293097317.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293105370.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1648293112563.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[用ISM方法研究课程支持关系]]></title>
         <id>https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/</id>
@@ -201,168 +217,6 @@
 <img src="https://tomzhu0225.github.io/post-images/1625465965363.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1625465972179.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1625465978388.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ associated code for Use the XY mode of oscilloscope to draw graphs with audio signals]]></title>
-        <id>https://tomzhu0225.github.io/post/associated-code-for-use-the-xy-mode-of-oscilloscope-to-draw-graphs-with-audio-signals/</id>
-        <link href="https://tomzhu0225.github.io/post/associated-code-for-use-the-xy-mode-of-oscilloscope-to-draw-graphs-with-audio-signals/">
-        </link>
-        <updated>2021-06-13T04:09:37.000Z</updated>
-        <content type="html"><![CDATA[<p>picture processing</p>
-<pre><code>'''
-MIT License
-
-Copyright (c) 1998-2021 RIGOL co.,ltd.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &quot;Software&quot;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-Vector WaveForm Converter 
-Based On Python,OpenCV,Numpy
-Powered By Dave Xue 
-
-'''
-
-import cv2 as cv
-import numpy as np
-from numpy.core.defchararray import count
-from numpy.lib.function_base import append
-
-#Target Video Path and Name
-videoPaths = r&quot;C:\Users\tomkeen\Desktop\physicswriting\bapiece.mp4&quot;
-#Images Output Path
-imgPaths = &quot;mc2.img&quot;
-#Quantity Of Points Per Frame
-ptsPerFrame = 10
-#Prefix Of File Name Of WaveForm Output
-fileName = &quot;nonWFM&quot;
-
-imgShape = []
-xData = []
-yData = []
-FrameCountEnd = 0
-FrameCountStart = 1
-
-#Converd Video To Images
-def v2p(videoPath, imgPath):
-   global FrameCountAll
-   videoObj = cv.VideoCapture(videoPath)
-   frameCount = 1
-   saveCountDown = 1
-   saveCount = 0
-
-   if videoObj.isOpened():
-       rval, frame = videoObj.read()
-       FrameCountAll = videoObj.get(cv.CAP_PROP_FRAME_COUNT)
-   else:
-       print(&quot;Video Err&quot;)
-       rval = False
-   
-   while rval:
-       rval, frame = videoObj.read()
-       if (not rval):
-           break
-       if (frameCount % saveCountDown == 0):
-           saveCount += 1
-           print(&quot;NOW Frame is &quot; + str(saveCount) + &quot; Of All Frame &quot; +
-            str(FrameCountAll) + &quot; &quot; + str(100*(saveCount/FrameCountAll)) + &quot; % &quot;,end='\r' )
-           cv.imwrite(imgPath+str(saveCount)+&quot;.jpg&quot;, frame)
-       frameCount += 1
-       cv.waitKey(1)
-   videoObj.release()
-
-
-#Use OpenCV To Find Contours In Each Frame
-def contours(image):
-   dst = cv.GaussianBlur(image, (3, 3), 0) #Use Gaussian Blur To Against Noises
-   gray = cv.cvtColor(dst, cv.COLOR_RGB2GRAY)
-   ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU) #Binaryzation The Image By OSTU
-   c_canny_img  = cv.Canny(gray,10,150)#Use Canny Algorithm To Find Edges
-   cv.imshow(&quot;canny image&quot;, c_canny_img)
-   contours, heriachy = cv.findContours(c_canny_img, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)#Get Contours
-   print(&quot;Find &quot;+str(np.size(contours))+&quot; Contours&quot;,end = '')
-   cv.drawContours(image, contours, -1, (0, 0, 255), 2)
-   cv.imshow(&quot;COU&quot;,image)
-   cv.waitKey(2)
-   return contours
-
-
-#Write Points Into Buffer
-def write2data(ptsList):
-   global xData,yData
-   ptsCount = 0
-   ptsloop = 0
-   xTmp = []
-   yTmp = []
-   for pts in ptsList:
-       pts = np.transpose([pts]).tolist()
-       for ptC in range(0,np.size(pts[0][0])-1): 
-           xTmp.append(int(((pts[0][0][ptC][0]/(imgShape[1]/2))-1.0)*65535))
-           yTmp.append(int(((pts[1][0][ptC][0]/(imgShape[0]/2))-1.0)*65535))
-           ptsCount += 1
-   if (ptsCount &lt; ptsPerFrame and ptsCount &gt; 0):
-       ptsloop = int(ptsPerFrame/ptsCount)
-       ptsCount = (ptsPerFrame-(ptsloop*ptsCount))
-       for i in range(0,ptsloop+1):
-           xData += xTmp
-           yData += yTmp
-   elif(ptsCount &gt;= ptsPerFrame and ptsCount &gt; 0):
-       xData += xTmp
-       yData += yTmp
-   else:
-       xData.append(0)
-       yData.append(0)
-   print(&quot;pts: &quot;+str(ptsCount*ptsloop))
-
-
-#Config File Names
-def contoursAll(imgsPath,filaName):
-   global imgShape,FrameCountAll,ptL
-   for i in range(int(FrameCountStart),int(FrameCountEnd)):
-       ipath = imgsPath+str(i)+&quot;.jpg&quot;
-       src = cv.imread(ipath)
-       imgShape = src.shape
-       ptL = contours(src)
-       write2data(ptL)
-   xFile = open(filaName+'zheshizhendx.txt', 'a', newline='')
-   yFile = open(filaName+'zheshizhendy.txt', 'a', newline='')
-   
-   for i in range(np.size(xData)-1):
-       xFile.writelines(str(xData[i])+'\n')
-       yFile.writelines(str(yData[i])+'\n')
-   
-   xFile.close()
-   yFile.close()
-   
-
-
-if __name__ == &quot;__main__&quot;:
-   print(&quot;Input Frame Num To Start From Images Or 'c' From Video&quot;)
-   frame = input()
-   if (frame != 'c'):
-       FrameCountStart = int(frame)
-       print(&quot;Input The End  Of Frames&quot;)
-       FrameTotal = int(input())
-   else:       
-       v2p(videoPaths, imgPaths)
-   FrameCountEnd = FrameTotal
-   contoursAll(imgPaths, fileName)
-   
-</code></pre>
 ]]></content>
     </entry>
 </feed>
