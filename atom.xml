@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-03-26T11:12:54.689Z</updated>
+    <updated>2022-05-05T04:30:26.351Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[俄乌冲突分析 Analysis of the Russian-Ukrainian conflict]]></title>
+        <id>https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/</id>
+        <link href="https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/">
+        </link>
+        <updated>2022-05-05T04:22:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持<br>
+本文适用CC-BY-SA-3.0协议</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持<br>
+本文适用CC-BY-SA-3.0协议</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1651724791439.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724816958.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724824578.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724831724.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724836814.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724843667.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724849058.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724854466.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724859859.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724865233.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724870645.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724875590.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724881253.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724885719.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724890826.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724896013.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724902199.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1651724907662.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[某电力设备制造公司运营效率诊断]]></title>
         <id>https://tomzhu0225.github.io/post/ism/</id>
@@ -194,29 +226,6 @@
 <img src="https://tomzhu0225.github.io/post-images/1627345987545.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1627345993830.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1627346000442.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Using the XY mode of oscilloscope to draw graphs]]></title>
-        <id>https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/</id>
-        <link href="https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/">
-        </link>
-        <updated>2021-07-05T06:17:26.000Z</updated>
-        <summary type="html"><![CDATA[<p>尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1625465889329.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465908166.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465918937.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465928245.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465935849.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465943135.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465949942.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465958540.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465965363.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465972179.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1625465978388.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
