@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-05-05T09:55:58.637Z</updated>
+    <updated>2022-08-15T16:03:13.200Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Tokamak plasma fluid model with FEM]]></title>
+        <id>https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/</id>
+        <link href="https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/">
+        </link>
+        <updated>2022-08-15T03:58:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>Will be updated soon!</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Will be updated soon!</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1660579158982.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579168003.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579178102.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579186129.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579194403.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579201946.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579209282.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579219084.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579227848.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579238803.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579247768.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579262494.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579268995.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579275946.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579293461.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579314830.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579321921.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1660579332176.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[聚变包层系统 ITER Blanket System]]></title>
         <id>https://tomzhu0225.github.io/post/ju-bian-bao-ceng-xi-tong-iter-blanket-system/</id>
@@ -50,7 +80,7 @@
         <id>https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/</id>
         <link href="https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/">
         </link>
-        <updated>2022-05-05T04:22:15.000Z</updated>
+        <updated>2022-05-04T22:22:15.000Z</updated>
         <summary type="html"><![CDATA[<p>感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持<br>
 本文适用CC-BY-SA-3.0协议</p>
 ]]></summary>
@@ -219,38 +249,6 @@
 <img src="https://tomzhu0225.github.io/post-images/1634042824929.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1634042833591.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1634042840916.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）]]></title>
-        <id>https://tomzhu0225.github.io/post/ji-yu-ansys-ruan-jian-de-ye-di-peng-zhuang-gu-ti-ji-ye-ti-biao-mian-de-pu-zhan-te-xing-yan-jiu-xjtu-shu-xue-jian-mo-da-sai-xuan-ba-sai-ti-mu/</id>
-        <link href="https://tomzhu0225.github.io/post/ji-yu-ansys-ruan-jian-de-ye-di-peng-zhuang-gu-ti-ji-ye-ti-biao-mian-de-pu-zhan-te-xing-yan-jiu-xjtu-shu-xue-jian-mo-da-sai-xuan-ba-sai-ti-mu/">
-        </link>
-        <updated>2021-07-29T00:33:47.000Z</updated>
-        <summary type="html"><![CDATA[<p>感谢黄智恒与朱昊宁贡献了该论文的理论部分（也就是主题部分），没有他们就不会有今天这篇完备的数学论文。我主要对水滴在固体壁面和液体表面的铺展进行了数值模拟。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>感谢黄智恒与朱昊宁贡献了该论文的理论部分（也就是主题部分），没有他们就不会有今天这篇完备的数学论文。我主要对水滴在固体壁面和液体表面的铺展进行了数值模拟。</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1627519135458.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519140342.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519144657.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519149329.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519153756.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519157885.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519162338.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519168066.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519173164.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519178048.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519183177.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519188902.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519193355.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519197950.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519203607.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519208400.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519212945.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519218752.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519241455.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1627519249902.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
