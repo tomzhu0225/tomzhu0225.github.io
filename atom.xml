@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-08-15T16:03:13.200Z</updated>
+    <updated>2022-10-31T19:08:13.381Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[巴黎天际线]]></title>
+        <id>https://tomzhu0225.github.io/post/ba-li-tian-ji-xian/</id>
+        <link href="https://tomzhu0225.github.io/post/ba-li-tian-ji-xian/">
+        </link>
+        <updated>2022-10-31T12:07:26.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1667243270347.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tokamak plasma fluid model with FEM]]></title>
         <id>https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/</id>
@@ -235,20 +244,6 @@
 <img src="https://tomzhu0225.github.io/post-images/1641955294800.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1641955300351.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1641955305367.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ZEEKR主动空气动力学系统（ZAAS）]]></title>
-        <id>https://tomzhu0225.github.io/post/zeekr-zhu-dong-kong-qi-dong-li-xue-xi-tong-zaas/</id>
-        <link href="https://tomzhu0225.github.io/post/zeekr-zhu-dong-kong-qi-dong-li-xue-xi-tong-zaas/">
-        </link>
-        <updated>2021-10-12T12:46:02.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://tomzhu0225.github.io/post-images/1634042798966.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1634042807084.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1634042816543.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1634042824929.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1634042833591.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1634042840916.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
