@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-10-31T19:11:21.157Z</updated>
+    <updated>2022-12-17T08:02:48.260Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Research about particle velocity in cyclone separator]]></title>
+        <id>https://tomzhu0225.github.io/post/research-about-particle-velocity-in-cyclone-separator/</id>
+        <link href="https://tomzhu0225.github.io/post/research-about-particle-velocity-in-cyclone-separator/">
+        </link>
+        <updated>2022-12-17T00:38:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. In the sense that instead of mapping directly from input(particle size, parrticle weight, fluid speed ) to output (particle relative speed), we use a model to calculate relative speed using some physical parameters. Then we use Neural network to map the input to the parameters.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. In the sense that instead of mapping directly from input(particle size, parrticle weight, fluid speed ) to output (particle relative speed), we use a model to calculate relative speed using some physical parameters. Then we use Neural network to map the input to the parameters.</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1671264064463.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264074757.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264079288.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264083664.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264089438.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264094471.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264099703.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264104304.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264110879.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264116130.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264121566.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1671264126506.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[巴黎天际线]]></title>
         <id>https://tomzhu0225.github.io/post/ba-li-tian-ji-xian/</id>
@@ -24,10 +48,12 @@
         <id>https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/</id>
         <link href="https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/">
         </link>
-        <updated>2022-08-15T03:58:28.000Z</updated>
-        <summary type="html"><![CDATA[<p>Will be updated soon!</p>
+        <updated>2022-08-14T21:58:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>Will be updated soon!<br>
+update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror that can provide a reflection about why we need this or that method--to avoid naive implementation as I did in this project.</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>Will be updated soon!</p>
+        <content type="html"><![CDATA[<p>Will be updated soon!<br>
+update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror that can provide a reflection about why we need this or that method--to avoid naive implementation as I did in this project.</p>
 <!-- more -->
 <p><img src="https://tomzhu0225.github.io/post-images/1660579158982.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1660579168003.png" alt="" loading="lazy"><br>
@@ -220,30 +246,6 @@
 <img src="https://tomzhu0225.github.io/post-images/1641988947990.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1641988952555.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1641988958087.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[伽罗瓦第一论文（代数方程有代数解的充分必要条件）]]></title>
-        <id>https://tomzhu0225.github.io/post/jia-luo-wa-di-yi-lun-wen-dai-shu-fang-cheng-you-dai-shu-jie-de-chong-fen-bi-yao-tiao-jian/</id>
-        <link href="https://tomzhu0225.github.io/post/jia-luo-wa-di-yi-lun-wen-dai-shu-fang-cheng-you-dai-shu-jie-de-chong-fen-bi-yao-tiao-jian/">
-        </link>
-        <updated>2022-01-12T02:37:45.000Z</updated>
-        <summary type="html"><![CDATA[<p>近日写过最高深的内容，这篇本质上是写给我自己看的，大家能理解多少看自己造化了（定理和引理之间的逻辑链条我可以理解，但是少了不少定理背后的证明总觉得食之无味.）</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>近日写过最高深的内容，这篇本质上是写给我自己看的，大家能理解多少看自己造化了（定理和引理之间的逻辑链条我可以理解，但是少了不少定理背后的证明总觉得食之无味.）</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1641955245017.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955251977.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955258307.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955264013.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955269269.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955273558.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955277692.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955283106.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955288449.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955294800.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955300351.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641955305367.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
