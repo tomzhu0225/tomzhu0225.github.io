@@ -2,14 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2022-12-17T08:02:48.260Z</updated>
+    <updated>2023-01-12T19:41:43.084Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
     <subtitle>我叫朱博文，一个有奇思妙想的学生</subtitle>
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, FUSION!</rights>
+    <rights>All rights reserved 2023, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Flight controller for supersonic missiles]]></title>
+        <id>https://tomzhu0225.github.io/post/flight-controller-for-supersonic-missiles/</id>
+        <link href="https://tomzhu0225.github.io/post/flight-controller-for-supersonic-missiles/">
+        </link>
+        <updated>2023-01-12T12:30:06.000Z</updated>
+        <summary type="html"><![CDATA[<p>Github repo at <a href="https://github.com/tomzhu0225/Simulink-missile-flight-controller">Repo</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Github repo at <a href="https://github.com/tomzhu0225/Simulink-missile-flight-controller">Repo</a></p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1673551853177.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551859295.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551863714.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551869223.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551873466.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551877629.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551882020.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551886852.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551891072.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551895355.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551899610.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551903682.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551907763.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to "justify" a PDE]]></title>
+        <id>https://tomzhu0225.github.io/post/how-to-justify-a-pde/</id>
+        <link href="https://tomzhu0225.github.io/post/how-to-justify-a-pde/">
+        </link>
+        <updated>2023-01-12T12:27:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>To get the variational formulation of the PDE; To prove its uniqueness; To prove the unicity of the variational formulation.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>To get the variational formulation of the PDE; To prove its uniqueness; To prove the unicity of the variational formulation.</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1673551750095.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551756260.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551761681.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551775625.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1673551780622.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Research about particle velocity in cyclone separator]]></title>
         <id>https://tomzhu0225.github.io/post/research-about-particle-velocity-in-cyclone-separator/</id>
@@ -48,7 +90,7 @@
         <id>https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/</id>
         <link href="https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/">
         </link>
-        <updated>2022-08-14T21:58:28.000Z</updated>
+        <updated>2022-08-14T15:58:28.000Z</updated>
         <summary type="html"><![CDATA[<p>Will be updated soon!<br>
 update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror that can provide a reflection about why we need this or that method--to avoid naive implementation as I did in this project.</p>
 ]]></summary>
@@ -207,45 +249,6 @@ update 17/12/2022. As I study more and more about FEM and numerical method, I fi
 <img src="https://tomzhu0225.github.io/post-images/1642209724506.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1642209729360.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1642209735621.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[磁控法测量电子荷质比中电场力引起的误差分析]]></title>
-        <id>https://tomzhu0225.github.io/post/ci-kong-fa-ce-liang-dian-zi-he-zhi-bi-zhong-dian-chang-li-yin-qi-de-wu-chai-fen-xi/</id>
-        <link href="https://tomzhu0225.github.io/post/ci-kong-fa-ce-liang-dian-zi-he-zhi-bi-zhong-dian-chang-li-yin-qi-de-wu-chai-fen-xi/">
-        </link>
-        <updated>2022-01-12T12:08:14.000Z</updated>
-        <summary type="html"><![CDATA[<p>这篇文章中所提到的发现是真正的发现——没人涉足过的地方。但是嘛，时间和资源、能力限制没有办法来继续探究了</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这篇文章中所提到的发现是真正的发现——没人涉足过的地方。但是嘛，时间和资源、能力限制没有办法来继续探究了</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1641989355852.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641989397427.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641989401757.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641989406280.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一个看似不可能的现象-翼型螺帽的规则翻转]]></title>
-        <id>https://tomzhu0225.github.io/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/</id>
-        <link href="https://tomzhu0225.github.io/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/">
-        </link>
-        <updated>2022-01-12T11:50:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1641988902089.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988908881.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988913893.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988920781.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988925922.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988931065.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988937070.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988943238.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988947990.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988952555.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988958087.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
