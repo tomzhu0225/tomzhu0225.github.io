@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>一个看似不可能的现象-翼型螺帽的规则翻转 | FUSION!</title>
+<title>Vehicle performance simulation(ICE and EV) | FUSION!</title>
 
 <link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1675073629187">
 
@@ -89,28 +89,66 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    一个看似不可能的现象-翼型螺帽的规则翻转
+                    Vehicle performance simulation(ICE and EV)
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2022-01-12 ·
+                        · 2023-01-29 ·
                     </time>
                     
                 </div>
                 <div class="post-content">
-                    <p>该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。</p>
+                    <p>See repo at <a href="https://github.com/tomzhu0225/vehicle-performance-simulation-via-matlabr">Repo</a></p>
 <!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1641988902089.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988908881.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988913893.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988920781.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988925922.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988931065.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988937070.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988943238.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988947990.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988952555.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1641988958087.png" alt="" loading="lazy"></p>
+<h1 id="introduction">Introduction</h1>
+<p>The code set can evaluate the performance of a car, including its maximum speed, acceleration character, and fuel consumption in various tests (ECE, EUDC, NEDC, WLTP).</p>
+<h1 id="usage">Usage</h1>
+<h2 id="maxspeedm">maxspeed.m</h2>
+<p>In this file, the output will be the maximum speed of your car for the current configuration, and an optimized gear ratio based on the top gear and first gear ratios.</p>
+<p>A default engine mapping (for a naturally aspirated engine) has already been included in the code (torque per liter), as well as other engine parameters, such as engine inertia per liter.</p>
+<p>For basic usage, you will need to input the displacement of your engine and the mass of the car. For advanced usage, a number of parameters can be changed, including inserting your own engine mapping and frontal area.</p>
+<p><strong>remember that the engine mapping should be in torque per litre</strong></p>
+<pre><code>%input
+displacement=1.2 
+m_v=2136 %mass of the vehicle
+L1=7.05 %first gear ratio L1=v/(rpm/1000)
+Crr=8.5 %tire inertial coefficient
+SCx=0.65 %frontal area * drag coefficient
+slope=0 %driving slop
+topgear=5
+%engine mapping
+rpm_gas=1:0.5:6.5
+tor_gas=[77	125	134	139	135	128	122	115	109	102	89 72]
+inertial_per_l_gas=0.085 %engine inertial
+eta_gb=0.9 %transmission efficiency
+rpm=5.5 %Max power rpm
+</code></pre>
+<p><strong>subsequent scripts depend on the parameters in this script</strong></p>
+<h2 id="gear_changem">gear_change.m</h2>
+<p>This script provides the acceleration character of the specified car configuration. The gear change time and idle RPM can be changed in the script.</p>
+<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1675073452219.png" alt="" loading="lazy"></figure>
+<p><strong>The gear ratio depends on the L calculated in maxspeed.m. It is possible to re-declare the L at the beginning of the script.</strong></p>
+<h2 id="consumpm">consump.m</h2>
+<p>A lookup table of fuel consumption (g/kWh) versus BMEP and RPM is included in the script.</p>
+<p>The file evaluates the steady-state cruising fuel consumption at 50, 90, and 120 km/h in different gears.</p>
+<p><strong>Further fuel consumption tests rely on this table, and you can modify it with your own mapping.</strong></p>
+<h2 id="ecem">ECE.m</h2>
+<figure data-type="image" tabindex="2"><img src="https://tomzhu0225.github.io/post-images/1675073444407.png" alt="" loading="lazy"></figure>
+<p>The script evaluates the fuel consumption in ECE test with and without start and stop system for your config.</p>
+<p>A L/100km number is give in the command window.</p>
+<h2 id="eudcm">EUDC.m</h2>
+<figure data-type="image" tabindex="3"><img src="https://tomzhu0225.github.io/post-images/1675073460896.png" alt="" loading="lazy"></figure>
+<h2 id="nedcm">NEDC.m</h2>
+<p>NEDC is a combination of ECE and EUDC.</p>
+<h2 id="wltpm">WLTP.m</h2>
+<figure data-type="image" tabindex="4"><img src="https://tomzhu0225.github.io/post-images/1675073470593.png" alt="" loading="lazy"></figure>
+<h1 id="instance">Instance</h1>
+<p>We use these basic code to perform the analysis of a EREV design. See code in EREV folder.</p>
+<p>Spec of the design is shown as follow:<br>
+<img src="https://tomzhu0225.github.io/post-images/1675073480753.png" alt="" loading="lazy"></p>
+<p>We are able to perform the analysis of the vehicle using the modified code in EREV folder.</p>
+<p><img src="https://tomzhu0225.github.io/post-images/1675073495056.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675073503751.png" alt="" loading="lazy"></p>
 
                 </div>
             </article>
@@ -119,14 +157,14 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://tomzhu0225.github.io/post/jia-luo-wa-di-yi-lun-wen-dai-shu-fang-cheng-you-dai-shu-jie-de-chong-fen-bi-yao-tiao-jian/" class="post-title gt-a-link">
-                    伽罗瓦第一论文（代数方程有代数解的充分必要条件）
+                <a href="https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/" class="post-title gt-a-link">
+                    A review of hydrogen vehicle powertrain
                 </a>
             </div>
         
 
         
-            <span id="/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/" class="leancloud_visitors" data-flag-title="一个看似不可能的现象-翼型螺帽的规则翻转">
+            <span id="/post/vehicle-performance-simulationice-and-ev/" class="leancloud_visitors" data-flag-title="Vehicle performance simulation(ICE and EV)">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>

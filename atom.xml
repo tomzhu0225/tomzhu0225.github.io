@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2023-01-30T07:38:51.223Z</updated>
+    <updated>2023-01-30T10:13:56.017Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,67 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Vehicle performance simulation(ICE and EV)]]></title>
+        <id>https://tomzhu0225.github.io/post/vehicle-performance-simulationice-and-ev/</id>
+        <link href="https://tomzhu0225.github.io/post/vehicle-performance-simulationice-and-ev/">
+        </link>
+        <updated>2023-01-29T20:09:20.000Z</updated>
+        <summary type="html"><![CDATA[<p>See repo at <a href="https://github.com/tomzhu0225/vehicle-performance-simulation-via-matlabr">Repo</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>See repo at <a href="https://github.com/tomzhu0225/vehicle-performance-simulation-via-matlabr">Repo</a></p>
+<!-- more -->
+<h1 id="introduction">Introduction</h1>
+<p>The code set can evaluate the performance of a car, including its maximum speed, acceleration character, and fuel consumption in various tests (ECE, EUDC, NEDC, WLTP).</p>
+<h1 id="usage">Usage</h1>
+<h2 id="maxspeedm">maxspeed.m</h2>
+<p>In this file, the output will be the maximum speed of your car for the current configuration, and an optimized gear ratio based on the top gear and first gear ratios.</p>
+<p>A default engine mapping (for a naturally aspirated engine) has already been included in the code (torque per liter), as well as other engine parameters, such as engine inertia per liter.</p>
+<p>For basic usage, you will need to input the displacement of your engine and the mass of the car. For advanced usage, a number of parameters can be changed, including inserting your own engine mapping and frontal area.</p>
+<p><strong>remember that the engine mapping should be in torque per litre</strong></p>
+<pre><code>%input
+displacement=1.2 
+m_v=2136 %mass of the vehicle
+L1=7.05 %first gear ratio L1=v/(rpm/1000)
+Crr=8.5 %tire inertial coefficient
+SCx=0.65 %frontal area * drag coefficient
+slope=0 %driving slop
+topgear=5
+%engine mapping
+rpm_gas=1:0.5:6.5
+tor_gas=[77	125	134	139	135	128	122	115	109	102	89 72]
+inertial_per_l_gas=0.085 %engine inertial
+eta_gb=0.9 %transmission efficiency
+rpm=5.5 %Max power rpm
+</code></pre>
+<p><strong>subsequent scripts depend on the parameters in this script</strong></p>
+<h2 id="gear_changem">gear_change.m</h2>
+<p>This script provides the acceleration character of the specified car configuration. The gear change time and idle RPM can be changed in the script.</p>
+<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1675073452219.png" alt="" loading="lazy"></figure>
+<p><strong>The gear ratio depends on the L calculated in maxspeed.m. It is possible to re-declare the L at the beginning of the script.</strong></p>
+<h2 id="consumpm">consump.m</h2>
+<p>A lookup table of fuel consumption (g/kWh) versus BMEP and RPM is included in the script.</p>
+<p>The file evaluates the steady-state cruising fuel consumption at 50, 90, and 120 km/h in different gears.</p>
+<p><strong>Further fuel consumption tests rely on this table, and you can modify it with your own mapping.</strong></p>
+<h2 id="ecem">ECE.m</h2>
+<figure data-type="image" tabindex="2"><img src="https://tomzhu0225.github.io/post-images/1675073444407.png" alt="" loading="lazy"></figure>
+<p>The script evaluates the fuel consumption in ECE test with and without start and stop system for your config.</p>
+<p>A L/100km number is give in the command window.</p>
+<h2 id="eudcm">EUDC.m</h2>
+<figure data-type="image" tabindex="3"><img src="https://tomzhu0225.github.io/post-images/1675073460896.png" alt="" loading="lazy"></figure>
+<h2 id="nedcm">NEDC.m</h2>
+<p>NEDC is a combination of ECE and EUDC.</p>
+<h2 id="wltpm">WLTP.m</h2>
+<figure data-type="image" tabindex="4"><img src="https://tomzhu0225.github.io/post-images/1675073470593.png" alt="" loading="lazy"></figure>
+<h1 id="instance">Instance</h1>
+<p>We use these basic code to perform the analysis of a EREV design. See code in EREV folder.</p>
+<p>Spec of the design is shown as follow:<br>
+<img src="https://tomzhu0225.github.io/post-images/1675073480753.png" alt="" loading="lazy"></p>
+<p>We are able to perform the analysis of the vehicle using the modified code in EREV folder.</p>
+<p><img src="https://tomzhu0225.github.io/post-images/1675073495056.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675073503751.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[A review of hydrogen vehicle powertrain]]></title>
         <id>https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/</id>
@@ -254,18 +315,6 @@ update 17/12/2022. As I study more and more about FEM and numerical method, I fi
 <img src="https://tomzhu0225.github.io/post-images/1648293097317.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1648293105370.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1648293112563.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[用ISM方法研究课程支持关系]]></title>
-        <id>https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/</id>
-        <link href="https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/">
-        </link>
-        <updated>2022-03-19T12:03:13.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://tomzhu0225.github.io/post-images/1647691422969.jpg" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1647691429061.jpg" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1647691433418.jpg" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1647691437299.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
