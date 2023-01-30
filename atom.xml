@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2023-01-12T19:41:43.084Z</updated>
+    <updated>2023-01-30T07:38:51.223Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,47 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[A review of hydrogen vehicle powertrain]]></title>
+        <id>https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/</id>
+        <link href="https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/">
+        </link>
+        <updated>2023-01-29T17:29:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>We review the development of H2ICE and Hydrogen fuel cell and introduce their current status. A discussion about the future of hydrogen powertrain is also here.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>We review the development of H2ICE and Hydrogen fuel cell and introduce their current status. A discussion about the future of hydrogen powertrain is also here.</p>
+<!-- more -->
+<p><img src="https://tomzhu0225.github.io/post-images/1675063788104.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063808645.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063813443.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063818716.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063822982.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063827238.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063831800.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063836148.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063841112.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063845521.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063850203.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063855850.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063859945.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063881200.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063885913.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063889966.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063894272.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063899254.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063903887.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063908471.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063912818.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063917141.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063923388.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063984126.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063989023.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063993913.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675063998650.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675064003203.png" alt="" loading="lazy"><br>
+<img src="https://tomzhu0225.github.io/post-images/1675064006871.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Flight controller for supersonic missiles]]></title>
         <id>https://tomzhu0225.github.io/post/flight-controller-for-supersonic-missiles/</id>
@@ -225,30 +266,6 @@ update 17/12/2022. As I study more and more about FEM and numerical method, I fi
 <img src="https://tomzhu0225.github.io/post-images/1647691429061.jpg" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1647691433418.jpg" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1647691437299.jpg" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[氢原子薛定谔方程的解析解]]></title>
-        <id>https://tomzhu0225.github.io/post/qing-yuan-zi-xie-ding-e-fang-cheng-de-jie-xi-jie/</id>
-        <link href="https://tomzhu0225.github.io/post/qing-yuan-zi-xie-ding-e-fang-cheng-de-jie-xi-jie/">
-        </link>
-        <updated>2022-01-15T01:20:18.000Z</updated>
-        <summary type="html"><![CDATA[<p>Solving Schrödinger’s equation for the hydrogen atom；当我写完这篇作业之后我对量子系统的求解还是充满信心的——难道求解其他多体问题和求解氢原子中电子的薛定谔方程会有什么不同吗？只是多了一点点计算量罢了。但是实际上求解铁原子中一个电子的薛定谔方程，仅仅储存该薛定谔方程就需要整个太阳系的原子，更不要说求解了。还好有DFT理论......</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Solving Schrödinger’s equation for the hydrogen atom；当我写完这篇作业之后我对量子系统的求解还是充满信心的——难道求解其他多体问题和求解氢原子中电子的薛定谔方程会有什么不同吗？只是多了一点点计算量罢了。但是实际上求解铁原子中一个电子的薛定谔方程，仅仅储存该薛定谔方程就需要整个太阳系的原子，更不要说求解了。还好有DFT理论......</p>
-<!-- more -->
-<p><img src="https://tomzhu0225.github.io/post-images/1642209670092.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209677872.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209682808.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209690802.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209697617.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209702450.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209707588.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209712317.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209719281.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209724506.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209729360.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1642209735621.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
