@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tomzhu0225.github.io</id>
     <title>FUSION!</title>
-    <updated>2023-01-30T10:13:56.017Z</updated>
+    <updated>2023-02-11T08:57:58.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tomzhu0225.github.io"/>
     <link rel="self" href="https://tomzhu0225.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://tomzhu0225.github.io/images/avatar.png</logo>
     <icon>https://tomzhu0225.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, FUSION!</rights>
+    <entry>
+        <title type="html"><![CDATA[Donate ME!]]></title>
+        <id>https://tomzhu0225.github.io/post/donate-me/</id>
+        <link href="https://tomzhu0225.github.io/post/donate-me/">
+        </link>
+        <updated>2023-02-11T01:47:48.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.buymeacoffee.com/Tomzhu0225">Buy me a coffee!</a></p>
+<p>or</p>
+<figure data-type="image" tabindex="1"><img src="https://tomzhu0225.github.io/post-images/1676105811537.png" alt="" loading="lazy"></figure>
+<p>or</p>
+<figure data-type="image" tabindex="2"><img src="https://tomzhu0225.github.io/post-images/1676105843572.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vehicle performance simulation(ICE and EV)]]></title>
         <id>https://tomzhu0225.github.io/post/vehicle-performance-simulationice-and-ev/</id>
@@ -299,22 +312,6 @@ update 17/12/2022. As I study more and more about FEM and numerical method, I fi
 <img src="https://tomzhu0225.github.io/post-images/1651743414711.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1651743439588.png" alt="" loading="lazy"><br>
 <img src="https://tomzhu0225.github.io/post-images/1651743445759.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[某电力设备制造公司运营效率诊断]]></title>
-        <id>https://tomzhu0225.github.io/post/ism/</id>
-        <link href="https://tomzhu0225.github.io/post/ism/">
-        </link>
-        <updated>2022-03-26T11:08:14.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://tomzhu0225.github.io/post-images/1648293039306.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293047686.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293055986.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293064415.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293088721.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293097317.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293105370.png" alt="" loading="lazy"><br>
-<img src="https://tomzhu0225.github.io/post-images/1648293112563.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
