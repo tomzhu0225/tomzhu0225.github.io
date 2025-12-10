@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vehicle performance simulation(ICE and EV) | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a href="/">首页</a>
+        <a href="/archives">所有文章</a>
+        <a href="/tags">标签</a>
+        <a href="/about">自我介绍</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-wrapper">
+    <article class="post-detail">
+      <div class="post-time">发布于 2023-01-29</div>
+      <h1>Vehicle performance simulation(ICE and EV)</h1>
+      <div class="post-content">
+<p>See repo at <a href="https://github.com/tomzhu0225/vehicle-performance-simulation-via-matlabr">Repo</a></p>
+<!-- more -->
+<h1 id="introduction">Introduction</h1>
+<p>The code set can evaluate the performance of a car, including its maximum speed, acceleration character, and fuel consumption in various tests (ECE, EUDC, NEDC, WLTP).</p>
+<h1 id="usage">Usage</h1>
+<h2 id="maxspeedm">maxspeed.m</h2>
+<p>In this file, the output will be the maximum speed of your car for the current configuration, and an optimized gear ratio based on the top gear and first gear ratios.</p>
+<p>A default engine mapping (for a naturally aspirated engine) has already been included in the code (torque per liter), as well as other engine parameters, such as engine inertia per liter.</p>
+<p>For basic usage, you will need to input the displacement of your engine and the mass of the car. For advanced usage, a number of parameters can be changed, including inserting your own engine mapping and frontal area.</p>
+<p><strong>remember that the engine mapping should be in torque per litre</strong></p>
+<pre><code>%input
+displacement=1.2 
+m_v=2136 %mass of the vehicle
+L1=7.05 %first gear ratio L1=v/(rpm/1000)
+Crr=8.5 %tire inertial coefficient
+SCx=0.65 %frontal area * drag coefficient
+slope=0 %driving slop
+topgear=5
+%engine mapping
+rpm_gas=1:0.5:6.5
+tor_gas=[77	125	134	139	135	128	122	115	109	102	89 72]
+inertial_per_l_gas=0.085 %engine inertial
+eta_gb=0.9 %transmission efficiency
+rpm=5.5 %Max power rpm
+</code></pre>
+<p><strong>subsequent scripts depend on the parameters in this script</strong></p>
+<h2 id="gear_changem">gear_change.m</h2>
+<p>This script provides the acceleration character of the specified car configuration. The gear change time and idle RPM can be changed in the script.</p>
+<figure data-type="image" tabindex="1"><img alt="" loading="lazy" src="./images/1675073452219.png"/></figure>
+<p><strong>The gear ratio depends on the L calculated in maxspeed.m. It is possible to re-declare the L at the beginning of the script.</strong></p>
+<h2 id="consumpm">consump.m</h2>
+<p>A lookup table of fuel consumption (g/kWh) versus BMEP and RPM is included in the script.</p>
+<p>The file evaluates the steady-state cruising fuel consumption at 50, 90, and 120 km/h in different gears.</p>
+<p><strong>Further fuel consumption tests rely on this table, and you can modify it with your own mapping.</strong></p>
+<h2 id="ecem">ECE.m</h2>
+<figure data-type="image" tabindex="2"><img alt="" loading="lazy" src="./images/1675073444407.png"/></figure>
+<p>The script evaluates the fuel consumption in ECE test with and without start and stop system for your config.</p>
+<p>A L/100km number is give in the command window.</p>
+<h2 id="eudcm">EUDC.m</h2>
+<figure data-type="image" tabindex="3"><img alt="" loading="lazy" src="./images/1675073460896.png"/></figure>
+<h2 id="nedcm">NEDC.m</h2>
+<p>NEDC is a combination of ECE and EUDC.</p>
+<h2 id="wltpm">WLTP.m</h2>
+<figure data-type="image" tabindex="4"><img alt="" loading="lazy" src="./images/1675073470593.png"/></figure>
+<h1 id="instance">Instance</h1>
+<p>We use these basic code to perform the analysis of a EREV design. See code in EREV folder.</p>
+<p>Spec of the design is shown as follow:<br/>
+<img alt="" loading="lazy" src="./images/1675073480753.png"/></p>
+<p>We are able to perform the analysis of the vehicle using the modified code in EREV folder.</p>
+<p><img alt="" loading="lazy" src="./images/1675073495056.png"/><br/>
+<img alt="" loading="lazy" src="./images/1675073503751.png"/></p>
+      </div>
+    </article>
+
+    <!-- Giscus 评论系统 -->
+    <div class="giscus-container" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+      <script src="https://giscus.app/client.js"
+              data-repo="tomzhu0225/tomzhu0225.github.io"
+              data-repo-id="MDEwOlJlcG9zaXRvcnkzMTY5NjQ3OTM="
+              data-category="Announcements"
+              data-category-id="DIC_kwDOEuR_uc4Czmok"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="light"
+              data-lang="zh-CN"
+              data-loading="lazy"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </div>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <div>我叫朱博文，一个有奇思妙想的学生</div>
+    <div>Powered by GitHub Pages · 手工编辑，VS Code 友好</div>
+  </footer>
+</body>
+</html>

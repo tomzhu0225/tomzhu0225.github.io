@@ -1,149 +1,123 @@
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-<title>FUSION!</title>
-
-<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1676105860023">
-
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://tomzhu0225.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
-
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>标签 | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <script>
+    const translations = {
+      zh: {
+        title: '标签 | FUSION!',
+        nav_home: '首页', nav_archives: '所有文章', nav_tags: '标签', nav_about: '自我介绍',
+        search_placeholder: '快速查找 (Ctrl+F)',
+        hero_kicker: '标签 · 话题',
+        hero_title: '按主题浏览文章',
+        hero_subtitle: '保留旧站全部标签链接，使用新样式呈现。',
+        hero_pill: '静态标签列表',
+        hero_btn_archives: '去归档',
+        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
+        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
+      },
+      en: {
+        title: 'Tags | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        hero_kicker: 'Tags · Topics',
+        hero_title: 'Browse posts by topic',
+        hero_subtitle: 'All legacy tag links preserved with the new look.',
+        hero_pill: 'Static tag list',
+        hero_btn_archives: 'To archives',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      }
+    };
+    function applyLang(lang) {
+      const t = translations[lang] || translations.zh;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      document.title = t.title;
+      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
+      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
+      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
+      setText('hero-kicker','hero_kicker'); setText('hero-title','hero_title'); setText('hero-subtitle','hero_subtitle');
+      setText('hero-pill','hero_pill'); setText('hero-btn-archives','hero_btn_archives');
+      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
+      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
+      localStorage.setItem('lang', lang);
+    }
+    function initLang() {
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved === 'en' ? 'en' : 'zh');
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            FUSION!
-        </div>
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a id="nav-home" href="/">首页</a>
+        <a id="nav-archives" href="/archives">所有文章</a>
+        <a id="nav-tags" href="/tags">标签</a>
+        <a id="nav-about" href="/about">自我介绍</a>
+      </nav>
+      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      </div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://tomzhu0225.github.io/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1676105860023" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+  </header>
 
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">标签</h2>
-        <div class="tags-container">
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/8VGfVl2g-/">#杂谈</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/Dp03Agwwf/">#科普</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/7umg0_l84/">#fusion</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/PyBsKvfxJ/">#françai</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/-PZIg83pE/">#mAtH</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://tomzhu0225.github.io/tag/P1OLTd43B/">#when where and why</a>
-            
+  <main class="wrapper">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-kicker" id="hero-kicker">标签 · 话题</div>
+        <h1 class="hero-title" id="hero-title">按主题浏览文章</h1>
+        <p class="hero-subtitle" id="hero-subtitle">保留旧站全部标签链接，使用新样式呈现。</p>
+        <div class="hero-actions">
+          <span class="pill" id="hero-pill">静态标签列表</span>
+          <a class="button secondary" id="hero-btn-archives" href="/archives">去归档</a>
         </div>
-    </article>
-</div>
-</div>
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">我叫朱博文，一个有奇思妙想的学生</div>
-    <div class="social-container">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </div>
-    <div class="footer-info">
-        Powered by <a href="https://space.bilibili.com/64849811" target="_blank">pilipili</a>
-    </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://tomzhu0225.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
-</div>
+      </div>
+    </section>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+    <section class="post-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># 杂谈</div>
+        <a href="/tag/8VGfVl2g-/" class="post-title" style="font-size:18px;">杂谈</a>
+      </article>
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># 科普</div>
+        <a href="/tag/Dp03Agwwf/" class="post-title" style="font-size:18px;">科普</a>
+      </article>
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># fusion</div>
+        <a href="/tag/7umg0_l84/" class="post-title" style="font-size:18px;">fusion</a>
+      </article>
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># français</div>
+        <a href="/tag/PyBsKvfxJ/" class="post-title" style="font-size:18px;">français</a>
+      </article>
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># mAtH</div>
+        <a href="/tag/-PZIg83pE/" class="post-title" style="font-size:18px;">mAtH</a>
+      </article>
+      <article class="post-card" style="align-items:flex-start; gap:12px;">
+        <div class="post-meta"># when where and why</div>
+        <a href="/tag/P1OLTd43B/" class="post-title" style="font-size:18px;">when where and why</a>
+      </article>
+    </section>
+  </main>
 
-    </div>
-</div>
+  <footer class="site-footer wrapper">
+    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
+    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+  </footer>
 </body>
 </html>
+

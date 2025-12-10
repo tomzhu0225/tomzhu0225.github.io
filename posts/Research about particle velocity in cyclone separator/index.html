@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research about particle velocity in cyclone separator | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a href="/">首页</a>
+        <a href="/archives">所有文章</a>
+        <a href="/tags">标签</a>
+        <a href="/about">自我介绍</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-wrapper">
+    <article class="post-detail">
+      <div class="post-time">发布于 2022-12-17</div>
+      <h1>Research about particle velocity in cyclone separator</h1>
+      <div class="post-content">
+<p>The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. In the sense that instead of mapping directly from input(particle size, parrticle weight, fluid speed ) to output (particle relative speed), we use a model to calculate relative speed using some physical parameters. Then we use Neural network to map the input to the parameters.</p>
+<!-- more -->
+<p><img alt="" loading="lazy" src="./images/1671264064463.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264074757.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264079288.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264083664.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264089438.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264094471.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264099703.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264104304.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264110879.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264116130.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264121566.png"/><br/>
+<img alt="" loading="lazy" src="./images/1671264126506.png"/></p>
+      </div>
+    </article>
+
+    <!-- Giscus 评论系统 -->
+    <div class="giscus-container" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+      <script src="https://giscus.app/client.js"
+              data-repo="tomzhu0225/tomzhu0225.github.io"
+              data-repo-id="MDEwOlJlcG9zaXRvcnkzMTY5NjQ3OTM="
+              data-category="Announcements"
+              data-category-id="DIC_kwDOEuR_uc4Czmok"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="light"
+              data-lang="zh-CN"
+              data-loading="lazy"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </div>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <div>我叫朱博文，一个有奇思妙想的学生</div>
+    <div>Powered by GitHub Pages · 手工编辑，VS Code 友好</div>
+  </footer>
+</body>
+</html>

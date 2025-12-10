@@ -1,0 +1,41 @@
+# Backup files created during migration
+*.backup
+
+# Python cache and environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Migration scripts (optional - remove these lines if you want to track them)
+migrate_posts.py
+migrate_to_giscus.py
+modernize_posts.py
+update_giscus_style.py
+
+# Python dependencies
+requirements_migration.txt
+
+# Migration documentation (optional - remove if you want to track)
+MIGRATION_README.md
+GISCUS_SETUP.md
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

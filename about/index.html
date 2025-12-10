@@ -1,162 +1,176 @@
+﻿<!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-<title>关于 - FUSION!</title>
-
-<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1676105860023">
-
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://tomzhu0225.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
-
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <style>
+    :root { --card: #ffffff; --card-2: #f6f7fb; --accent: #0ea5e9; --muted: #475569; }
+    body { background: radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 26%), radial-gradient(circle at 78% 6%, rgba(249,115,22,0.12), transparent 20%), var(--bg); color: var(--muted); font-family: 'Space Grotesk', 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
+    .post-wrapper { padding: 36px 18px 64px; max-width: 1100px; margin: 0 auto; }
+    .hero-card { background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(249,115,22,0.1)); border: 1px solid var(--border); border-radius: 18px; padding: 28px; box-shadow: var(--shadow-soft); display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(14,165,233,0.12); color: var(--accent); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.2px; }
+    .hero-title { margin: 4px 0 6px; font-size: 30px; letter-spacing: -0.01em; color: var(--text-primary); }
+    .hero-sub { color: var(--muted); margin: 0; line-height: 1.6; }
+    .card-grid { margin-top: 24px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow-soft); }
+    .card h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: 0.02em; color: var(--text-primary); }
+    .card p, .card li { color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .card ul { padding-left: 18px; margin: 0; }
+    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(14,165,233,0.12); color: var(--accent); font-weight: 600; font-size: 12px; letter-spacing: 0.2px; }
+    .inline-links a { color: var(--accent); font-weight: 600; }
+  </style>
+  <script>
+    const translations = {
+      zh: {
+        title: 'About | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        post_time: 'About the author · Site',
+        page_title: 'Self Introduction',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      },
+      en: {
+        title: 'About | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        post_time: 'About the author · Site',
+        page_title: 'Self Introduction',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      }
+    };
+    function applyLang(lang) {
+      const t = translations[lang] || translations.zh;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      document.title = t.title;
+      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
+      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
+      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
+      setText('post-time','post_time'); setText('page-title','page_title');
+      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
+      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
+      localStorage.setItem('lang', lang);
+    }
+    function initLang() {
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved === 'en' ? 'en' : 'zh');
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            FUSION!
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a id="nav-home" href="/">首页</a>
+        <a id="nav-archives" href="/archives">所有文章</a>
+        <a id="nav-tags" href="/tags">标签</a>
+        <a id="nav-about" href="/about">自我介绍</a>
+      </nav>
+      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      </div>
+    </div>
+  </header>
+
+  <main class="post-wrapper">
+    <article class="post-detail">
+      <div class="hero-card">
+        <div class="hero-badge">PhD · XJTU</div>
+        <div>
+          <div class="post-time" id="post-time">About the author · Site</div>
+          <h1 id="page-title" class="hero-title">Self Introduction</h1>
+          <p class="hero-sub">Plasma simulation, physics-informed ML, diagnostics, and prompt engineering. Currently a PhD candidate at Xi'an Jiaotong University.</p>
         </div>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://tomzhu0225.github.io/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Email: tomzhu0225@stu.xjtu.edu.cn<br>Phone: +86 15724571656<br>Location: Xi'an, Shaanxi, China</p>
+          <div class="inline-links"><a href="https://github.com/tomzhu0225" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/bowen-zhu-52ba181b9/" target="_blank">LinkedIn</a> · <a href="https://www.drawingsword.com" target="_blank">Personal site</a></div>
         </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1676105860023" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
+
+        <div class="card">
+          <h3>Education</h3>
+          <ul>
+            <li>Ph.D. Candidate, Electrical Engineering, Xi'an Jiaotong University (Sept 2024 – present)</li>
+            <li>Visiting Student, CentraleSupélec / Univ. Paris-Saclay (Sept 2022 – Jun 2024)</li>
+            <li>B.Sc. Energy & Power Engineering, Xi'an Jiaotong University (Sept 2020 – Jun 2024)</li>
+          </ul>
         </div>
-    </div>
-</nav>
 
-    <div class="post-container">
-        <div class="post-detail">
-            <article class="gt-post-content">
-                <div class="post-content">
-                    
-                </div>
-            </article>
+        <div class="card">
+          <h3>Research Focus</h3>
+          <p>Plasma simulation · Physics-informed ML · Plasma diagnostics · Prompt engineering</p>
+          <div class="pill">TOEFL 107 · French B1</div>
         </div>
-        <br>
-        
 
-        
-            <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+        <div class="card">
+          <h3>Scholarships</h3>
+          <ul>
+            <li>Fusenet funding — Fusion research internship (Ghent University), Jun 2023</li>
+            <li>Fusenet funding — Culham Plasma Physics Summer School, Apr 2023</li>
+            <li>Eiffel Scholarship (French Government, long-term), Apr 2022</li>
+            <li>Xi'an Jiaotong University third-class scholarship, Jun 2021</li>
+            <li>Yvying scholarship (long-term), Sept 2020</li>
+          </ul>
+        </div>
 
-<style>
-	div#vcomments{
-		width:100%;
-		max-width: 1000px;
-		padding: 2.5%
-	}
-</style>
+        <div class="card">
+          <h3>Experience & Schools</h3>
+          <ul>
+            <li>Research Internship, NIFS Global Simulation Unit (Japan) — Jun 2024 – Sept 2024</li>
+            <li>Research Internship, Research Unit Nuclear Fusion (Ghent, Belgium) — Jun 2023 – Sept 2023</li>
+            <li>Culham Plasma Physics Summer School (UKAEA, UK) — Jul 2023</li>
+          </ul>
+        </div>
 
+        <div class="card">
+          <h3>Publications</h3>
+          <ul>
+            <li>Unified Bayesian inversion for HEDP plasmas — invited, <em>Physics of Plasmas</em> (in prep.)</li>
+            <li>Two-fluid effects in Z-pinch ablation — under review, <em>Physical Review Letters</em> (2025)</li>
+            <li>Partition-of-Unity flow-based solver for kinetic plasmas — under review, <em>JCP</em> (2025), <a href="https://arxiv.org/abs/2501.16390" target="_blank">arXiv:2501.16390</a></li>
+            <li>Physics-embedded Neural ODE mode prediction — <em>PPCF</em>, 67(8), 085038 (2025)</li>
+            <li>Learning ODEs without internal solvers — <em>Reachability Problems</em>, pp. 221-237 (2024)</li>
+          </ul>
+        </div>
 
-	<div id="vcomments"></div>
+        <div class="card">
+          <h3>Talks</h3>
+          <ul>
+            <li>Flow-Based Hybrid Kinetic Simulation — PPPS2025 (Berlin), Oral</li>
+            <li>Flow-Based Kinetic Simulation of Z-Pinch Dynamics — ICMRE 2025 (Xi'an), Oral</li>
+          </ul>
+        </div>
 
-<script>
-	new Valine({
-		el: '#vcomments',
-		appId: '5PQaATNP4hwVFDfUzwlAJqgQ-gzGzoHsz',
-		appKey: 'XNEIo44wzBsV0uqAn5GNyT71',
-		avatar: '',
-		pageSize: 5,
-		recordIp: true,
-		placeholder: 'JuST dO iT',
-		visitor: true,
-	});
-</script>
+        <div class="card">
+          <h3>Projects</h3>
+          <ul>
+            <li>Neural ODE Simulation of Electron Accelerator (Dec 2022 – Apr 2024): 85% runtime reduction vs ASTRA for ThomX.</li>
+            <li>Fusion H-mode ELMs via Markov Chains (Jun 2023 – Sept 2023): Temporal analysis on JET data.</li>
+          </ul>
+        </div>
+      </div>
 
-        
+      <p style="margin-top:16px; color:#94a3b8;">Last updated: 2025-12-10.</p>
+    </article>
+  </main>
 
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">我叫朱博文，一个有奇思妙想的学生</div>
-    <div class="social-container">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </div>
-    <div class="footer-info">
-        Powered by <a href="https://space.bilibili.com/64849811" target="_blank">pilipili</a>
-    </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://tomzhu0225.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
-    </div>
-</div>
+  <footer class="site-footer wrapper">
+    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
+    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+  </footer>
 </body>
 </html>
+

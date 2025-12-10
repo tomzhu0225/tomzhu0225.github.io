@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self Introduction | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <style>
+    :root { --card: #ffffff; --card-2: #f6f7fb; --accent: #0ea5e9; --muted: #475569; }
+    body { background: radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 26%), radial-gradient(circle at 78% 6%, rgba(249,115,22,0.12), transparent 20%), var(--bg); color: var(--muted); font-family: 'Space Grotesk', 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
+    .post-wrapper { padding: 36px 18px 64px; max-width: 1100px; margin: 0 auto; }
+    .hero-card { background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(249,115,22,0.1)); border: 1px solid var(--border); border-radius: 18px; padding: 28px; box-shadow: var(--shadow-soft); display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(14,165,233,0.12); color: var(--accent); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.2px; }
+    .hero-title { margin: 4px 0 6px; font-size: 30px; letter-spacing: -0.01em; color: var(--text-primary); }
+    .hero-sub { color: var(--muted); margin: 0; line-height: 1.6; }
+    .card-grid { margin-top: 24px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow-soft); }
+    .card h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: 0.02em; color: var(--text-primary); }
+    .card p, .card li { color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .card ul { padding-left: 18px; margin: 0; }
+    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(14,165,233,0.12); color: var(--accent); font-weight: 600; font-size: 12px; letter-spacing: 0.2px; }
+    .inline-links a { color: var(--accent); font-weight: 600; }
+  </style>
+  <script>
+    const translations = {
+      zh: {
+        title: 'Self Introduction | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        post_time: '2025-12-10 · Self Introduction',
+        page_title: 'Self Introduction',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      },
+      en: {
+        title: 'Self Introduction | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        post_time: '2025-12-10 · Self Introduction',
+        page_title: 'Self Introduction',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      }
+    };
+    function applyLang(lang) {
+      const t = translations[lang] || translations.en;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      document.title = t.title;
+      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
+      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
+      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
+      setText('post-time','post_time'); setText('page-title','page_title');
+      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
+      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
+      localStorage.setItem('lang', lang);
+    }
+    function initLang() {
+      const saved = localStorage.getItem('lang') || 'en';
+      applyLang(saved === 'en' ? 'en' : 'zh');
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="Avatar">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a id="nav-home" href="/">Home</a>
+        <a id="nav-archives" href="/archives">All Posts</a>
+        <a id="nav-tags" href="/tags">Tags</a>
+        <a id="nav-about" href="/about">About</a>
+      </nav>
+      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">中文</button>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="search-input" type="search" placeholder="Quick find (Ctrl+F)" aria-label="search" />
+      </div>
+    </div>
+  </header>
+
+  <main class="post-wrapper">
+    <article class="post-detail">
+      <div class="hero-card">
+        <div class="hero-badge">PhD · XJTU</div>
+        <div>
+          <div class="post-time" id="post-time">2025-12-10 · Self Introduction</div>
+          <h1 id="page-title" class="hero-title">Self Introduction</h1>
+          <p class="hero-sub">Plasma simulation, physics-informed ML, diagnostics, and prompt engineering. Currently a PhD candidate at Xi'an Jiaotong University.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Email: tomzhu0225@stu.xjtu.edu.cn<br>Phone: +86 15724571656<br>Location: Xi'an, Shaanxi, China</p>
+          <div class="inline-links"><a href="https://github.com/tomzhu0225" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/bowen-zhu-52ba181b9/" target="_blank">LinkedIn</a> · <a href="https://www.drawingsword.com" target="_blank">Personal site</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <ul>
+            <li>Ph.D. Candidate, Electrical Engineering, Xi'an Jiaotong University (Sept 2024 – present)</li>
+            <li>Visiting Student, CentraleSupélec / Univ. Paris-Saclay (Sept 2022 – Jun 2024)</li>
+            <li>B.Sc. Energy & Power Engineering, Xi'an Jiaotong University (Sept 2020 – Jun 2024)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Research Focus</h3>
+          <p>Plasma simulation · Physics-informed ML · Plasma diagnostics · Prompt engineering</p>
+          <div class="pill">TOEFL 107 · French B1</div>
+        </div>
+
+        <div class="card">
+          <h3>Scholarships</h3>
+          <ul>
+            <li>Fusenet funding — Fusion research internship (Ghent University), Jun 2023</li>
+            <li>Fusenet funding — Culham Plasma Physics Summer School, Apr 2023</li>
+            <li>Eiffel Scholarship (French Government, long-term), Apr 2022</li>
+            <li>Xi'an Jiaotong University third-class scholarship, Jun 2021</li>
+            <li>Yvying scholarship (long-term), Sept 2020</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Experience & Schools</h3>
+          <ul>
+            <li>Research Internship, NIFS Global Simulation Unit (Japan) — Jun 2024 – Sept 2024</li>
+            <li>Research Internship, Research Unit Nuclear Fusion (Ghent, Belgium) — Jun 2023 – Sept 2023</li>
+            <li>Culham Plasma Physics Summer School (UKAEA, UK) — Jul 2023</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Publications</h3>
+          <ul>
+            <li>Unified Bayesian inversion for HEDP plasmas — invited, <em>Physics of Plasmas</em> (in prep.)</li>
+            <li>Two-fluid effects in Z-pinch ablation — under review, <em>Physical Review Letters</em> (2025)</li>
+            <li>Partition-of-Unity flow-based solver for kinetic plasmas — under review, <em>JCP</em> (2025), <a href="https://arxiv.org/abs/2501.16390" target="_blank">arXiv:2501.16390</a></li>
+            <li>Physics-embedded Neural ODE mode prediction — <em>PPCF</em>, 67(8), 085038 (2025)</li>
+            <li>Learning ODEs without internal solvers — <em>Reachability Problems</em>, pp. 221-237 (2024)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Talks</h3>
+          <ul>
+            <li>Flow-Based Hybrid Kinetic Simulation — PPPS2025 (Berlin), Oral</li>
+            <li>Flow-Based Kinetic Simulation of Z-Pinch Dynamics — ICMRE 2025 (Xi'an), Oral</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Projects</h3>
+          <ul>
+            <li>Neural ODE Simulation of Electron Accelerator (Dec 2022 – Apr 2024): 85% runtime reduction vs ASTRA for ThomX.</li>
+            <li>Fusion H-mode ELMs via Markov Chains (Jun 2023 – Sept 2023): Temporal analysis on JET data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:16px; color:#94a3b8;">Last updated: 2025-12-10.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <div id="footer-line1">I am Bowen Zhu, a student with ideas.</div>
+    <div id="footer-line2">New theme, pure HTML/CSS, no external deps</div>
+  </footer>
+</body>
+</html>

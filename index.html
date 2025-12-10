@@ -1,362 +1,227 @@
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-<title>FUSION!</title>
-
-<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1676105860023">
-
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://tomzhu0225.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
-
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FUSION! · 主页</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <style>
+    .latest { margin: 24px auto 48px; }
+    .latest-header { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .latest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .post-card { display: block; padding: 16px; border: 1px solid #e2e2e2; border-radius: 10px; text-decoration: none; color: inherit; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 120ms ease, box-shadow 120ms ease; }
+    .post-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .post-card-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .post-card-desc { font-size: 14px; color: #444; line-height: 1.5; }
+    .post-card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; font-size: 13px; color: #666; }
+    .post-card-badge { padding: 2px 8px; background: #0f766e; color: #fff; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.2px; }
+    .latest-error { margin-top: 8px; color: #b00020; font-size: 14px; }
+  </style>
+  <script>
+    const translations = {
+      zh: {
+        title: 'FUSION! · 主页',
+        nav_home: '首页',
+        nav_archives: '所有文章',
+        nav_tags: '标签',
+        nav_about: '自我介绍',
+        search_placeholder: '在 VS Code 中搜索文件',
+        hero1_kicker: '',
+        hero1_title: '',
+        hero1_subtitle: '',
+        hero1_btn_about: '关于作者',
+        hero1_btn_repo: '查看仓库',
+        hero1_pill: '编辑 -> 本地预览 -> push',
+        hero2_kicker: '首页不再列出旧文',
+        hero2_title: '这些文章距今已超过 3 年',
+        hero2_subtitle: '请前往「所有文章」查看完整归档，按年代分区浏览。',
+        hero2_btn_archives: '所有文章',
+        hero2_btn_tags: '按标签查看',
+        latest_title: '最新更新',
+        latest_desc: '最近发布的 6 篇文章。',
+        latest_error: '文章列表加载失败，请刷新后重试。',
+        badge_phd: 'PhD (XJTU)',
+        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
+        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
+      },
+      en: {
+        title: 'FUSION! · Home',
+        nav_home: 'Home',
+        nav_archives: 'All Posts',
+        nav_tags: 'Tags',
+        nav_about: 'About',
+        search_placeholder: 'Search files in VS Code',
+        hero1_kicker: '',
+        hero1_title: '',
+        hero1_subtitle: '',
+        hero1_btn_about: 'About me',
+        hero1_btn_repo: 'View repo',
+        hero1_pill: 'Edit -> Preview -> Push',
+        hero2_kicker: 'Homepage no longer lists old posts',
+        hero2_title: 'These posts are 3+ years old',
+        hero2_subtitle: 'Go to “All Posts” for the full archive, grouped by era.',
+        hero2_btn_archives: 'All Posts',
+        hero2_btn_tags: 'Browse tags',
+        latest_title: 'Latest updates',
+        latest_desc: 'The 6 most recent posts.',
+        latest_error: 'Failed to load posts. Please refresh.',
+        badge_phd: 'PhD (XJTU)',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      }
+    };
+    function applyLang(lang) {
+      const t = translations[lang] || translations.zh;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      document.title = t.title;
+      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
+      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
+      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
+      setText('hero1-kicker','hero1_kicker'); setText('hero1-title','hero1_title'); setText('hero1-subtitle','hero1_subtitle');
+      setText('hero1-btn-about','hero1_btn_about'); setText('hero1-btn-repo','hero1_btn_repo'); setText('hero1-pill','hero1_pill');
+      setText('hero2-kicker','hero2_kicker'); setText('hero2-title','hero2_title'); setText('hero2-subtitle','hero2_subtitle');
+      setText('hero2-btn-archives','hero2_btn_archives'); setText('hero2-btn-tags','hero2_btn_tags');
+      setText('latest-title','latest_title'); setText('latest-desc','latest_desc');
+      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
+      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
+      localStorage.setItem('lang', lang);
+    }
+    function getActiveLang() {
+      return localStorage.getItem('lang') === 'en' ? 'en' : 'zh';
+    }
+    const RECENT_AFTER = new Date('2025-12-01');
+    const PHD_AFTER = new Date('2024-09-01');
+    function isValidDateStr(value) {
+      const t = new Date(value);
+      return !Number.isNaN(t.valueOf());
+    }
+    function isRecent(post) {
+      if (!post || !post.date || !isValidDateStr(post.date)) return false;
+      return new Date(post.date) >= RECENT_AFTER;
+    }
+    function isPhD(post) {
+      if (!post || !post.date || !isValidDateStr(post.date)) return false;
+      return new Date(post.date) >= PHD_AFTER;
+    }
+    function renderLatest(posts) {
+      const list = document.getElementById('latest-list');
+      if (!list) return;
+      list.innerHTML = '';
+      const filtered = posts.filter(isRecent).sort((a,b) => {
+        if (isValidDateStr(a.date) && isValidDateStr(b.date)) {
+          return new Date(b.date) - new Date(a.date);
+        }
+        return 0;
+      });
+      const trimmed = filtered.slice(0, 6);
+      trimmed.forEach(post => {
+        const card = document.createElement('a');
+        card.className = 'post-card';
+        card.href = post.link;
+        card.setAttribute('role', 'listitem');
+        const parts = [];
+        if (post.date) {
+          const date = new Date(post.date);
+          if (!Number.isNaN(date.valueOf())) parts.push(date.toISOString().slice(0,10));
+        }
+        if (isPhD(post)) {
+          const lang = getActiveLang();
+          const badgeLabel = translations[lang] && translations[lang].badge_phd ? translations[lang].badge_phd : 'PhD';
+          parts.push(`<span class="post-card-badge">${badgeLabel}</span>`);
+        }
+        const meta = parts.length ? `<div class="post-card-meta">${parts.join(' ')}</div>` : '';
+        card.innerHTML = `${meta}<div class="post-card-title">${post.title}</div><p class="post-card-desc">${post.content}</p>`;
+        list.appendChild(card);
+      });
+      const error = document.getElementById('latest-error');
+      if (error) error.style.display = 'none';
+    }
+    function showLatestError() {
+      const error = document.getElementById('latest-error');
+      if (!error) return;
+      const lang = getActiveLang();
+      const msg = (translations[lang] && translations[lang].latest_error) || '';
+      error.textContent = msg || 'Load failed';
+      error.style.display = 'block';
+    }
+    function loadLatest() {
+      fetch('/api-content/index.html')
+        .then(res => res.json())
+        .then(data => { if (data && Array.isArray(data.posts)) renderLatest(data.posts); else showLatestError(); })
+        .catch(showLatestError);
+    }
+    function initLang() {
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved === 'en' ? 'en' : 'zh');
+    }
+    function bootstrap() {
+      initLang();
+      loadLatest();
+    }
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  </script>
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            FUSION!
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a id="nav-home" href="/">首页</a>
+        <a id="nav-archives" href="/archives">所有文章</a>
+        <a id="nav-tags" href="/tags">标签</a>
+        <a id="nav-about" href="/about">自我介绍</a>
+      </nav>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="search-input" type="search" placeholder="在 VS Code 中搜索文件" aria-label="搜索" />
+      </div>
+      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-kicker" id="hero1-kicker">手工维护 · VS Code 友好</div>
+        <h1 class="hero-title" id="hero1-title">全新简洁主题，不再依赖 Gridea</h1>
+        <p class="hero-subtitle" id="hero1-subtitle">所有页面都是纯 HTML/CSS。每篇文章的图片都收在自己的文件夹里，中文文章使用中文路径，直接在 VS Code 里改、预览、推送到 GitHub Pages。</p>
+        <div class="hero-actions">
+          <a class="button" id="hero1-btn-about" href="/about">关于作者</a>
+          <a class="button secondary" id="hero1-btn-repo" href="https://github.com/tomzhu0225/tomzhu0225.github.io">查看仓库</a>
+          <span class="pill" id="hero1-pill">编辑 -> 本地预览 -> push</span>
         </div>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://tomzhu0225.github.io/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
+      </div>
+    </section>
+
+    <section class="hero" style="padding-top: 4px;">
+      <div class="hero-card" style="border-style: dashed;">
+        <div class="hero-kicker" id="hero2-kicker">首页不再列出旧文</div>
+        <h2 class="hero-title" id="hero2-title" style="font-size: 24px;">这些文章距今已超过 3 年</h2>
+        <p class="hero-subtitle" id="hero2-subtitle">请前往「所有文章」查看完整归档，按年代分区浏览。</p>
+        <div class="hero-actions">
+          <a class="button" id="hero2-btn-archives" href="/archives">所有文章</a>
+          <a class="button secondary" id="hero2-btn-tags" href="/tags">按标签查看</a>
         </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1676105860023" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+      </div>
+    </section>
 
+    <section class="latest">
+      <div class="latest-header">
+        <h2 id="latest-title">最新更新</h2>
+        <p id="latest-desc">最近发布的 6 篇文章。</p>
+      </div>
+      <div id="latest-list" class="latest-grid" role="list"></div>
+      <div id="latest-error" class="latest-error" style="display:none;"></div>
+    </section>
+  </main>
 
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/donate-me/">
-                            <span class="post-title gt-c-content-color-first">Donate ME!</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2023-02-11 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/vehicle-performance-simulationice-and-ev/">
-                            <span class="post-title gt-c-content-color-first">Vehicle performance simulation(ICE and EV)</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>See repo at <a href="https://github.com/tomzhu0225/vehicle-performance-simulation-via-matlabr">Repo</a></p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2023-01-29 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/">
-                            <span class="post-title gt-c-content-color-first">A review of hydrogen vehicle powertrain</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>We review the development of H2ICE and Hydrogen fuel cell and introduce their current status. A discussion about the future of hydrogen powertrain is also here.</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2023-01-29 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/flight-controller-for-supersonic-missiles/">
-                            <span class="post-title gt-c-content-color-first">Flight controller for supersonic missiles</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>Github repo at <a href="https://github.com/tomzhu0225/Simulink-missile-flight-controller">Repo</a></p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2023-01-12 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/how-to-justify-a-pde/">
-                            <span class="post-title gt-c-content-color-first">How to &#34;justify&#34; a PDE</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>To get the variational formulation of the PDE; To prove its uniqueness; To prove the unicity of the variational formulation.</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2023-01-12 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/research-about-particle-velocity-in-cyclone-separator/">
-                            <span class="post-title gt-c-content-color-first">Research about particle velocity in cyclone separator</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. In the sense that instead of mapping directly from input(particle size, parrticle weight, fluid speed ) to output (particle relative speed), we use a model to calculate relative speed using some physical parameters. Then we use Neural network to map the input to the parameters.</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-12-17 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/ba-li-tian-ji-xian/">
-                            <span class="post-title gt-c-content-color-first">巴黎天际线</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-10-31 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/">
-                            <span class="post-title gt-c-content-color-first">Tokamak plasma fluid model with FEM</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>Will be updated soon!<br>
-update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror that can provide a reflection about why we need this or that method--to avoid naive implementation as I did in this project.</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-08-14 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/ju-bian-bao-ceng-xi-tong-iter-blanket-system/">
-                            <span class="post-title gt-c-content-color-first">聚变包层系统 ITER Blanket System</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>Reference：https://www.youtube.com/watch?v=-pLdtF0fJRE&amp;t=1183s</p>
-<p>（ITER Talks (2): The ITER Blanket System by iterorganization）</p>
-<p>The artical was originally written in Chinese and has been translated by Google. English Ver maybe inaccurate.</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-05-05 ·
-                        </time>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/">
-                            <span class="post-title gt-c-content-color-first">俄乌冲突分析 Analysis of the Russian-Ukrainian conflict</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <p>感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持<br>
-本文适用CC-BY-SA-3.0协议</p>
-
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-05-05 ·
-                        </time>
-                        
-                            <a href="https://tomzhu0225.github.io/tag/8VGfVl2g-/" class="post-tag">
-                                # 杂谈
-                            </a>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        
-    </div>
-</div>
-
-        <div class="pagination-container">
-    
-    
-        <a href="https://tomzhu0225.github.io/page/2" class="prev-page gt-a-link">下一页</a>
-    
-</div>
-
-
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">我叫朱博文，一个有奇思妙想的学生</div>
-    <div class="social-container">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </div>
-    <div class="footer-info">
-        Powered by <a href="https://space.bilibili.com/64849811" target="_blank">pilipili</a>
-    </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://tomzhu0225.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
-    </div>
-</div>
+  <footer class="site-footer wrapper">
+    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
+    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+  </footer>
 </body>
 </html>
+

@@ -1,746 +1,218 @@
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <meta charset="utf-8"/>
-<meta name="description" content=""/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-<title>FUSION!</title>
-
-<link rel="shortcut icon" href="https://tomzhu0225.github.io/favicon.ico?v=1676105860023">
-
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://tomzhu0225.github.io/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
-
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>所有文章 | FUSION!</title>
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <script>
+    const translations = {
+      zh: {
+        title: '所有文章 | FUSION!',
+        nav_home: '首页', nav_archives: '所有文章', nav_tags: '标签', nav_about: '自我介绍',
+        search_placeholder: '快速查找 (Ctrl+F)',
+        hero_kicker: '所有文章 · 分年代',
+        hero_title: '按阶段浏览：高中 / 本科 / 工程 / PhD',
+        hero_subtitle: '数据来源 /archives/data.json，时间分段：<2020-06 高中；<2022-06 本科（西交）；<2024-06 工程；<2024-09 Recent；≥2024-09 PhD。',
+        hero_pill: '自动分组 · 动态渲染 · PhD',
+        hero_btn_home: '返回首页',
+        era_phd: 'PhD（2024-09 之后）',
+        era_recent: 'Recent（2024-06 ~ 2024-09）',
+        era_eng: 'Engineering · CentraleSupélec（2022-06 ~ 2024-06）',
+        era_undergrad: 'Undergraduate · 西安交通大学（2020-06 ~ 2022-06）',
+        era_highschool: 'High School（< 2020-06）',
+        era_unknown: '未标日期',
+        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
+        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
+      },
+      en: {
+        title: 'All Posts | FUSION!',
+        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
+        search_placeholder: 'Quick find (Ctrl+F)',
+        hero_kicker: 'All posts · By era',
+        hero_title: 'Browse by stage: High School / Undergraduate / Engineering / PhD',
+        hero_subtitle: 'Source: /archives/data.json. Buckets: <2020-06 High School; <2022-06 Undergraduate (XJTU); <2024-06 Engineering; <2024-09 Recent; ≥2024-09 PhD.',
+        hero_pill: 'Auto grouped · Dynamic render · PhD',
+        hero_btn_home: 'Back home',
+        era_phd: 'PhD (after 2024-09)',
+        era_recent: 'Recent (2024-06 to 2024-09)',
+        era_eng: 'Engineering · CentraleSupélec (2022-06 ~ 2024-06)',
+        era_undergrad: 'Undergraduate · Xi’an Jiaotong (2020-06 ~ 2022-06)',
+        era_highschool: 'High School (< 2020-06)',
+        era_unknown: 'No date',
+        footer_line1: 'I am Bowen Zhu, a student with ideas.',
+        footer_line2: 'New theme, pure HTML/CSS, no external deps'
+      }
+    };
+    function applyLang(lang) {
+      const t = translations[lang] || translations.zh;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+      document.title = t.title;
+      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
+      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
+      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
+      setText('hero-kicker','hero_kicker'); setText('hero-title','hero_title'); setText('hero-subtitle','hero_subtitle');
+      setText('hero-pill','hero_pill'); setText('hero-btn-home','hero_btn_home');
+      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
+      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
+      // era labels for rendering
+      window.eraLabels = {
+        phd: t.era_phd,
+        recent: t.era_recent,
+        engineering: t.era_eng,
+        undergrad: t.era_undergrad,
+        highschool: t.era_highschool,
+        unknown: t.era_unknown
+      };
+      localStorage.setItem('lang', lang);
+      if (window.renderArchive) window.renderArchive();
+    }
+    function initLang() {
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved === 'en' ? 'en' : 'zh');
+    }
+    document.addEventListener('DOMContentLoaded', initLang);
+  </script>
 </head>
 <body>
-<div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            FUSION!
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <img src="/images/avatar.png" alt="头像">
+        <div class="title">FUSION!</div>
+      </div>
+      <nav class="nav">
+        <a id="nav-home" href="/">首页</a>
+        <a id="nav-archives" href="/archives">所有文章</a>
+        <a id="nav-tags" href="/tags">标签</a>
+        <a id="nav-about" href="/about">自我介绍</a>
+      </nav>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      </div>
+      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-kicker" id="hero-kicker">所有文章 · 分年代</div>
+        <h1 class="hero-title" id="hero-title">按阶段浏览：高中 / 本科 / 工程</h1>
+        <p class="hero-subtitle" id="hero-subtitle">数据来源 /archives/data.json，自动按时间划分：<2020-06 高中；<2022-06 本科（西交）；<2024-06 工程（CS）; 之后为 Recent。</p>
+        <div class="hero-actions">
+          <span class="pill" id="hero-pill">自动分组 · 动态渲染</span>
+          <a class="button secondary" id="hero-btn-home" href="/">返回首页</a>
         </div>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-                <div class="nav-item">
-                    
-                        <a href="/" class="menu gt-a-link">
-                            首页
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/archives" class="menu gt-a-link">
-                            归档
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="/tags" class="menu gt-a-link">
-                            标签
-                        </a>
-                    
-                </div>
-            
-                <div class="nav-item">
-                    
-                        <a href="https://tomzhu0225.github.io/post/about" class="menu gt-a-link">
-                            关于
-                        </a>
-                    
-                </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1676105860023" action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
+      </div>
+    </section>
 
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">归档</h2>
-        
+    <section id="archive-list" style="display:flex; flex-direction:column; gap:18px; padding-bottom:18px;">
+      <article class="post-card">
+        <div class="post-meta">加载中...</div>
+        <h2 class="post-title">请稍候</h2>
+        <p class="post-excerpt">正在读取归档列表。</p>
+      </article>
+    </section>
+  </main>
 
-<div class="archives-container">
-    
-        <h2 class="year gt-c-cotent-color-first">2023</h2>
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/donate-me/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2023-02-11&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Donate ME!
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/vehicle-performance-simulationice-and-ev/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2023-01-29&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Vehicle performance simulation(ICE and EV)
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/a-review-of-hydrogen-vehicle-powertrain/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2023-01-29&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            A review of hydrogen vehicle powertrain
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/flight-controller-for-supersonic-missiles/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2023-01-12&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Flight controller for supersonic missiles
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/how-to-justify-a-pde/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2023-01-12&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            How to &#34;justify&#34; a PDE
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        <h2 class="year gt-c-cotent-color-first">2022</h2>
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/research-about-particle-velocity-in-cyclone-separator/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-12-17&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Research about particle velocity in cyclone separator
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ba-li-tian-ji-xian/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-10-31&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            巴黎天际线
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/tokamak-plasma-fluid-model-with-fem/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-08-14&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Tokamak plasma fluid model with FEM
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ju-bian-bao-ceng-xi-tong-iter-blanket-system/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-05-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            聚变包层系统 ITER Blanket System
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/e-wu-chong-tu-fen-xi-analysis-of-the-russian-ukrainian-conflict/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-05-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            俄乌冲突分析 Analysis of the Russian-Ukrainian conflict
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ism/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-03-26&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            某电力设备制造公司运营效率诊断
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/yong-ism-fang-fa-yan-jiu-ke-cheng-zhi-chi-guan-xi/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-03-19&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            用ISM方法研究课程支持关系
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/qing-yuan-zi-xie-ding-e-fang-cheng-de-jie-xi-jie/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-01-15&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            氢原子薛定谔方程的解析解
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ci-kong-fa-ce-liang-dian-zi-he-zhi-bi-zhong-dian-chang-li-yin-qi-de-wu-chai-fen-xi/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-01-12&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            磁控法测量电子荷质比中电场力引起的误差分析
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/yi-ge-kan-si-bu-ke-neng-de-xian-xiang-yi-xing-luo-mao-de-gui-ze-fan-zhuan/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-01-12&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            一个看似不可能的现象-翼型螺帽的规则翻转
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/jia-luo-wa-di-yi-lun-wen-dai-shu-fang-cheng-you-dai-shu-jie-de-chong-fen-bi-yao-tiao-jian/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2022-01-11&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            伽罗瓦第一论文（代数方程有代数解的充分必要条件）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        <h2 class="year gt-c-cotent-color-first">2021</h2>
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/zeekr-zhu-dong-kong-qi-dong-li-xue-xi-tong-zaas/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-10-12&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            ZEEKR主动空气动力学系统（ZAAS）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ji-yu-ansys-ruan-jian-de-ye-di-peng-zhuang-gu-ti-ji-ye-ti-biao-mian-de-pu-zhan-te-xing-yan-jiu-xjtu-shu-xue-jian-mo-da-sai-xuan-ba-sai-ti-mu/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-07-29&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/espboy-arduboy-on-esp-12e/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-07-27&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            ESPBOY-Arduboy on ESP-12E
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/using-the-xy-mode-of-oscilloscope-to-draw-graphs/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-07-05&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Using the XY mode of oscilloscope to draw graphs
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/associated-code-for-use-the-xy-mode-of-oscilloscope-to-draw-graphs-with-audio-signals/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-06-13&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                             associated code for Use the XY mode of oscilloscope to draw graphs with audio signals
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/tuo-yuan-xing-chuan-guo-shui-dao-wen-ti/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-06-08&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            椭圆形船过水道问题
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/shi-yong-shi-bo-qi-xian-shi-tu-pian-shi-pin/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-05-07&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            使用示波器显示图片（视频）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/hua-tu-ruan-jian-shi-yong-zhi-nan/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-04-02&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            画图软件使用指南&amp;画图软件python代码
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/fiction/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-02-19&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            算法女孩
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/fully-automatic-ai-player-in-the-fps-game/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2021-01-11&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Reinforcement AI player in the fps game
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
-        <h2 class="year gt-c-cotent-color-first">2020</h2>
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/sui-ji-sheng-cheng-de-zao-sheng-tu-xiang-zhong-shi-bie-te-ding-te-zheng-geng-xin-ri-zhi/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-23&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            随机生成的噪声图像中识别特定特征（完整版）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ben-zhan-zhi-shi-gong-xiang-xie-yi-cc-xie-yi/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-23&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            本站知识共享协议（CC协议）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ji-jiang-jian-mo-wan-cheng-de-zhuan-zi-fa-dong-ji/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-14&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            转子发动机建模日志！（14/12日更新）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/ping-lun-xi-tong-kai-qi/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-09&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            网站使用指南（评论系统开启！）
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/yi-guan-xing-yue-shu-ju-bian-wei-tui-jin-fang-shi-de-shen-kong-zhi-min-tan-suo-fang-an/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-07&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            以惯性约束聚变为推进方式的深空殖民探索方案
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/bonjour-a-tous/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-07&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            Bonjour à tous!
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/mAtH001/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-12-01&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/about/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-11-30&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            关于
-                        </div>
-                    </a>
-                </article>
-            
-        
-            
-                <article class="post">
-                    <a href="https://tomzhu0225.github.io/post/zao-an-quan-shi-jie/">
-                        <div class="post-title gt-c-content-color-first">
-                            <small><b>2020-11-30&nbsp;&nbsp;·&nbsp;&nbsp;</b></small>
-                            早安，全世界
-                        </div>
-                    </a>
-                </article>
-            
-        
-    
-</div>
+  <footer class="site-footer wrapper">
+    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
+    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+  </footer>
 
-        <div class="pagination-container">
-    
-    
-</div>
+  <script>
+    function renderArchiveContent(groups, eraOrder, container) {
+      container.innerHTML = '';
+      for (const era of eraOrder) {
+        const arr = groups[era.key];
+        if (!arr.length) continue;
+        const section = document.createElement('section');
+        section.style.display = 'flex';
+        section.style.flexDirection = 'column';
+        section.style.gap = '10px';
+        const h = document.createElement('h3');
+        const label = (window.eraLabels && window.eraLabels[era.key]) || era.title;
+        h.textContent = `${label} · ${arr.length} 篇`;
+        h.style.margin = '4px 0 2px 4px';
+        h.style.color = 'var(--text-primary)';
+        section.appendChild(h);
+        const wrapper = document.createElement('div');
+        wrapper.className = 'post-grid';
+        for (const post of arr) {
+          const card = document.createElement('article');
+          card.className = 'post-card';
+          card.innerHTML = `
+            <div class="post-meta">${post.date || ''}</div>
+            <a href="${post.href}"><h2 class="post-title">${post.title}</h2></a>
+            <p class="post-excerpt">${post.href}</p>
+          `;
+          wrapper.appendChild(card);
+        }
+        section.appendChild(wrapper);
+        container.appendChild(section);
+      }
+    }
 
-    </article>
-</div>
-</div>
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">我叫朱博文，一个有奇思妙想的学生</div>
-    <div class="social-container">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </div>
-    <div class="footer-info">
-        Powered by <a href="https://space.bilibili.com/64849811" target="_blank">pilipili</a>
-    </div>
-    <div>
-        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
-                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://tomzhu0225.github.io/atom.xml" target="_blank">RSS</a></a>
-    </div>
-</div>
+    async function loadArchive() {
+      const container = document.getElementById('archive-list');
+      const eraOrder = [
+        { key: 'phd', title: 'PhD（2024-09 之后）' },
+        { key: 'recent', title: 'Recent（2024-06 ~ 2024-09）' },
+        { key: 'engineering', title: 'Engineering · CentraleSupélec（2022-06 ~ 2024-06）' },
+        { key: 'undergrad', title: 'Undergraduate · 西安交通大学（2020-06 ~ 2022-06）' },
+        { key: 'highschool', title: 'High School（< 2020-06）' },
+        { key: 'unknown', title: '未标日期' },
+      ];
+      try {
+        const res = await fetch('/archives/data.json');
+        const data = await res.json();
+        const seen = new Set();
+        const list = [];
+        for (const item of data) {
+          if (seen.has(item.href)) continue;
+          seen.add(item.href);
+          list.push(item);
+        }
+        if (!list.length) throw new Error('no posts');
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+        const groups = { phd: [], recent: [], engineering: [], undergrad: [], highschool: [], unknown: [] };
+        const d = (s) => {
+          if (!s) return null;
+          const parts = s.replace(/发布于\s*/,'').trim();
+          const m = parts.match(/(\d{4})-(\d{2})-(\d{2})/);
+          if (!m) return null;
+          return new Date(`${m[1]}-${m[2]}-${m[3]}T00:00:00Z`);
+        };
+        const t2020 = new Date('2020-06-01T00:00:00Z');
+        const t2022 = new Date('2022-06-01T00:00:00Z');
+        const t2024 = new Date('2024-06-01T00:00:00Z');
+        const tPhD = new Date('2024-09-01T00:00:00Z');
 
-    </div>
-</div>
+        for (const post of list) {
+          const dt = d(post.date);
+          if (!dt) { groups.unknown.push(post); continue; }
+          if (dt < t2020) groups.highschool.push(post);
+          else if (dt < t2022) groups.undergrad.push(post);
+          else if (dt < t2024) groups.engineering.push(post);
+          else if (dt < tPhD) groups.recent.push(post);
+          else groups.phd.push(post);
+        }
+
+        window._archiveState = { groups, eraOrder, container };
+        renderArchive();
+      } catch (err) {
+        container.innerHTML = '<article class="post-card"><h2 class="post-title">加载失败</h2><p class="post-excerpt">无法读取 /archives/data.json</p></article>';
+      }
+    }
+    window.renderArchive = function renderArchive() {
+      if (!window._archiveState) return;
+      const { groups, eraOrder, container } = window._archiveState;
+      renderArchiveContent(groups, eraOrder, container);
+    };
+    loadArchive();
+  </script>
 </body>
 </html>
+
