@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Research interests and publications — Bowen Zhu. Diagnostic inversion, kinetic/hybrid PIC, pulsed-power simulation." />
+  <title>Research · FUSION!</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body data-title-key="page_title">
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">首页</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">研究</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">关于</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">归档</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <header class="page-intro">
+      <h1 data-i18n="hero_title">研究</h1>
+      <p class="lede" id="research-overview"></p>
+      <p class="meta-line"><span id="cv-updated"></span></p>
+    </header>
+
+    <!-- Three interest pillars (narrative first) -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="themes_heading">研究主线</h2>
+          <p data-i18n="themes_sub">目前的主要方向。</p>
+        </div>
+      </div>
+      <div id="themes" class="theme-stack"></div>
+    </section>
+
+    <section class="section">
+      <div class="callout">
+        <strong data-i18n="videos_heading">视频</strong> —
+        <span data-i18n="videos_sub">仿真与科普见「视频」栏目。</span>
+        <a href="/videos/" data-i18n="videos_all" style="margin-left:8px;font-weight:700;">→ Videos</a>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="section_pubs">论文</h2>
+          <p data-i18n="pubs_sub">已发表与在审 / 准备中的完整列表。</p>
+        </div>
+      </div>
+      <h3 class="year-block" style="margin-top:4px;"><span data-i18n="published">已发表</span></h3>
+      <div id="pubs" class="pub-grid"></div>
+      <h3 class="year-block" style="margin-top:20px;"><span data-i18n="under_review">在审 / 准备中</span></h3>
+      <div id="under-review" class="pub-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="talks">会议报告</h2>
+      </div>
+      <div id="talks" class="pub-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="projects">更早的课题</h2>
+          <p data-i18n="projects_sub">其他相关工作。</p>
+        </div>
+      </div>
+      <div id="projects" class="pub-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="related_notes">相关博文</h2>
+          <p data-i18n="related_desc">站点内技术向旧文。</p>
+        </div>
+      </div>
+      <div id="related-posts" class="post-grid"></div>
+      <p id="research-error" class="muted" style="display:none;"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <div data-i18n="footer_line1">朱博文 · 等离子体计算 / 物理信息机器学习</div>
+    <div data-i18n="footer_line2">drawingsword.com · 静态托管于 GitHub Pages</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: {
+          page_title: "研究 · FUSION!",
+          hero_title: "研究",
+          themes_heading: "研究主线",
+          themes_sub: "目前的主要方向。",
+          pubs_sub: "已发表与在审 / 撰写中。",
+          projects_sub: "其他相关工作。",
+          related_desc: "相关技术笔记。",
+          related_outputs: "相关论文",
+          related_videos: "相关视频",
+          videos_heading: "视频",
+          videos_sub: "仿真与科普见「视频」栏目。",
+          videos_all: "打开视频",
+        },
+        en: {
+          page_title: "Research · FUSION!",
+          hero_title: "Research",
+          themes_heading: "Research directions",
+          themes_sub: "Main directions.",
+          pubs_sub: "Published and under review / in preparation.",
+          projects_sub: "Other related work.",
+          related_desc: "Related technical notes.",
+          related_outputs: "Related papers",
+          related_videos: "Related videos",
+          videos_heading: "Videos",
+          videos_sub: "Simulations and outreach are under Videos.",
+          videos_all: "Open Videos",
+        },
+      });
+      document.body.setAttribute("data-title-key", "page_title");
+      SiteI18n.apply(SiteI18n.getLang());
+
+      let research = null;
+      let posts = null;
+
+      function allPubs() {
+        if (!research) return [];
+        return []
+          .concat(research.publications || [])
+          .concat(research.under_review || []);
+      }
+
+      function pubById(id) {
+        return allPubs().find((p) => p.id === id);
+      }
+
+      function videoByBvid(bvid) {
+        return (research.videos || []).find((v) => v.bvid === bvid);
+      }
+
+      function themeCard(theme, lang) {
+        const title = lang === "zh" ? theme.title_zh : theme.title_en;
+        const lede = lang === "zh" ? theme.lede_zh : theme.lede_en;
+        const points = lang === "zh" ? theme.points_zh : theme.points_en;
+        const status = lang === "zh" ? theme.status_zh : theme.status_en;
+        const statusHtml = (status || [])
+          .map((s) => `<span class="pill">${Site.escapeHtml(s)}</span>`)
+          .join("");
+        const pointsHtml = (points || [])
+          .map((p) => `<li>${Site.escapeHtml(p)}</li>`)
+          .join("");
+
+        const related = (theme.pub_ids || [])
+          .map((id) => pubById(id))
+          .filter(Boolean);
+        let relatedHtml = "";
+        if (related.length) {
+          const rows = related
+            .map((p) => {
+              const link = p.doi || p.arxiv || "#publications";
+              const ext = p.doi || p.arxiv ? ` target="_blank" rel="noopener"` : "";
+              const meta = [p.year, p.venue].filter(Boolean).join(" · ");
+              return `<a href="${Site.escapeHtml(link)}"${ext}>${Site.escapeHtml(p.title)}<span class="pub-mini-meta"> — ${Site.escapeHtml(meta)}</span></a>`;
+            })
+            .join("");
+          relatedHtml = `
+            <div class="theme-related">
+              <div class="theme-related-label">${Site.escapeHtml(SiteI18n.t("related_outputs", lang))}</div>
+              ${rows}
+            </div>`;
+        }
+
+        const vids = (theme.video_ids || [])
+          .map((id) => videoByBvid(id))
+          .filter(Boolean);
+        let videoHtml = "";
+        if (vids.length) {
+          const rows = vids
+            .map((v) => {
+              const t = lang === "zh" ? v.title_zh || v.title_en : v.title_en || v.title_zh;
+              const href = "https://www.bilibili.com/video/" + encodeURIComponent(v.bvid);
+              return `<a href="${Site.escapeHtml(href)}" target="_blank" rel="noopener">${Site.escapeHtml(t)}</a>`;
+            })
+            .join("");
+          videoHtml = `
+            <div class="theme-related">
+              <div class="theme-related-label">${Site.escapeHtml(SiteI18n.t("related_videos", lang))}</div>
+              ${rows}
+            </div>`;
+        }
+
+        return `
+          <article class="theme-card" id="theme-${Site.escapeHtml(theme.id)}">
+            <div class="theme-card-head">
+              <span class="theme-num">${Site.escapeHtml(theme.num || "")}</span>
+              <h2>${Site.escapeHtml(title)}</h2>
+            </div>
+            <p class="theme-lede">${Site.escapeHtml(lede)}</p>
+            <div class="theme-status">${statusHtml}</div>
+            <ul>${pointsHtml}</ul>
+            ${relatedHtml}
+            ${videoHtml}
+          </article>`;
+      }
+
+      async function boot() {
+        try {
+          research = await Site.loadJSON("/data/research.json");
+          const pd = await Site.loadJSON("/data/posts.json");
+          posts = (pd.posts || []).filter((p) => p.lane === "research" && !p.hidden);
+          render();
+        } catch (e) {
+          console.error(e);
+          const err = document.getElementById("research-error");
+          if (err) {
+            err.style.display = "block";
+            err.textContent = SiteI18n.t("load_error");
+          }
+        }
+      }
+
+      function render() {
+        if (!research) return;
+        const lang = SiteI18n.getLang();
+
+        const ov = document.getElementById("research-overview");
+        if (ov && research.overview) {
+          ov.textContent = lang === "zh" ? research.overview.zh : research.overview.en;
+        }
+
+        const themes = document.getElementById("themes");
+        if (themes) {
+          themes.innerHTML = (research.themes || [])
+            .map((t) => themeCard(t, lang))
+            .join("");
+        }
+const pubs = document.getElementById("pubs");
+        if (pubs) {
+          pubs.innerHTML = (research.publications || [])
+            .map((p) => Site.pubItem(p, lang))
+            .join("");
+        }
+
+        const review = document.getElementById("under-review");
+        if (review) {
+          review.innerHTML = (research.under_review || [])
+            .map((p) => {
+              const item = Object.assign({}, p, {
+                note_en: p.venue,
+                note_zh: p.venue,
+                venue: "",
+              });
+              return Site.pubItem(item, lang);
+            })
+            .join("");
+        }
+
+        const talks = document.getElementById("talks");
+        if (talks) {
+          talks.innerHTML = (research.talks || [])
+            .map(
+              (t) => `
+              <article class="pub-card">
+                <div class="post-meta">
+                  <span>${Site.escapeHtml(String(t.year || ""))}</span>
+                  <span class="badge badge-research">${Site.escapeHtml(t.type || SiteI18n.t("oral", lang))}</span>
+                </div>
+                <h3 class="pub-title">${Site.escapeHtml(t.title)}</h3>
+                <p class="pub-venue">${Site.escapeHtml(t.venue || "")}</p>
+              </article>`
+            )
+            .join("");
+        }
+
+        const projects = document.getElementById("projects");
+        if (projects) {
+          projects.innerHTML = (research.projects || [])
+            .map(
+              (p) => `
+              <article class="pub-card">
+                <div class="post-meta"><span>${Site.escapeHtml(p.period || "")}</span></div>
+                <h3 class="pub-title">${Site.escapeHtml(lang === "zh" ? p.title_zh : p.title_en)}</h3>
+                <p class="post-excerpt">${Site.escapeHtml(lang === "zh" ? p.desc_zh : p.desc_en)}</p>
+              </article>`
+            )
+            .join("");
+        }
+
+        const related = document.getElementById("related-posts");
+        if (related && posts) {
+          Site.renderPostList(related, posts.slice(0, 8), lang, { showLane: false });
+        }
+
+        const updated = document.getElementById("cv-updated");
+        if (updated && research.updated) {
+          updated.textContent = SiteI18n.t("meta_updated", lang) + ": " + research.updated;
+        }
+      }
+
+      document.addEventListener("site:lang", render);
+      boot();
+    });
+  </script>
+</body>
+</html>

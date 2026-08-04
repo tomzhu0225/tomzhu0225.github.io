@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Simulation and popular-science videos by Bowen Zhu (drawingsword) on Bilibili." />
+  <title>Videos · FUSION!</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body data-title-key="page_title">
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">首页</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">研究</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">关于</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">归档</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <header class="page-intro">
+      <h1 data-i18n="hero_title">视频</h1>
+      <p class="lede" data-i18n="hero_sub">仿真与科普。点击播放；同时只播放一个。</p>
+      <p class="meta-line">
+        <a href="https://space.bilibili.com/64849811" target="_blank" rel="noopener">Bilibili · drawingsword ↗</a>
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="videos_sim">仿真视频</h2>
+          <p data-i18n="sim_desc">动理学 / 混合 PIC / 脉冲功率相关仿真。</p>
+        </div>
+      </div>
+      <div id="videos-sim" class="video-stack"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="videos_science">科普视频</h2>
+          <p data-i18n="science_desc">聚变与相关科普、探访。</p>
+        </div>
+      </div>
+      <div id="videos-science" class="video-stack"></div>
+    </section>
+
+    <p id="videos-error" class="muted" style="display:none;"></p>
+  </main>
+
+  <footer class="site-footer wrapper">
+    <div data-i18n="footer_line1">朱博文 · 等离子体计算 / 物理信息机器学习</div>
+    <div data-i18n="footer_line2">drawingsword.com · 静态托管于 GitHub Pages</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: {
+          page_title: "视频 · FUSION!",
+          hero_title: "视频",
+          hero_sub: "仿真与科普。点击播放；同时只播放一个。",
+          sim_desc: "动理学 / 混合 PIC / 脉冲功率相关仿真。",
+          science_desc: "聚变与相关科普、探访。",
+        },
+        en: {
+          page_title: "Videos · FUSION!",
+          hero_title: "Videos",
+          hero_sub: "Simulations and outreach. Click to play; only one at a time.",
+          sim_desc: "Kinetic / hybrid PIC / pulsed-power simulations.",
+          science_desc: "Fusion outreach and site visits.",
+        },
+      });
+      document.body.setAttribute("data-title-key", "page_title");
+      SiteI18n.apply(SiteI18n.getLang());
+
+      let cache = null;
+
+      async function boot() {
+        try {
+          cache = await Site.loadJSON("/data/videos.json");
+          render();
+        } catch (e) {
+          console.error(e);
+          const err = document.getElementById("videos-error");
+          if (err) {
+            err.style.display = "block";
+            err.textContent = SiteI18n.t("load_error");
+          }
+        }
+      }
+
+      function render() {
+        if (!cache) return;
+        const lang = SiteI18n.getLang();
+        // Stop any playing player when language re-renders the list
+        Site.stopAllVideos();
+        const all = cache.videos || [];
+        const sims = all.filter((v) => v.kind !== "science");
+        const science = all.filter((v) => v.kind === "science");
+        Site.renderVideoList(document.getElementById("videos-sim"), sims, lang);
+        Site.renderVideoList(document.getElementById("videos-science"), science, lang);
+      }
+
+      document.addEventListener("site:lang", render);
+      boot();
+    });
+  </script>
+</body>
+</html>

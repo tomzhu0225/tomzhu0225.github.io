@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>网站使用指南（评论系统开启！） | FUSION!</title>
   <link rel="stylesheet" href="/assets/css/theme.css" />
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <img src="/images/avatar.png" alt="头像">
-        <div class="title">FUSION!</div>
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">Bowen Zhu</div>
+          </div>
+        </a>
       </div>
-      <nav class="nav">
-        <a href="/">首页</a>
-        <a href="/archives">所有文章</a>
-        <a href="/tags">标签</a>
-        <a href="/about">自我介绍</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">Home</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">Research</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">Notes</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">About</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">Archive</a>
       </nav>
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">中文</button>
+      </div>
     </div>
   </header>
 
@@ -68,9 +90,11 @@
     </div>
   </main>
 
-  <footer class="site-footer wrapper">
-    <div>我叫朱博文，一个有奇思妙想的学生</div>
-    <div>Powered by GitHub Pages · 手工编辑，VS Code 友好</div>
+    <footer class="site-footer wrapper">
+    <div data-i18n="footer_line1">Bowen Zhu · plasma computation / physics-informed ML</div>
+    <div data-i18n="footer_line2">drawingsword.com · static on GitHub Pages</div>
   </footer>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 </html>

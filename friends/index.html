@@ -1,6 +1,17 @@
 ﻿<html>
 
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -26,6 +37,7 @@
 
 
 
+  <link rel="stylesheet" href="/assets/css/theme.css" />
 </head>
 
 <body>
@@ -86,6 +98,9 @@
         </div>
     </div>
 </nav>
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+      </div>
 
             <div class="post-container">
                 <div class="post-detail">
@@ -140,6 +155,8 @@
 
         </div>
     </div>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/site.js"></script>
 </body>
 
 </html>

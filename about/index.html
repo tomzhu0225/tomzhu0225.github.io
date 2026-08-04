@@ -1,176 +1,238 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | FUSION!</title>
+  <meta name="description" content="About Bowen Zhu (朱博文) — CV, education, experience, contact." />
+  <title>About · FUSION!</title>
+  <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/assets/css/theme.css" />
-  <style>
-    :root { --card: #ffffff; --card-2: #f6f7fb; --accent: #0ea5e9; --muted: #475569; }
-    body { background: radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 26%), radial-gradient(circle at 78% 6%, rgba(249,115,22,0.12), transparent 20%), var(--bg); color: var(--muted); font-family: 'Space Grotesk', 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
-    .post-wrapper { padding: 36px 18px 64px; max-width: 1100px; margin: 0 auto; }
-    .hero-card { background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(249,115,22,0.1)); border: 1px solid var(--border); border-radius: 18px; padding: 28px; box-shadow: var(--shadow-soft); display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(14,165,233,0.12); color: var(--accent); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.2px; }
-    .hero-title { margin: 4px 0 6px; font-size: 30px; letter-spacing: -0.01em; color: var(--text-primary); }
-    .hero-sub { color: var(--muted); margin: 0; line-height: 1.6; }
-    .card-grid { margin-top: 24px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow-soft); }
-    .card h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: 0.02em; color: var(--text-primary); }
-    .card p, .card li { color: var(--muted); font-size: 15px; line-height: 1.65; }
-    .card ul { padding-left: 18px; margin: 0; }
-    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(14,165,233,0.12); color: var(--accent); font-weight: 600; font-size: 12px; letter-spacing: 0.2px; }
-    .inline-links a { color: var(--accent); font-weight: 600; }
-  </style>
-  <script>
-    const translations = {
-      zh: {
-        title: 'About | FUSION!',
-        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
-        search_placeholder: 'Quick find (Ctrl+F)',
-        post_time: 'About the author · Site',
-        page_title: 'Self Introduction',
-        footer_line1: 'I am Bowen Zhu, a student with ideas.',
-        footer_line2: 'New theme, pure HTML/CSS, no external deps'
-      },
-      en: {
-        title: 'About | FUSION!',
-        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
-        search_placeholder: 'Quick find (Ctrl+F)',
-        post_time: 'About the author · Site',
-        page_title: 'Self Introduction',
-        footer_line1: 'I am Bowen Zhu, a student with ideas.',
-        footer_line2: 'New theme, pure HTML/CSS, no external deps'
-      }
-    };
-    function applyLang(lang) {
-      const t = translations[lang] || translations.zh;
-      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
-      document.title = t.title;
-      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
-      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
-      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
-      setText('post-time','post_time'); setText('page-title','page_title');
-      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
-      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
-      localStorage.setItem('lang', lang);
-    }
-    function initLang() {
-      const saved = localStorage.getItem('lang') || 'zh';
-      applyLang(saved === 'en' ? 'en' : 'zh');
-    }
-    document.addEventListener('DOMContentLoaded', initLang);
-  </script>
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body data-title-key="page_title">
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <img src="/images/avatar.png" alt="头像">
-        <div class="title">FUSION!</div>
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
       </div>
-      <nav class="nav">
-        <a id="nav-home" href="/">首页</a>
-        <a id="nav-archives" href="/archives">所有文章</a>
-        <a id="nav-tags" href="/tags">标签</a>
-        <a id="nav-about" href="/about">自我介绍</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">首页</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">研究</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">关于</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">归档</a>
       </nav>
-      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
-      <div class="search">
-        <span class="icon">🔍</span>
-        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
       </div>
     </div>
   </header>
 
-  <main class="post-wrapper">
-    <article class="post-detail">
-      <div class="hero-card">
-        <div class="hero-badge">PhD · XJTU</div>
+  <main class="wrapper" style="padding-top:24px;padding-bottom:24px;">
+    <section class="page-panel">
+      <div class="about-hero">
+        <img src="/images/avatar.png" alt="Bowen Zhu" width="88" height="88" />
         <div>
-          <div class="post-time" id="post-time">About the author · Site</div>
-          <h1 id="page-title" class="hero-title">Self Introduction</h1>
-          <p class="hero-sub">Plasma simulation, physics-informed ML, diagnostics, and prompt engineering. Currently a PhD candidate at Xi'an Jiaotong University.</p>
+          <div class="hero-kicker" data-i18n="badge_phd">PhD · XJTU</div>
+          <h1 class="hero-title" data-i18n="about_name">朱博文 · Bowen Zhu</h1>
+          <p class="hero-subtitle" style="margin-bottom:10px;" data-i18n="about_tagline">
+            等离子体模拟 · 动理学 · 物理信息机器学习 · 等离子体诊断
+          </p>
+          <div class="hero-actions">
+            <a class="button secondary" href="mailto:tomzhu0225@stu.xjtu.edu.cn">Email</a>
+            <a class="button secondary" href="https://github.com/tomzhu0225" target="_blank" rel="noopener">GitHub</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/bowen-zhu-52ba181b9/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
       </div>
 
-      <div class="card-grid">
-        <div class="card">
-          <h3>Contact</h3>
-          <p>Email: tomzhu0225@stu.xjtu.edu.cn<br>Phone: +86 15724571656<br>Location: Xi'an, Shaanxi, China</p>
-          <div class="inline-links"><a href="https://github.com/tomzhu0225" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/bowen-zhu-52ba181b9/" target="_blank">LinkedIn</a> · <a href="https://www.drawingsword.com" target="_blank">Personal site</a></div>
+      <div class="card-grid" style="margin-top:22px;">
+        <div class="info-card">
+          <h3 data-i18n="section_contact">联系方式</h3>
+          <p>
+            <span data-i18n="contact_email">邮箱</span>:
+            <a href="mailto:tomzhu0225@stu.xjtu.edu.cn">tomzhu0225@stu.xjtu.edu.cn</a><br />
+            <span data-i18n="contact_location">地点</span>:
+            <span data-i18n="about_location">西安，中国</span>
+          </p>
+
         </div>
 
-        <div class="card">
-          <h3>Education</h3>
+        <div class="info-card">
+          <h3 data-i18n="section_interests">研究方向</h3>
+          <div id="about-interests" class="tag-row"></div>
+        </div>
+
+        <div class="info-card">
+          <h3 data-i18n="section_lang">语言</h3>
           <ul>
-            <li>Ph.D. Candidate, Electrical Engineering, Xi'an Jiaotong University (Sept 2024 – present)</li>
-            <li>Visiting Student, CentraleSupélec / Univ. Paris-Saclay (Sept 2022 – Jun 2024)</li>
-            <li>B.Sc. Energy & Power Engineering, Xi'an Jiaotong University (Sept 2020 – Jun 2024)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Research Focus</h3>
-          <p>Plasma simulation · Physics-informed ML · Plasma diagnostics · Prompt engineering</p>
-          <div class="pill">TOEFL 107 · French B1</div>
-        </div>
-
-        <div class="card">
-          <h3>Scholarships</h3>
-          <ul>
-            <li>Fusenet funding — Fusion research internship (Ghent University), Jun 2023</li>
-            <li>Fusenet funding — Culham Plasma Physics Summer School, Apr 2023</li>
-            <li>Eiffel Scholarship (French Government, long-term), Apr 2022</li>
-            <li>Xi'an Jiaotong University third-class scholarship, Jun 2021</li>
-            <li>Yvying scholarship (long-term), Sept 2020</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Experience & Schools</h3>
-          <ul>
-            <li>Research Internship, NIFS Global Simulation Unit (Japan) — Jun 2024 – Sept 2024</li>
-            <li>Research Internship, Research Unit Nuclear Fusion (Ghent, Belgium) — Jun 2023 – Sept 2023</li>
-            <li>Culham Plasma Physics Summer School (UKAEA, UK) — Jul 2023</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Publications</h3>
-          <ul>
-            <li>Unified Bayesian inversion for HEDP plasmas — invited, <em>Physics of Plasmas</em> (in prep.)</li>
-            <li>Two-fluid effects in Z-pinch ablation — under review, <em>Physical Review Letters</em> (2025)</li>
-            <li>Partition-of-Unity flow-based solver for kinetic plasmas — under review, <em>JCP</em> (2025), <a href="https://arxiv.org/abs/2501.16390" target="_blank">arXiv:2501.16390</a></li>
-            <li>Physics-embedded Neural ODE mode prediction — <em>PPCF</em>, 67(8), 085038 (2025)</li>
-            <li>Learning ODEs without internal solvers — <em>Reachability Problems</em>, pp. 221-237 (2024)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Talks</h3>
-          <ul>
-            <li>Flow-Based Hybrid Kinetic Simulation — PPPS2025 (Berlin), Oral</li>
-            <li>Flow-Based Kinetic Simulation of Z-Pinch Dynamics — ICMRE 2025 (Xi'an), Oral</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Projects</h3>
-          <ul>
-            <li>Neural ODE Simulation of Electron Accelerator (Dec 2022 – Apr 2024): 85% runtime reduction vs ASTRA for ThomX.</li>
-            <li>Fusion H-mode ELMs via Markov Chains (Jun 2023 – Sept 2023): Temporal analysis on JET data.</li>
+            <li data-i18n="lang_zh">中文 — 母语</li>
+            <li data-i18n="lang_en">English — TOEFL 107</li>
+            <li data-i18n="lang_fr">Français — B1</li>
           </ul>
         </div>
       </div>
 
-      <p style="margin-top:16px; color:#94a3b8;">Last updated: 2025-12-10.</p>
-    </article>
+      <section class="section" style="padding-top:28px;">
+        <h2 data-i18n="section_edu">教育经历</h2>
+        <div id="about-edu" class="timeline"></div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="section_exp">经历与学校</h2>
+        <div id="about-exp" class="timeline"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2 data-i18n="section_pubs">论文</h2>
+        </div>
+        <div id="about-pubs" class="pub-grid"></div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="section_scholarships">奖学金</h2>
+        <ul id="about-scholarships"></ul>
+      </section>
+
+      <p id="about-updated" class="muted" style="margin-top:18px;font-size:13px;"></p>
+      <p id="about-error" class="muted" style="display:none;"></p>
+    </section>
   </main>
 
   <footer class="site-footer wrapper">
-    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
-    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+    <div data-i18n="footer_line1">朱博文 · 等离子体计算 / 物理信息机器学习</div>
+    <div data-i18n="footer_line2">drawingsword.com · 静态托管于 GitHub Pages</div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: {
+          page_title: "关于 · FUSION!",
+          about_name: "朱博文 · Bowen Zhu",
+          about_tagline: "等离子体模拟 · 动理学 · 物理信息机器学习 · 等离子体诊断",
+          about_location: "西安，中国",
+          lang_zh: "中文 — 母语",
+          lang_en: "English — TOEFL 107",
+          lang_fr: "Français — B1",
+        },
+        en: {
+          page_title: "About · FUSION!",
+          about_name: "Bowen Zhu",
+          about_tagline: "Plasma simulation · kinetics · physics-informed ML · diagnostics",
+          about_location: "Xi'an, Shaanxi, China",
+          lang_zh: "Chinese — native",
+          lang_en: "English — TOEFL 107",
+          lang_fr: "French — B1",
+        },
+      });
+      SiteI18n.apply(SiteI18n.getLang());
+
+      let research = null;
+
+      async function boot() {
+        try {
+          research = await Site.loadJSON("/data/research.json");
+          render();
+        } catch (e) {
+          console.error(e);
+          const err = document.getElementById("about-error");
+          if (err) {
+            err.style.display = "block";
+            err.textContent = SiteI18n.t("load_error");
+          }
+        }
+      }
+
+      function render() {
+        if (!research) return;
+        const lang = SiteI18n.getLang();
+
+        const interests = document.getElementById("about-interests");
+        if (interests) {
+          interests.innerHTML = (research.interests || [])
+            .map((i) => `<span class="tag">${Site.escapeHtml(lang === "zh" ? i.zh : i.en)}</span>`)
+            .join("");
+        }
+
+        const edu = document.getElementById("about-edu");
+        if (edu) {
+          edu.innerHTML = (research.education || [])
+            .map((e) => `
+              <div class="timeline-item">
+                <strong>${Site.escapeHtml(lang === "zh" ? e.degree_zh : e.degree_en)}</strong>
+                <span>${Site.escapeHtml(lang === "zh" ? e.org_zh : e.org_en)}</span><br />
+                <span>${Site.escapeHtml(e.period || "")}</span>
+              </div>`)
+            .join("");
+        }
+
+        const exp = document.getElementById("about-exp");
+        if (exp) {
+          exp.innerHTML = (research.experience || [])
+            .map((e) => `
+              <div class="timeline-item">
+                <strong>${Site.escapeHtml(lang === "zh" ? e.role_zh : e.role_en)}</strong>
+                <span>${Site.escapeHtml(lang === "zh" ? e.org_zh : e.org_en)}</span><br />
+                <span>${Site.escapeHtml(e.period || "")}</span>
+                ${e.desc_en || e.desc_zh ? `<p style="margin:4px 0 0;font-size:14px;">${Site.escapeHtml(lang === "zh" ? (e.desc_zh || e.desc_en) : (e.desc_en || e.desc_zh))}</p>` : ""}
+              </div>`)
+            .join("");
+        }
+
+        const pubs = document.getElementById("about-pubs");
+        if (pubs) {
+          const all = []
+            .concat(research.publications || [])
+            .concat(
+              (research.under_review || []).map((p) =>
+                Object.assign({}, p, {
+                  note_en: p.venue,
+                  note_zh: p.venue,
+                  venue: "",
+                })
+              )
+            );
+          pubs.innerHTML = all.map((p) => Site.pubItem(p, lang)).join("");
+        }
+
+        const sch = document.getElementById("about-scholarships");
+        if (sch) {
+          sch.innerHTML = (research.scholarships || [])
+            .map((s) => `<li>${Site.escapeHtml(lang === "zh" ? s.zh : s.en)}</li>`)
+            .join("");
+        }
+
+        const updated = document.getElementById("about-updated");
+        if (updated && research.updated) {
+          updated.textContent = SiteI18n.t("meta_updated", lang) + ": " + research.updated + " (CV)";
+        }
+      }
+
+      document.addEventListener("site:lang", render);
+      boot();
+    });
+  </script>
 </body>
 </html>
-

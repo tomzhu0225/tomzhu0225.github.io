@@ -1,0 +1,672 @@
+{
+  "posts": [
+    {
+      "id": "Self Introduction",
+      "title": "Self Introduction",
+      "title_zh": "",
+      "title_en": "Self Introduction",
+      "href": "/posts/Self Introduction/",
+      "date": "2025-12-10",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "misc"
+      ],
+      "summary": "Plain-text CV: contact, education, research interests, publications, projects.",
+      "summary_zh": "",
+      "summary_en": "Plain-text CV: contact, education, research interests, publications, projects.",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "Donate ME!",
+      "title": "Donate ME!",
+      "title_zh": "",
+      "title_en": "Donate ME!",
+      "href": "/posts/Donate ME!/",
+      "date": "2023-02-11",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "misc"
+      ],
+      "summary": "Buy me a coffee! or or",
+      "summary_zh": "",
+      "summary_en": "Buy me a coffee! or or",
+      "featured": false,
+      "hidden": true
+    },
+    {
+      "id": "A review of hydrogen vehicle powertrain",
+      "title": "A review of hydrogen vehicle powertrain",
+      "title_zh": "",
+      "title_en": "A review of hydrogen vehicle powertrain",
+      "href": "/posts/A review of hydrogen vehicle powertrain/",
+      "date": "2023-01-29",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "We review the development of H2ICE and Hydrogen fuel cell and introduce their current status. A discussion about the future of hydrogen powertrain is also here.",
+      "summary_zh": "",
+      "summary_en": "We review the development of H2ICE and Hydrogen fuel cell and introduce their current status. A discussion about the future of hydrogen powertrain is also here.",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "Vehicle performance simulation(ICE and EV)",
+      "title": "Vehicle performance simulation(ICE and EV)",
+      "title_zh": "",
+      "title_en": "Vehicle performance simulation(ICE and EV)",
+      "href": "/posts/Vehicle performance simulation(ICE and EV)/",
+      "date": "2023-01-29",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "See repo at Repo Introduction The code set can evaluate the performance of a car, including its maximum speed, acceleration character, and fuel consumption in various tests (ECE, EUDC, NEDC, WLTP). Usage maxspeed.m In th",
+      "summary_zh": "",
+      "summary_en": "See repo at Repo Introduction The code set can evaluate the performance of a car, including its maximum speed, acceleration character, and fuel consumption in various tests (ECE, EUDC, NEDC, WLTP). Usage maxspeed.m In th",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "Flight controller for supersonic missiles",
+      "title": "Flight controller for supersonic missiles",
+      "title_zh": "",
+      "title_en": "Flight controller for supersonic missiles",
+      "href": "/posts/Flight controller for supersonic missiles/",
+      "date": "2023-01-12",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "Github repo at Repo",
+      "summary_zh": "",
+      "summary_en": "Github repo at Repo",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "How to justify a PDE",
+      "title": "How to \"justify\" a PDE",
+      "title_zh": "",
+      "title_en": "How to \"justify\" a PDE",
+      "href": "/posts/How to justify a PDE/",
+      "date": "2023-01-12",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "math-physics"
+      ],
+      "summary": "To get the variational formulation of the PDE; To prove its uniqueness; To prove the unicity of the variational formulation.",
+      "summary_zh": "",
+      "summary_en": "To get the variational formulation of the PDE; To prove its uniqueness; To prove the unicity of the variational formulation.",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "Research about particle velocity in cyclone separator",
+      "title": "Research about particle velocity in cyclone separator",
+      "title_zh": "",
+      "title_en": "Research about particle velocity in cyclone separator",
+      "href": "/posts/Research about particle velocity in cyclone separator/",
+      "date": "2022-12-17",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "science"
+      ],
+      "summary": "The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. ",
+      "summary_zh": "",
+      "summary_en": "The part I wrote is from section 4 experimental method to the end. And I think the high light of this report is to use a simple model+neural network to approximate the real world situation. Maybe this is a kind of PINN. ",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "巴黎天际线",
+      "title": "巴黎天际线",
+      "title_zh": "巴黎天际线",
+      "title_en": "",
+      "href": "/posts/巴黎天际线/",
+      "date": "2022-10-31",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "Tokamak plasma fluid model with FEM",
+      "title": "Tokamak plasma fluid model with FEM",
+      "title_zh": "",
+      "title_en": "Tokamak plasma fluid model with FEM",
+      "href": "/posts/Tokamak plasma fluid model with FEM/",
+      "date": "2022-08-14",
+      "lane": "research",
+      "lang": "en",
+      "tags": [
+        "fusion",
+        "math-physics"
+      ],
+      "summary": "Will be updated soon! update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror tha",
+      "summary_zh": "",
+      "summary_en": "Will be updated soon! update 17/12/2022. As I study more and more about FEM and numerical method, I find some of the implementation seems silly. But I still glad that I have written something, in a way it is a mirror tha",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "俄乌冲突分析 Analysis of the Russian-Ukrainian conflict",
+      "title": "俄乌冲突分析 Analysis of the Russian-Ukrainian conflict",
+      "title_zh": "",
+      "title_en": "俄乌冲突分析 Analysis of the Russian-Ukrainian conflict",
+      "href": "/posts/俄乌冲突分析 Analysis of the Russian-Ukrainian conflict/",
+      "date": "2022-05-05",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "misc"
+      ],
+      "summary": "感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持 本文适用CC-BY-SA-3.0协议",
+      "summary_zh": "",
+      "summary_en": "感谢小组成员：涂非凡 张惟钧 蒋家伟 李锦奇 吕硕 全帅宇，为本次分析提供二元分析数据支持 本文适用CC-BY-SA-3.0协议",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "聚变包层系统 ITER Blanket System",
+      "title": "聚变包层系统 ITER Blanket System",
+      "title_zh": "聚变包层系统 ITER Blanket System",
+      "title_en": "",
+      "href": "/posts/聚变包层系统 ITER Blanket System/",
+      "date": "2022-05-05",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "fusion"
+      ],
+      "summary": "Reference：https://www.youtube.com/watch?v=-pLdtF0fJRE&amp;t=1183s （ITER Talks (2): The ITER Blanket System by iterorganization） The artical was originally written in Chinese and has been translated by Google. English Ver",
+      "summary_zh": "Reference：https://www.youtube.com/watch?v=-pLdtF0fJRE&amp;t=1183s （ITER Talks (2): The ITER Blanket System by iterorganization） The artical was originally written in Chinese and has been translated by Google. English Ver",
+      "summary_en": "",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "某电力设备制造公司运营效率诊断",
+      "title": "某电力设备制造公司运营效率诊断",
+      "title_zh": "某电力设备制造公司运营效率诊断",
+      "title_en": "",
+      "href": "/posts/某电力设备制造公司运营效率诊断/",
+      "date": "2022-03-26",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "用ISM方法研究课程支持关系",
+      "title": "用ISM方法研究课程支持关系",
+      "title_zh": "用ISM方法研究课程支持关系",
+      "title_en": "",
+      "href": "/posts/用ISM方法研究课程支持关系/",
+      "date": "2022-03-19",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "氢原子薛定谔方程的解析解",
+      "title": "氢原子薛定谔方程的解析解",
+      "title_zh": "氢原子薛定谔方程的解析解",
+      "title_en": "",
+      "href": "/posts/氢原子薛定谔方程的解析解/",
+      "date": "2022-01-15",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "fusion",
+        "math-physics"
+      ],
+      "summary": "Solving Schrödinger’s equation for the hydrogen atom；当我写完这篇作业之后我对量子系统的求解还是充满信心的——难道求解其他多体问题和求解氢原子中电子的薛定谔方程会有什么不同吗？只是多了一点点计算量罢了。但是实际上求解铁原子中一个电子的薛定谔方程，仅仅储存该薛定谔方程就需要整个太阳系的原子，更不要说求解了。还好有DFT理论......",
+      "summary_zh": "Solving Schrödinger’s equation for the hydrogen atom；当我写完这篇作业之后我对量子系统的求解还是充满信心的——难道求解其他多体问题和求解氢原子中电子的薛定谔方程会有什么不同吗？只是多了一点点计算量罢了。但是实际上求解铁原子中一个电子的薛定谔方程，仅仅储存该薛定谔方程就需要整个太阳系的原子，更不要说求解了。还好有DFT理论......",
+      "summary_en": "",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "一个看似不可能的现象-翼型螺帽的规则翻转",
+      "title": "一个看似不可能的现象-翼型螺帽的规则翻转",
+      "title_zh": "一个看似不可能的现象-翼型螺帽的规则翻转",
+      "title_en": "",
+      "href": "/posts/一个看似不可能的现象-翼型螺帽的规则翻转/",
+      "date": "2022-01-12",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。",
+      "summary_zh": "该论文是理论力学课程的结课论文。说一些论文中没有写到的事情吧：这篇论文在最后仿真部分结尾十分仓促，那部分可以写得更好的，那里完全就是改都不带改的把别人写好的代码拿来用，真该看看人家代码是怎么实现的动画过程，不过嘛，现在代码论文均在我手里到时候要用的时候就来研究喽。",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "磁控法测量电子荷质比中电场力引起的误差分析",
+      "title": "磁控法测量电子荷质比中电场力引起的误差分析",
+      "title_zh": "磁控法测量电子荷质比中电场力引起的误差分析",
+      "title_en": "",
+      "href": "/posts/磁控法测量电子荷质比中电场力引起的误差分析/",
+      "date": "2022-01-12",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "这篇文章中所提到的发现是真正的发现——没人涉足过的地方。但是嘛，时间和资源、能力限制没有办法来继续探究了",
+      "summary_zh": "这篇文章中所提到的发现是真正的发现——没人涉足过的地方。但是嘛，时间和资源、能力限制没有办法来继续探究了",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "伽罗瓦第一论文（代数方程有代数解的充分必要条件）",
+      "title": "伽罗瓦第一论文（代数方程有代数解的充分必要条件）",
+      "title_zh": "伽罗瓦第一论文（代数方程有代数解的充分必要条件）",
+      "title_en": "",
+      "href": "/posts/伽罗瓦第一论文（代数方程有代数解的充分必要条件）/",
+      "date": "2022-01-11",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "math-physics"
+      ],
+      "summary": "近日写过最高深的内容，这篇本质上是写给我自己看的，大家能理解多少看自己造化了（定理和引理之间的逻辑链条我可以理解，但是少了不少定理背后的证明总觉得食之无味.）",
+      "summary_zh": "近日写过最高深的内容，这篇本质上是写给我自己看的，大家能理解多少看自己造化了（定理和引理之间的逻辑链条我可以理解，但是少了不少定理背后的证明总觉得食之无味.）",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "ZEEKR主动空气动力学系统（ZAAS）",
+      "title": "ZEEKR主动空气动力学系统（ZAAS）",
+      "title_zh": "ZEEKR主动空气动力学系统（ZAAS）",
+      "title_en": "",
+      "href": "/posts/ZEEKR主动空气动力学系统（ZAAS）/",
+      "date": "2021-10-12",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）",
+      "title": "基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）",
+      "title_zh": "基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）",
+      "title_en": "",
+      "href": "/posts/基于Ansys软件的液滴碰撞固体及液体表面的铺展特性研究（xjtu数学建模大赛选拔赛题目）/",
+      "date": "2021-07-29",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "感谢黄智恒与朱昊宁贡献了该论文的理论部分（也就是主题部分），没有他们就不会有今天这篇完备的数学论文。我主要对水滴在固体壁面和液体表面的铺展进行了数值模拟。",
+      "summary_zh": "感谢黄智恒与朱昊宁贡献了该论文的理论部分（也就是主题部分），没有他们就不会有今天这篇完备的数学论文。我主要对水滴在固体壁面和液体表面的铺展进行了数值模拟。",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "ESPBOY-Arduboy on ESP-12E",
+      "title": "ESPBOY-Arduboy on ESP-12E",
+      "title_zh": "",
+      "title_en": "ESPBOY-Arduboy on ESP-12E",
+      "href": "/posts/ESPBOY-Arduboy on ESP-12E/",
+      "date": "2021-07-27",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "hand held gaming console based on ESP-12E!",
+      "summary_zh": "",
+      "summary_en": "hand held gaming console based on ESP-12E!",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "Using the XY mode of oscilloscope to draw graphs",
+      "title": "Using the XY mode of oscilloscope to draw graphs",
+      "title_zh": "",
+      "title_en": "Using the XY mode of oscilloscope to draw graphs",
+      "href": "/posts/Using the XY mode of oscilloscope to draw graphs/",
+      "date": "2021-07-05",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。",
+      "summary_zh": "",
+      "summary_en": "尝试学术论文第一作（直接劝退），虽然在原理上没有什么创新，但是我还是要说这是工程师的浪漫。论文在之前写的中文版的基础上深化探索了许多要素，最后总结了影响图像质量的理论公式。",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "associated code for Use the XY mode of oscilloscope to draw graphs with audio signals",
+      "title": "associated code for Use the XY mode of oscilloscope to draw graphs with audio signals",
+      "title_zh": "",
+      "title_en": "associated code for Use the XY mode of oscilloscope to draw graphs with audio signals",
+      "href": "/posts/associated code for Use the XY mode of oscilloscope to draw graphs with audio signals/",
+      "date": "2021-06-13",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "picture processing ''' MIT License Copyright (c) 1998-2021 RIGOL co.,ltd. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Softwa",
+      "summary_zh": "",
+      "summary_en": "picture processing ''' MIT License Copyright (c) 1998-2021 RIGOL co.,ltd. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Softwa",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "椭圆形船过水道问题",
+      "title": "椭圆形船过水道问题",
+      "title_zh": "椭圆形船过水道问题",
+      "title_en": "",
+      "href": "/posts/椭圆形船过水道问题/",
+      "date": "2021-06-08",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "science"
+      ],
+      "summary": "本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制",
+      "summary_zh": "本文使用CC-BY-SA-3.0协议，意味着：署名，相同方式共享，不设额外限制",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "使用示波器显示图片（视频）",
+      "title": "使用示波器显示图片（视频）",
+      "title_zh": "使用示波器显示图片（视频）",
+      "title_en": "",
+      "href": "/posts/使用示波器显示图片（视频）/",
+      "date": "2021-05-07",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "本论文本为物理实验改进的作业。本实验的想法源于自己的一些个人兴趣，是一直想做的事情，很多人已经使用了专业的信号生成器实现了在示波器上绘画图像，但是还没有人使用音频接口（3.5mm耳机接口）来生成图像，这次实验是对耳机（音频）产生原理的一次出色实践。由此产生了利用耳机接口来生成信号的想法。前几日完成了该项实验的基本任务，但是距离发表还有一段距离。自行购买了虚拟示波器，将在电脑上对该项实验进行更加详尽的测试，对示波器和音频使用何种参数可以得",
+      "summary_zh": "本论文本为物理实验改进的作业。本实验的想法源于自己的一些个人兴趣，是一直想做的事情，很多人已经使用了专业的信号生成器实现了在示波器上绘画图像，但是还没有人使用音频接口（3.5mm耳机接口）来生成图像，这次实验是对耳机（音频）产生原理的一次出色实践。由此产生了利用耳机接口来生成信号的想法。前几日完成了该项实验的基本任务，但是距离发表还有一段距离。自行购买了虚拟示波器，将在电脑上对该项实验进行更加详尽的测试，对示波器和音频使用何种参数可以得",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "画图软件使用指南&画图软件python代码",
+      "title": "画图软件使用指南&画图软件python代码",
+      "title_zh": "画图软件使用指南&画图软件python代码",
+      "title_en": "",
+      "href": "/posts/画图软件使用指南&画图软件python代码/",
+      "date": "2021-04-02",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "将我的代码的一些冗余部分进行了删减。要正常运行该代码，首先需要pip本代码使用的库，或者直接下载anaconda的环境；其次主菜单启动图片的加载是载入记录在另一个py文件中的图片的base64编码的，若直接复制代码运行会出错，若要运行请将‘from memory_pic import *’删除，将get_pic函数删除并修改‘a=random.randint(1,3) name=&quot;bizhi&quot;+str(a)+'_gi",
+      "summary_zh": "将我的代码的一些冗余部分进行了删减。要正常运行该代码，首先需要pip本代码使用的库，或者直接下载anaconda的环境；其次主菜单启动图片的加载是载入记录在另一个py文件中的图片的base64编码的，若直接复制代码运行会出错，若要运行请将‘from memory_pic import *’删除，将get_pic函数删除并修改‘a=random.randint(1,3) name=&quot;bizhi&quot;+str(a)+'_gi",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "算法女孩",
+      "title": "算法女孩",
+      "title_zh": "算法女孩",
+      "title_en": "",
+      "href": "/posts/算法女孩/",
+      "date": "2021-02-19",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "科普小说连载中……",
+      "summary_zh": "科普小说连载中……",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "Reinforcement AI player in the fps game",
+      "title": "Reinforcement AI player in the fps game",
+      "title_zh": "",
+      "title_en": "Reinforcement AI player in the fps game",
+      "href": "/posts/Reinforcement AI player in the fps game/",
+      "date": "2021-01-11",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "ml"
+      ],
+      "summary": "The passage will be updated in the long run and If you have any idea or you've examined any grammar mistake in the passage, feel free to leave a comment",
+      "summary_zh": "",
+      "summary_en": "The passage will be updated in the long run and If you have any idea or you've examined any grammar mistake in the passage, feel free to leave a comment",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "本站知识共享协议（CC协议）",
+      "title": "本站知识共享协议（CC协议）",
+      "title_zh": "本站知识共享协议（CC协议）",
+      "title_en": "",
+      "href": "/posts/本站知识共享协议（CC协议）/",
+      "date": "2020-12-23",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "署名-非商业性使用-相同方式共享 4.0 国际版 (CC BY-NC-SA 4.0) *这是一份非官方、未本地化的翻译文本，仅供参考。 这是一份易于普通人阅读与理解的许可证文本（并非法律性质的授权条款的替代内容）。 你可以自由地： 分享 – 在任何媒介或格式下再分发、传播本创作。 修改 – 重混、转换、依据本创作进行再创作。 只要遵守下述条款规定，授权人将不能撤回你使用本创作的自由。 唯须遵循以下条款： 署名 – 你必须以给予姓名标注，",
+      "summary_zh": "署名-非商业性使用-相同方式共享 4.0 国际版 (CC BY-NC-SA 4.0) *这是一份非官方、未本地化的翻译文本，仅供参考。 这是一份易于普通人阅读与理解的许可证文本（并非法律性质的授权条款的替代内容）。 你可以自由地： 分享 – 在任何媒介或格式下再分发、传播本创作。 修改 – 重混、转换、依据本创作进行再创作。 只要遵守下述条款规定，授权人将不能撤回你使用本创作的自由。 唯须遵循以下条款： 署名 – 你必须以给予姓名标注，",
+      "summary_en": "",
+      "featured": false,
+      "hidden": true
+    },
+    {
+      "id": "随机生成的噪声图像中识别特定特征（完整版）",
+      "title": "随机生成的噪声图像中识别特定特征（完整版）",
+      "title_zh": "随机生成的噪声图像中识别特定特征（完整版）",
+      "title_en": "",
+      "href": "/posts/随机生成的噪声图像中识别特定特征（完整版）/",
+      "date": "2020-12-23",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "ml"
+      ],
+      "summary": "12.27 进行了若干修改，增加在前面的话，增加逻辑斯蒂分类器设计；遗憾的是通过笔者的多次实验，这样的方法并不能很好的从随机矩阵中学习，来分辨特定的随机矩阵。就在刚才我想到了吴恩达教授的一句至理名言：人做不到的事情，就不要妄想机器学习和神经网络来做到！ 12.30 大结局，编写完成求解器，在附录增加完整的代码。和大家聊一聊!",
+      "summary_zh": "12.27 进行了若干修改，增加在前面的话，增加逻辑斯蒂分类器设计；遗憾的是通过笔者的多次实验，这样的方法并不能很好的从随机矩阵中学习，来分辨特定的随机矩阵。就在刚才我想到了吴恩达教授的一句至理名言：人做不到的事情，就不要妄想机器学习和神经网络来做到！ 12.30 大结局，编写完成求解器，在附录增加完整的代码。和大家聊一聊!",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "转子发动机建模日志！（1412日更新）",
+      "title": "转子发动机建模日志！（14/12日更新）",
+      "title_zh": "转子发动机建模日志！（14/12日更新）",
+      "title_en": "",
+      "href": "/posts/转子发动机建模日志！（1412日更新）/",
+      "date": "2020-12-14",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "engineering"
+      ],
+      "summary": "自己解决问题真的很爽！综合运用数学物理matlab以及inventor解决问题！（14/12更新） 2020/12/14 在实际应用建模中，我们团队遇到了问题。转子发动机的转子部分是绕着一个固定的太阳轮做旋转运动，转子不但绕定子做公转，而且因两个齿轮传动比的作用，转子也自己做自转运动，这就导致转子的中心距最大的三点（转子的三个顶点）的运动包络线不是一个单纯的由圆弧和直线构成的简单图形。事实上我的小组成员在对着已有模型建模时候就出现了问题",
+      "summary_zh": "自己解决问题真的很爽！综合运用数学物理matlab以及inventor解决问题！（14/12更新） 2020/12/14 在实际应用建模中，我们团队遇到了问题。转子发动机的转子部分是绕着一个固定的太阳轮做旋转运动，转子不但绕定子做公转，而且因两个齿轮传动比的作用，转子也自己做自转运动，这就导致转子的中心距最大的三点（转子的三个顶点）的运动包络线不是一个单纯的由圆弧和直线构成的简单图形。事实上我的小组成员在对着已有模型建模时候就出现了问题",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "网站使用指南（评论系统开启！）",
+      "title": "网站使用指南（评论系统开启！）",
+      "title_zh": "网站使用指南（评论系统开启！）",
+      "title_en": "",
+      "href": "/posts/网站使用指南（评论系统开启！）/",
+      "date": "2020-12-09",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "大家评论要遵守社会主义价值规范哦 一. 界面功能 在网页版的页面的右上角，或者手机版的下拉菜单中会找到3枚菜单：首页、归档、标签。 首页按钮会带你来到主界面，其中展示的文章是按照时间发布顺序排序的。 归档按钮会来到一个页面展示了文章的初始发布时间线。 标签按钮会出现几个标签，文章大多数按照标签所示分类，可以按需引索。 同时网站本身也带有文章的关键字的搜索功能。 关于按钮 第一次入站请一定要看关于！ 二. 评论功能 每篇文章都有评论功能，",
+      "summary_zh": "大家评论要遵守社会主义价值规范哦 一. 界面功能 在网页版的页面的右上角，或者手机版的下拉菜单中会找到3枚菜单：首页、归档、标签。 首页按钮会带你来到主界面，其中展示的文章是按照时间发布顺序排序的。 归档按钮会来到一个页面展示了文章的初始发布时间线。 标签按钮会出现几个标签，文章大多数按照标签所示分类，可以按需引索。 同时网站本身也带有文章的关键字的搜索功能。 关于按钮 第一次入站请一定要看关于！ 二. 评论功能 每篇文章都有评论功能，",
+      "summary_en": "",
+      "featured": false,
+      "hidden": true
+    },
+    {
+      "id": "Bonjour à tous!",
+      "title": "Bonjour à tous!",
+      "title_zh": "",
+      "title_en": "Bonjour à tous!",
+      "href": "/posts/Bonjour à tous!/",
+      "date": "2020-12-07",
+      "lane": "notes",
+      "lang": "fr",
+      "tags": [
+        "misc"
+      ],
+      "summary": "Bonjour à tous. Je m'appelle Zhu bowen et Je suis chinoise. Je viens du Liaoning, une province au Nord-est de la chine. Plus précisement de Dalian. C'est tré bel ville, il y a mer a trois côte partout du ville. il est ap",
+      "summary_zh": "",
+      "summary_en": "Bonjour à tous. Je m'appelle Zhu bowen et Je suis chinoise. Je viens du Liaoning, une province au Nord-est de la chine. Plus précisement de Dalian. C'est tré bel ville, il y a mer a trois côte partout du ville. il est ap",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "以惯性约束聚变为推进方式的深空殖民探索方案",
+      "title": "以惯性约束聚变为推进方式的深空殖民探索方案",
+      "title_zh": "以惯性约束聚变为推进方式的深空殖民探索方案",
+      "title_en": "",
+      "href": "/posts/以惯性约束聚变为推进方式的深空殖民探索方案/",
+      "date": "2020-12-07",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "fusion"
+      ],
+      "summary": "因为是结课作业也别想什么严谨了，大家看个乐呵就行。",
+      "summary_zh": "因为是结课作业也别想什么严谨了，大家看个乐呵就行。",
+      "summary_en": "",
+      "featured": true,
+      "hidden": false
+    },
+    {
+      "id": "一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法",
+      "title": "一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法",
+      "title_zh": "一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法",
+      "title_en": "",
+      "href": "/posts/一种高阶常系数齐次微分方程的解法及微分方程的相空间理解方法/",
+      "date": "2020-12-01",
+      "lane": "research",
+      "lang": "zh",
+      "tags": [
+        "math-physics"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "关于",
+      "title": "关于",
+      "title_zh": "关于",
+      "title_en": "",
+      "href": "/posts/关于/",
+      "date": "2020-11-30",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "欢迎来到我的小站呀，很高兴遇见你！🤝 关于本站： 这是一个关于表达，记录技术灵感，最终实现个人梦想的网站。 因为希望实现论文、数据的共享，建立一个开放自由的学术环境，我的论文（作业）、我的经验的总结、那些我下大功夫才弄懂的事情都会在这个网站进行发布共享，而这些东西如果我不说出来就亏大了，也希望可以帮到更多的人，而关于共享的协议将在稍后更新(如果还没有只能说这个人实在没时间弄)； 我因为一套名叫《数学女孩》的科普书籍成为了今天的自己，这套",
+      "summary_zh": "欢迎来到我的小站呀，很高兴遇见你！🤝 关于本站： 这是一个关于表达，记录技术灵感，最终实现个人梦想的网站。 因为希望实现论文、数据的共享，建立一个开放自由的学术环境，我的论文（作业）、我的经验的总结、那些我下大功夫才弄懂的事情都会在这个网站进行发布共享，而这些东西如果我不说出来就亏大了，也希望可以帮到更多的人，而关于共享的协议将在稍后更新(如果还没有只能说这个人实在没时间弄)； 我因为一套名叫《数学女孩》的科普书籍成为了今天的自己，这套",
+      "summary_en": "",
+      "featured": false,
+      "hidden": true
+    },
+    {
+      "id": "早安，全世界",
+      "title": "早安，全世界",
+      "title_zh": "早安，全世界",
+      "title_en": "",
+      "href": "/posts/早安，全世界/",
+      "date": "2020-11-30",
+      "lane": "notes",
+      "lang": "zh",
+      "tags": [
+        "misc"
+      ],
+      "summary": "HELLO WORLD",
+      "summary_zh": "HELLO WORLD",
+      "summary_en": "",
+      "featured": false,
+      "hidden": false
+    },
+    {
+      "id": "Hello Gridea",
+      "title": "Hello Gridea",
+      "title_zh": "",
+      "title_en": "Hello Gridea",
+      "href": "/posts/Hello Gridea/",
+      "date": "2018-12-11",
+      "lane": "notes",
+      "lang": "en",
+      "tags": [
+        "misc"
+      ],
+      "summary": "",
+      "summary_zh": "",
+      "summary_en": "",
+      "featured": false,
+      "hidden": true
+    }
+  ]
+}

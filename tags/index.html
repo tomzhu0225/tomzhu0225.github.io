@@ -1,123 +1,65 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>标签 | FUSION!</title>
+  <meta http-equiv="refresh" content="0; url=/archives/" />
+  <title>Tags · FUSION!</title>
   <link rel="stylesheet" href="/assets/css/theme.css" />
-  <script>
-    const translations = {
-      zh: {
-        title: '标签 | FUSION!',
-        nav_home: '首页', nav_archives: '所有文章', nav_tags: '标签', nav_about: '自我介绍',
-        search_placeholder: '快速查找 (Ctrl+F)',
-        hero_kicker: '标签 · 话题',
-        hero_title: '按主题浏览文章',
-        hero_subtitle: '保留旧站全部标签链接，使用新样式呈现。',
-        hero_pill: '静态标签列表',
-        hero_btn_archives: '去归档',
-        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
-        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
-      },
-      en: {
-        title: 'Tags | FUSION!',
-        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
-        search_placeholder: 'Quick find (Ctrl+F)',
-        hero_kicker: 'Tags · Topics',
-        hero_title: 'Browse posts by topic',
-        hero_subtitle: 'All legacy tag links preserved with the new look.',
-        hero_pill: 'Static tag list',
-        hero_btn_archives: 'To archives',
-        footer_line1: 'I am Bowen Zhu, a student with ideas.',
-        footer_line2: 'New theme, pure HTML/CSS, no external deps'
-      }
-    };
-    function applyLang(lang) {
-      const t = translations[lang] || translations.zh;
-      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
-      document.title = t.title;
-      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
-      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
-      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
-      setText('hero-kicker','hero_kicker'); setText('hero-title','hero_title'); setText('hero-subtitle','hero_subtitle');
-      setText('hero-pill','hero_pill'); setText('hero-btn-archives','hero_btn_archives');
-      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
-      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
-      localStorage.setItem('lang', lang);
-    }
-    function initLang() {
-      const saved = localStorage.getItem('lang') || 'zh';
-      applyLang(saved === 'en' ? 'en' : 'zh');
-    }
-    document.addEventListener('DOMContentLoaded', initLang);
-  </script>
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <img src="/images/avatar.png" alt="头像">
-        <div class="title">FUSION!</div>
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
       </div>
       <nav class="nav">
-        <a id="nav-home" href="/">首页</a>
-        <a id="nav-archives" href="/archives">所有文章</a>
-        <a id="nav-tags" href="/tags">标签</a>
-        <a id="nav-about" href="/about">自我介绍</a>
+        <a data-i18n="nav_home" href="/">首页</a>
+        <a data-i18n="nav_research" href="/research/">研究</a>
+        <a data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-i18n="nav_archives" href="/archives/">归档</a>
       </nav>
-      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
-      <div class="search">
-        <span class="icon">🔍</span>
-        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
       </div>
+      <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
     </div>
   </header>
-
   <main class="wrapper">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-kicker" id="hero-kicker">标签 · 话题</div>
-        <h1 class="hero-title" id="hero-title">按主题浏览文章</h1>
-        <p class="hero-subtitle" id="hero-subtitle">保留旧站全部标签链接，使用新样式呈现。</p>
-        <div class="hero-actions">
-          <span class="pill" id="hero-pill">静态标签列表</span>
-          <a class="button secondary" id="hero-btn-archives" href="/archives">去归档</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="post-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># 杂谈</div>
-        <a href="/tag/8VGfVl2g-/" class="post-title" style="font-size:18px;">杂谈</a>
-      </article>
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># 科普</div>
-        <a href="/tag/Dp03Agwwf/" class="post-title" style="font-size:18px;">科普</a>
-      </article>
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># fusion</div>
-        <a href="/tag/7umg0_l84/" class="post-title" style="font-size:18px;">fusion</a>
-      </article>
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># français</div>
-        <a href="/tag/PyBsKvfxJ/" class="post-title" style="font-size:18px;">français</a>
-      </article>
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># mAtH</div>
-        <a href="/tag/-PZIg83pE/" class="post-title" style="font-size:18px;">mAtH</a>
-      </article>
-      <article class="post-card" style="align-items:flex-start; gap:12px;">
-        <div class="post-meta"># when where and why</div>
-        <a href="/tag/P1OLTd43B/" class="post-title" style="font-size:18px;">when where and why</a>
-      </article>
-    </section>
+    <header class="page-intro">
+      <h1>Tags</h1>
+      <p class="lede" data-i18n="tags_redirect">旧标签页已合并到归档。正在跳转…</p>
+      <p class="meta-line"><a href="/archives/">→ Archive</a></p>
+    </header>
   </main>
-
-  <footer class="site-footer wrapper">
-    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
-    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
-  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: { tags_redirect: "旧标签页已合并到归档与随笔筛选。若未自动跳转，请点下方链接。" },
+        en: { tags_redirect: "Legacy tags moved into Archive / Notes filters. Use the links below if you are not redirected." },
+      });
+      SiteI18n.apply(SiteI18n.getLang());
+    });
+  </script>
 </body>
 </html>
-

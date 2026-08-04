@@ -1,218 +1,173 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>所有文章 | FUSION!</title>
+  <meta name="description" content="Full archive of posts on FUSION!" />
+  <title>Archive · FUSION!</title>
+  <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/assets/css/theme.css" />
-  <script>
-    const translations = {
-      zh: {
-        title: '所有文章 | FUSION!',
-        nav_home: '首页', nav_archives: '所有文章', nav_tags: '标签', nav_about: '自我介绍',
-        search_placeholder: '快速查找 (Ctrl+F)',
-        hero_kicker: '所有文章 · 分年代',
-        hero_title: '按阶段浏览：高中 / 本科 / 工程 / PhD',
-        hero_subtitle: '数据来源 /archives/data.json，时间分段：<2020-06 高中；<2022-06 本科（西交）；<2024-06 工程；<2024-09 Recent；≥2024-09 PhD。',
-        hero_pill: '自动分组 · 动态渲染 · PhD',
-        hero_btn_home: '返回首页',
-        era_phd: 'PhD（2024-09 之后）',
-        era_recent: 'Recent（2024-06 ~ 2024-09）',
-        era_eng: 'Engineering · CentraleSupélec（2022-06 ~ 2024-06）',
-        era_undergrad: 'Undergraduate · 西安交通大学（2020-06 ~ 2022-06）',
-        era_highschool: 'High School（< 2020-06）',
-        era_unknown: '未标日期',
-        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
-        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
-      },
-      en: {
-        title: 'All Posts | FUSION!',
-        nav_home: 'Home', nav_archives: 'All Posts', nav_tags: 'Tags', nav_about: 'About',
-        search_placeholder: 'Quick find (Ctrl+F)',
-        hero_kicker: 'All posts · By era',
-        hero_title: 'Browse by stage: High School / Undergraduate / Engineering / PhD',
-        hero_subtitle: 'Source: /archives/data.json. Buckets: <2020-06 High School; <2022-06 Undergraduate (XJTU); <2024-06 Engineering; <2024-09 Recent; ≥2024-09 PhD.',
-        hero_pill: 'Auto grouped · Dynamic render · PhD',
-        hero_btn_home: 'Back home',
-        era_phd: 'PhD (after 2024-09)',
-        era_recent: 'Recent (2024-06 to 2024-09)',
-        era_eng: 'Engineering · CentraleSupélec (2022-06 ~ 2024-06)',
-        era_undergrad: 'Undergraduate · Xi’an Jiaotong (2020-06 ~ 2022-06)',
-        era_highschool: 'High School (< 2020-06)',
-        era_unknown: 'No date',
-        footer_line1: 'I am Bowen Zhu, a student with ideas.',
-        footer_line2: 'New theme, pure HTML/CSS, no external deps'
-      }
-    };
-    function applyLang(lang) {
-      const t = translations[lang] || translations.zh;
-      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
-      document.title = t.title;
-      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
-      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
-      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
-      setText('hero-kicker','hero_kicker'); setText('hero-title','hero_title'); setText('hero-subtitle','hero_subtitle');
-      setText('hero-pill','hero_pill'); setText('hero-btn-home','hero_btn_home');
-      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
-      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
-      // era labels for rendering
-      window.eraLabels = {
-        phd: t.era_phd,
-        recent: t.era_recent,
-        engineering: t.era_eng,
-        undergrad: t.era_undergrad,
-        highschool: t.era_highschool,
-        unknown: t.era_unknown
-      };
-      localStorage.setItem('lang', lang);
-      if (window.renderArchive) window.renderArchive();
-    }
-    function initLang() {
-      const saved = localStorage.getItem('lang') || 'zh';
-      applyLang(saved === 'en' ? 'en' : 'zh');
-    }
-    document.addEventListener('DOMContentLoaded', initLang);
-  </script>
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body data-title-key="page_title">
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <img src="/images/avatar.png" alt="头像">
-        <div class="title">FUSION!</div>
+        <a href="/">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
       </div>
-      <nav class="nav">
-        <a id="nav-home" href="/">首页</a>
-        <a id="nav-archives" href="/archives">所有文章</a>
-        <a id="nav-tags" href="/tags">标签</a>
-        <a id="nav-about" href="/about">自我介绍</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">首页</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">研究</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">关于</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">归档</a>
       </nav>
-      <div class="search">
-        <span class="icon">🔍</span>
-        <input id="search-input" type="search" placeholder="快速查找 (Ctrl+F)" aria-label="搜索" />
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
       </div>
-      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
     </div>
   </header>
 
   <main class="wrapper">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-kicker" id="hero-kicker">所有文章 · 分年代</div>
-        <h1 class="hero-title" id="hero-title">按阶段浏览：高中 / 本科 / 工程</h1>
-        <p class="hero-subtitle" id="hero-subtitle">数据来源 /archives/data.json，自动按时间划分：<2020-06 高中；<2022-06 本科（西交）；<2024-06 工程（CS）; 之后为 Recent。</p>
-        <div class="hero-actions">
-          <span class="pill" id="hero-pill">自动分组 · 动态渲染</span>
-          <a class="button secondary" id="hero-btn-home" href="/">返回首页</a>
-        </div>
-      </div>
-    </section>
+    <header class="page-intro">
+      <h1 data-i18n="arch_title">全部文章</h1>
+      <p class="lede" data-i18n="arch_sub">按年份列出；可用筛选切换研究 / 随笔。</p>
+    </header>
 
-    <section id="archive-list" style="display:flex; flex-direction:column; gap:18px; padding-bottom:18px;">
-      <article class="post-card">
-        <div class="post-meta">加载中...</div>
-        <h2 class="post-title">请稍候</h2>
-        <p class="post-excerpt">正在读取归档列表。</p>
-      </article>
+    <section class="section">
+      <div id="arch-filters" class="filter-bar"></div>
+      <div class="page-panel" style="margin-top:8px;">
+        <div id="archive-root"></div>
+        <p id="arch-error" class="muted" style="display:none;"></p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer wrapper">
-    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
-    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+    <div data-i18n="footer_line1">朱博文 · 等离子体计算 / 物理信息机器学习</div>
+    <div data-i18n="footer_line2">drawingsword.com · 静态托管于 GitHub Pages</div>
   </footer>
 
   <script>
-    function renderArchiveContent(groups, eraOrder, container) {
-      container.innerHTML = '';
-      for (const era of eraOrder) {
-        const arr = groups[era.key];
-        if (!arr.length) continue;
-        const section = document.createElement('section');
-        section.style.display = 'flex';
-        section.style.flexDirection = 'column';
-        section.style.gap = '10px';
-        const h = document.createElement('h3');
-        const label = (window.eraLabels && window.eraLabels[era.key]) || era.title;
-        h.textContent = `${label} · ${arr.length} 篇`;
-        h.style.margin = '4px 0 2px 4px';
-        h.style.color = 'var(--text-primary)';
-        section.appendChild(h);
-        const wrapper = document.createElement('div');
-        wrapper.className = 'post-grid';
-        for (const post of arr) {
-          const card = document.createElement('article');
-          card.className = 'post-card';
-          card.innerHTML = `
-            <div class="post-meta">${post.date || ''}</div>
-            <a href="${post.href}"><h2 class="post-title">${post.title}</h2></a>
-            <p class="post-excerpt">${post.href}</p>
-          `;
-          wrapper.appendChild(card);
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: {
+          page_title: "归档 · FUSION!",
+          arch_title: "全部文章",
+          arch_sub: "按年份分组；可筛选研究 / 随笔。",
+        },
+        en: {
+          page_title: "Archive · FUSION!",
+          arch_title: "All posts",
+          arch_sub: "Grouped by year; filter research vs notes.",
+        },
+      });
+      SiteI18n.apply(SiteI18n.getLang());
+
+      let posts = [];
+      let lane = "all";
+
+      async function boot() {
+        try {
+          const data = await Site.loadJSON("/data/posts.json");
+          posts = (data.posts || []).filter((p) => !p.hidden);
+          buildFilters();
+          render();
+        } catch (e) {
+          console.error(e);
+          const err = document.getElementById("arch-error");
+          if (err) {
+            err.style.display = "block";
+            err.textContent = SiteI18n.t("load_error");
+          }
         }
-        section.appendChild(wrapper);
-        container.appendChild(section);
       }
-    }
 
-    async function loadArchive() {
-      const container = document.getElementById('archive-list');
-      const eraOrder = [
-        { key: 'phd', title: 'PhD（2024-09 之后）' },
-        { key: 'recent', title: 'Recent（2024-06 ~ 2024-09）' },
-        { key: 'engineering', title: 'Engineering · CentraleSupélec（2022-06 ~ 2024-06）' },
-        { key: 'undergrad', title: 'Undergraduate · 西安交通大学（2020-06 ~ 2022-06）' },
-        { key: 'highschool', title: 'High School（< 2020-06）' },
-        { key: 'unknown', title: '未标日期' },
-      ];
-      try {
-        const res = await fetch('/archives/data.json');
-        const data = await res.json();
-        const seen = new Set();
-        const list = [];
-        for (const item of data) {
-          if (seen.has(item.href)) continue;
-          seen.add(item.href);
-          list.push(item);
-        }
-        if (!list.length) throw new Error('no posts');
-
-        const groups = { phd: [], recent: [], engineering: [], undergrad: [], highschool: [], unknown: [] };
-        const d = (s) => {
-          if (!s) return null;
-          const parts = s.replace(/发布于\s*/,'').trim();
-          const m = parts.match(/(\d{4})-(\d{2})-(\d{2})/);
-          if (!m) return null;
-          return new Date(`${m[1]}-${m[2]}-${m[3]}T00:00:00Z`);
-        };
-        const t2020 = new Date('2020-06-01T00:00:00Z');
-        const t2022 = new Date('2022-06-01T00:00:00Z');
-        const t2024 = new Date('2024-06-01T00:00:00Z');
-        const tPhD = new Date('2024-09-01T00:00:00Z');
-
-        for (const post of list) {
-          const dt = d(post.date);
-          if (!dt) { groups.unknown.push(post); continue; }
-          if (dt < t2020) groups.highschool.push(post);
-          else if (dt < t2022) groups.undergrad.push(post);
-          else if (dt < t2024) groups.engineering.push(post);
-          else if (dt < tPhD) groups.recent.push(post);
-          else groups.phd.push(post);
-        }
-
-        window._archiveState = { groups, eraOrder, container };
-        renderArchive();
-      } catch (err) {
-        container.innerHTML = '<article class="post-card"><h2 class="post-title">加载失败</h2><p class="post-excerpt">无法读取 /archives/data.json</p></article>';
+      function buildFilters() {
+        const bar = document.getElementById("arch-filters");
+        if (!bar) return;
+        const items = [
+          ["all", SiteI18n.t("filter_all")],
+          ["research", SiteI18n.t("filter_research")],
+          ["notes", SiteI18n.t("filter_notes")],
+        ];
+        bar.innerHTML = items
+          .map(
+            ([k, label]) =>
+              `<button type="button" data-lane="${k}" class="${k === lane ? "is-active" : ""}">${Site.escapeHtml(label)}</button>`
+          )
+          .join("");
+        bar.querySelectorAll("button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            lane = btn.getAttribute("data-lane") || "all";
+            buildFilters();
+            render();
+          });
+        });
       }
-    }
-    window.renderArchive = function renderArchive() {
-      if (!window._archiveState) return;
-      const { groups, eraOrder, container } = window._archiveState;
-      renderArchiveContent(groups, eraOrder, container);
-    };
-    loadArchive();
+
+      function render() {
+        const lang = SiteI18n.getLang();
+        let list = posts.slice();
+        if (lane !== "all") list = list.filter((p) => p.lane === lane);
+        list.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+        const byYear = {};
+        list.forEach((p) => {
+          const y = (p.date || "0000").slice(0, 4);
+          (byYear[y] || (byYear[y] = [])).push(p);
+        });
+        const years = Object.keys(byYear).sort((a, b) => b.localeCompare(a));
+        const root = document.getElementById("archive-root");
+        if (!root) return;
+        if (!years.length) {
+          root.innerHTML = `<p class="muted">${Site.escapeHtml(SiteI18n.t("empty_list", lang))}</p>`;
+          return;
+        }
+        root.innerHTML = years
+          .map((y) => {
+            const rows = byYear[y]
+              .map((p) => {
+                const title = Site.pickTitle(p, lang);
+                return `
+                  <div class="archive-row">
+                    <time datetime="${Site.escapeHtml(p.date || "")}">${Site.escapeHtml(Site.formatDate(p.date, lang))}</time>
+                    <a href="${Site.escapeHtml(p.href)}">${Site.escapeHtml(title)}</a>
+                    <span>${p.lane === "research" ? SiteI18n.t("badge_research", lang) : SiteI18n.t("badge_notes", lang)}</span>
+                  </div>`;
+              })
+              .join("");
+            return `<div class="year-block"><h3>${Site.escapeHtml(y)}</h3>${rows}</div>`;
+          })
+          .join("");
+      }
+
+      document.addEventListener("site:lang", () => {
+        buildFilters();
+        render();
+      });
+      boot();
+    });
   </script>
 </body>
 </html>
-

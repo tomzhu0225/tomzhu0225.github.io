@@ -1,0 +1,105 @@
+{
+  "bilibili": {
+    "uid": "64849811",
+    "space": "https://space.bilibili.com/64849811",
+    "name": "drawingsword"
+  },
+  "videos": [
+    {
+      "bvid": "BV1tXDXBsEV3",
+      "title_zh": "全动理学全耦合 FRC 场反位形等离子体模拟（概念验证）",
+      "title_en": "Fully kinetic, fully coupled FRC formation (proof of concept)",
+      "theme": "kinetic",
+      "featured": true,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1rz5E6bEik",
+      "title_zh": "全动理学全耦合全流程 FRC（偏置场 + 电离）",
+      "title_en": "Fully kinetic FRC with bias field and ionization",
+      "theme": "kinetic",
+      "featured": true,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1AQNW6WE76",
+      "title_zh": "混合动力学：NBI 驱动 FRC 磁场反转（测试）",
+      "title_en": "Hybrid-kinetic: NBI-driven FRC field reversal (test)",
+      "theme": "kinetic",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1JZN26mEzn",
+      "title_zh": "混合动力学：Zap Energy 剪切流 Z 箍缩复现",
+      "title_en": "Hybrid-kinetic: shear-flow Z-pinch (Zap Energy–style)",
+      "theme": "kinetic",
+      "featured": true,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1FsovBVEZX",
+      "title_zh": "动力学 / 三维 FDTD：Z 箍缩等离子体–负载区耦合",
+      "title_en": "Kinetic / 3D FDTD: Z-pinch plasma–load coupling",
+      "theme": "kinetic",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1aWdrBVE8r",
+      "title_zh": "动力学 / 三维 FDTD：Z 箍缩喷气负载 EM 演示",
+      "title_en": "Kinetic / 3D FDTD: gas-puff Z-pinch load EM demo",
+      "theme": "kinetic",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV15QDSBbEiK",
+      "title_zh": "动力学 / 三维 FDTD：FRC 主线圈放电",
+      "title_en": "Kinetic / 3D FDTD: FRC main-coil discharge",
+      "theme": "pulsed",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1MfDeBBEF4",
+      "title_zh": "动力学 / 三维 FDTD：电容器向单 FRC 线圈放电",
+      "title_en": "Kinetic / 3D FDTD: capacitor discharge into a single FRC coil",
+      "theme": "pulsed",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1RH9QBBEpS",
+      "title_zh": "FRC：集总脉冲源与线圈、等离子体耦合仿真",
+      "title_en": "FRC: lumped pulse source coupled to coils and plasma",
+      "theme": "pulsed",
+      "featured": false,
+      "kind": "sim"
+    },
+    {
+      "bvid": "BV1Js4y1j7uW",
+      "title_zh": "探访 ITER（part 1）",
+      "title_en": "Visit to ITER (part 1)",
+      "theme": "outreach",
+      "featured": false,
+      "kind": "science"
+    },
+    {
+      "bvid": "BV1UL411d7af",
+      "title_zh": "探访 ITER：极向线圈生产",
+      "title_en": "Visit to ITER: poloidal-field coil production",
+      "theme": "outreach",
+      "featured": false,
+      "kind": "science"
+    },
+    {
+      "bvid": "BV117o5B4Eua",
+      "title_zh": "核聚变只能用来发电？",
+      "title_en": "Is fusion only for electricity?",
+      "theme": "outreach",
+      "featured": false,
+      "kind": "science"
+    }
+  ]
+}

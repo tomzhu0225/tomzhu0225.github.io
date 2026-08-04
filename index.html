@@ -1,227 +1,187 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", t === "day" ? "day" : "night");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "night");
+      }
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FUSION! · 主页</title>
+  <meta name="description" content="Bowen Zhu (朱博文) — plasma simulation, kinetic methods, physics-informed ML. Personal site: research + notes." />
+  <title>FUSION! · Bowen Zhu</title>
+  <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/assets/css/theme.css" />
-  <style>
-    .latest { margin: 24px auto 48px; }
-    .latest-header { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .latest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
-    .post-card { display: block; padding: 16px; border: 1px solid #e2e2e2; border-radius: 10px; text-decoration: none; color: inherit; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.04); transition: transform 120ms ease, box-shadow 120ms ease; }
-    .post-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-    .post-card-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .post-card-desc { font-size: 14px; color: #444; line-height: 1.5; }
-    .post-card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; font-size: 13px; color: #666; }
-    .post-card-badge { padding: 2px 8px; background: #0f766e; color: #fff; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.2px; }
-    .latest-error { margin-top: 8px; color: #b00020; font-size: 14px; }
-  </style>
-  <script>
-    const translations = {
-      zh: {
-        title: 'FUSION! · 主页',
-        nav_home: '首页',
-        nav_archives: '所有文章',
-        nav_tags: '标签',
-        nav_about: '自我介绍',
-        search_placeholder: '在 VS Code 中搜索文件',
-        hero1_kicker: '',
-        hero1_title: '',
-        hero1_subtitle: '',
-        hero1_btn_about: '关于作者',
-        hero1_btn_repo: '查看仓库',
-        hero1_pill: '编辑 -> 本地预览 -> push',
-        hero2_kicker: '首页不再列出旧文',
-        hero2_title: '这些文章距今已超过 3 年',
-        hero2_subtitle: '请前往「所有文章」查看完整归档，按年代分区浏览。',
-        hero2_btn_archives: '所有文章',
-        hero2_btn_tags: '按标签查看',
-        latest_title: '最新更新',
-        latest_desc: '最近发布的 6 篇文章。',
-        latest_error: '文章列表加载失败，请刷新后重试。',
-        badge_phd: 'PhD (XJTU)',
-        footer_line1: '我叫朱博文，一个有奇思妙想的学生',
-        footer_line2: '新主题，纯 HTML/CSS，无外部依赖'
-      },
-      en: {
-        title: 'FUSION! · Home',
-        nav_home: 'Home',
-        nav_archives: 'All Posts',
-        nav_tags: 'Tags',
-        nav_about: 'About',
-        search_placeholder: 'Search files in VS Code',
-        hero1_kicker: '',
-        hero1_title: '',
-        hero1_subtitle: '',
-        hero1_btn_about: 'About me',
-        hero1_btn_repo: 'View repo',
-        hero1_pill: 'Edit -> Preview -> Push',
-        hero2_kicker: 'Homepage no longer lists old posts',
-        hero2_title: 'These posts are 3+ years old',
-        hero2_subtitle: 'Go to “All Posts” for the full archive, grouped by era.',
-        hero2_btn_archives: 'All Posts',
-        hero2_btn_tags: 'Browse tags',
-        latest_title: 'Latest updates',
-        latest_desc: 'The 6 most recent posts.',
-        latest_error: 'Failed to load posts. Please refresh.',
-        badge_phd: 'PhD (XJTU)',
-        footer_line1: 'I am Bowen Zhu, a student with ideas.',
-        footer_line2: 'New theme, pure HTML/CSS, no external deps'
-      }
-    };
-    function applyLang(lang) {
-      const t = translations[lang] || translations.zh;
-      document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
-      document.title = t.title;
-      const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t[key]; };
-      setText('nav-home','nav_home'); setText('nav-archives','nav_archives'); setText('nav-tags','nav_tags'); setText('nav-about','nav_about');
-      const search = document.getElementById('search-input'); if (search) search.placeholder = t.search_placeholder;
-      setText('hero1-kicker','hero1_kicker'); setText('hero1-title','hero1_title'); setText('hero1-subtitle','hero1_subtitle');
-      setText('hero1-btn-about','hero1_btn_about'); setText('hero1-btn-repo','hero1_btn_repo'); setText('hero1-pill','hero1_pill');
-      setText('hero2-kicker','hero2_kicker'); setText('hero2-title','hero2_title'); setText('hero2-subtitle','hero2_subtitle');
-      setText('hero2-btn-archives','hero2_btn_archives'); setText('hero2-btn-tags','hero2_btn_tags');
-      setText('latest-title','latest_title'); setText('latest-desc','latest_desc');
-      setText('footer-line1','footer_line1'); setText('footer-line2','footer_line2');
-      const toggle = document.getElementById('lang-toggle'); if (toggle) toggle.textContent = lang === 'en' ? '中文' : 'EN';
-      localStorage.setItem('lang', lang);
-    }
-    function getActiveLang() {
-      return localStorage.getItem('lang') === 'en' ? 'en' : 'zh';
-    }
-    const RECENT_AFTER = new Date('2025-12-01');
-    const PHD_AFTER = new Date('2024-09-01');
-    function isValidDateStr(value) {
-      const t = new Date(value);
-      return !Number.isNaN(t.valueOf());
-    }
-    function isRecent(post) {
-      if (!post || !post.date || !isValidDateStr(post.date)) return false;
-      return new Date(post.date) >= RECENT_AFTER;
-    }
-    function isPhD(post) {
-      if (!post || !post.date || !isValidDateStr(post.date)) return false;
-      return new Date(post.date) >= PHD_AFTER;
-    }
-    function renderLatest(posts) {
-      const list = document.getElementById('latest-list');
-      if (!list) return;
-      list.innerHTML = '';
-      const filtered = posts.filter(isRecent).sort((a,b) => {
-        if (isValidDateStr(a.date) && isValidDateStr(b.date)) {
-          return new Date(b.date) - new Date(a.date);
-        }
-        return 0;
-      });
-      const trimmed = filtered.slice(0, 6);
-      trimmed.forEach(post => {
-        const card = document.createElement('a');
-        card.className = 'post-card';
-        card.href = post.link;
-        card.setAttribute('role', 'listitem');
-        const parts = [];
-        if (post.date) {
-          const date = new Date(post.date);
-          if (!Number.isNaN(date.valueOf())) parts.push(date.toISOString().slice(0,10));
-        }
-        if (isPhD(post)) {
-          const lang = getActiveLang();
-          const badgeLabel = translations[lang] && translations[lang].badge_phd ? translations[lang].badge_phd : 'PhD';
-          parts.push(`<span class="post-card-badge">${badgeLabel}</span>`);
-        }
-        const meta = parts.length ? `<div class="post-card-meta">${parts.join(' ')}</div>` : '';
-        card.innerHTML = `${meta}<div class="post-card-title">${post.title}</div><p class="post-card-desc">${post.content}</p>`;
-        list.appendChild(card);
-      });
-      const error = document.getElementById('latest-error');
-      if (error) error.style.display = 'none';
-    }
-    function showLatestError() {
-      const error = document.getElementById('latest-error');
-      if (!error) return;
-      const lang = getActiveLang();
-      const msg = (translations[lang] && translations[lang].latest_error) || '';
-      error.textContent = msg || 'Load failed';
-      error.style.display = 'block';
-    }
-    function loadLatest() {
-      fetch('/api-content/index.html')
-        .then(res => res.json())
-        .then(data => { if (data && Array.isArray(data.posts)) renderLatest(data.posts); else showLatestError(); })
-        .catch(showLatestError);
-    }
-    function initLang() {
-      const saved = localStorage.getItem('lang') || 'zh';
-      applyLang(saved === 'en' ? 'en' : 'zh');
-    }
-    function bootstrap() {
-      initLang();
-      loadLatest();
-    }
-    document.addEventListener('DOMContentLoaded', bootstrap);
-  </script>
+  <script src="/assets/js/i18n.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body data-title-key="page_title">
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <img src="/images/avatar.png" alt="头像">
-        <div class="title">FUSION!</div>
+        <a href="/" aria-label="Home">
+          <img src="/images/avatar.png" alt="" width="42" height="42" />
+          <div class="brand-text">
+            <div class="title">FUSION!</div>
+            <div class="subtitle" data-i18n="brand_sub">朱博文</div>
+          </div>
+        </a>
       </div>
-      <nav class="nav">
-        <a id="nav-home" href="/">首页</a>
-        <a id="nav-archives" href="/archives">所有文章</a>
-        <a id="nav-tags" href="/tags">标签</a>
-        <a id="nav-about" href="/about">自我介绍</a>
+      <nav class="nav" aria-label="Primary">
+        <a data-nav="home" data-i18n="nav_home" href="/">首页</a>
+        <a data-nav="research" data-i18n="nav_research" href="/research/">研究</a>
+        <a data-nav="notes" data-i18n="nav_notes" href="/notes/">随笔</a>
+        <a data-nav="videos" data-i18n="nav_videos" href="/videos/">视频</a>
+        <a data-nav="about" data-i18n="nav_about" href="/about/">关于</a>
+        <a data-nav="archives" data-i18n="nav_archives" href="/archives/">归档</a>
       </nav>
-      <div class="search">
-        <span class="icon">🔍</span>
-        <input id="search-input" type="search" placeholder="在 VS Code 中搜索文件" aria-label="搜索" />
+      <div class="header-actions">
+        <button type="button" class="button secondary" id="theme-toggle" title="Day" aria-label="Switch theme">☀</button>
+        <button type="button" class="button secondary" id="lang-toggle" data-i18n="lang_toggle">EN</button>
       </div>
-      <button class="button secondary" id="lang-toggle" style="margin-left:12px; padding:8px 14px;" onclick="applyLang(localStorage.getItem('lang')==='en'?'zh':'en')">EN</button>
     </div>
   </header>
 
   <main class="wrapper">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-kicker" id="hero1-kicker">手工维护 · VS Code 友好</div>
-        <h1 class="hero-title" id="hero1-title">全新简洁主题，不再依赖 Gridea</h1>
-        <p class="hero-subtitle" id="hero1-subtitle">所有页面都是纯 HTML/CSS。每篇文章的图片都收在自己的文件夹里，中文文章使用中文路径，直接在 VS Code 里改、预览、推送到 GitHub Pages。</p>
-        <div class="hero-actions">
-          <a class="button" id="hero1-btn-about" href="/about">关于作者</a>
-          <a class="button secondary" id="hero1-btn-repo" href="https://github.com/tomzhu0225/tomzhu0225.github.io">查看仓库</a>
-          <span class="pill" id="hero1-pill">编辑 -> 本地预览 -> push</span>
+    <header class="page-intro">
+      <h1 data-i18n="hero_title">朱博文</h1>
+      <p class="lede" data-i18n="hero_sub">西安交通大学博士生。等离子体数值模拟与诊断反演。</p>
+      <p class="meta-line">
+        <span data-i18n="badge_phd">PhD · XJTU</span>
+        <span data-i18n="hero_kicker">等离子体 · 动理学 · 物理信息 ML</span>
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="latest_research">代表性成果</h2>
+          <p data-i18n="feat_research_desc">部分近期工作。</p>
         </div>
       </div>
+      <div id="featured-pubs" class="pub-grid" role="list"></div>
     </section>
 
-    <section class="hero" style="padding-top: 4px;">
-      <div class="hero-card" style="border-style: dashed;">
-        <div class="hero-kicker" id="hero2-kicker">首页不再列出旧文</div>
-        <h2 class="hero-title" id="hero2-title" style="font-size: 24px;">这些文章距今已超过 3 年</h2>
-        <p class="hero-subtitle" id="hero2-subtitle">请前往「所有文章」查看完整归档，按年代分区浏览。</p>
-        <div class="hero-actions">
-          <a class="button" id="hero2-btn-archives" href="/archives">所有文章</a>
-          <a class="button secondary" id="hero2-btn-tags" href="/tags">按标签查看</a>
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="feat_videos">视频</h2>
+          <p data-i18n="feat_videos_desc">仿真精选 · Bilibili</p>
+        </div>
+        <a class="button secondary" href="/videos/" data-i18n="view_all">查看全部</a>
+      </div>
+      <div id="featured-videos" class="video-grid-home"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 data-i18n="latest_notes">精选随笔</h2>
+          <p data-i18n="feat_notes_desc">部分笔记与项目。</p>
         </div>
       </div>
-    </section>
-
-    <section class="latest">
-      <div class="latest-header">
-        <h2 id="latest-title">最新更新</h2>
-        <p id="latest-desc">最近发布的 6 篇文章。</p>
-      </div>
-      <div id="latest-list" class="latest-grid" role="list"></div>
-      <div id="latest-error" class="latest-error" style="display:none;"></div>
+      <div id="featured-notes" class="post-grid" role="list"></div>
+      <p id="home-error" class="muted" style="display:none;margin-top:12px;"></p>
     </section>
   </main>
 
   <footer class="site-footer wrapper">
-    <div id="footer-line1">我叫朱博文，一个有奇思妙想的学生</div>
-    <div id="footer-line2">新主题，纯 HTML/CSS，无外部依赖</div>
+    <div data-i18n="footer_line1">朱博文 · 等离子体计算 / 物理信息机器学习</div>
+    <div data-i18n="footer_line2">drawingsword.com · 静态托管于 GitHub Pages</div>
+    <div>
+      <a href="https://github.com/tomzhu0225" target="_blank" rel="noopener">GitHub</a>
+      ·
+      <a href="https://www.linkedin.com/in/bowen-zhu-52ba181b9/" target="_blank" rel="noopener">LinkedIn</a>
+      ·
+      <a href="https://space.bilibili.com/64849811" target="_blank" rel="noopener">Bilibili</a>
+      ·
+      <a href="mailto:tomzhu0225@stu.xjtu.edu.cn">Email</a>
+    </div>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SiteI18n.register({
+        zh: {
+          page_title: "FUSION! · 朱博文",
+          hero_title: "朱博文",
+          hero_sub: "西安交通大学博士生。等离子体数值模拟与诊断反演。",
+          hero_kicker: "等离子体 · 动理学 · 物理信息 ML",
+          feat_research_desc: "部分近期工作。",
+          feat_notes_desc: "部分笔记与项目。",
+          feat_videos: "视频",
+          feat_videos_desc: "仿真精选 · Bilibili",
+        },
+        en: {
+          page_title: "FUSION! · Bowen Zhu",
+          hero_title: "Bowen Zhu",
+          hero_sub: "PhD student at Xi’an Jiaotong University. Plasma numerics and diagnostic inversion.",
+          hero_kicker: "Plasma · Kinetics · Physics-informed ML",
+          feat_research_desc: "Selected recent work.",
+          feat_notes_desc: "Selected notes and projects.",
+          feat_videos: "Videos",
+          feat_videos_desc: "Selected simulations · Bilibili",
+        },
+      });
+      document.body.setAttribute("data-title-key", "page_title");
+      SiteI18n.apply(SiteI18n.getLang());
+
+      let postsCache = null;
+      let researchCache = null;
+
+      async function boot() {
+        try {
+          const [postsData, researchData] = await Promise.all([
+            Site.loadJSON("/data/posts.json"),
+            Site.loadJSON("/data/research.json"),
+          ]);
+          postsCache = postsData.posts || [];
+          researchCache = researchData;
+          render();
+        } catch (e) {
+          console.error(e);
+          const err = document.getElementById("home-error");
+          if (err) {
+            err.style.display = "block";
+            err.textContent = SiteI18n.t("load_error");
+          }
+        }
+      }
+
+      function render() {
+        const lang = SiteI18n.getLang();
+        // research highlights from pubs
+        const pubBox = document.getElementById("featured-pubs");
+        if (pubBox && researchCache) {
+          const pubs = (researchCache.publications || []).slice(0, 3);
+          pubBox.innerHTML = pubs.map((p) => Site.pubItem(p, lang)).join("");
+        }
+        // featured notes / posts
+        const noteBox = document.getElementById("featured-notes");
+        if (noteBox && postsCache) {
+          const featured = postsCache
+            .filter((p) => p.featured && !p.hidden)
+            .slice(0, 6);
+          Site.renderPostList(noteBox, featured, lang);
+        }
+        // featured bilibili sims
+        const vidBox = document.getElementById("featured-videos");
+        if (vidBox && researchCache) {
+          const vids = (researchCache.videos || [])
+            .filter((v) => v.featured && v.kind !== "science")
+            .slice(0, 3);
+          Site.renderVideoList(vidBox, vids, lang);
+        }
+      }
+
+      document.addEventListener("site:lang", render);
+      boot();
+    });
+  </script>
 </body>
 </html>
-
