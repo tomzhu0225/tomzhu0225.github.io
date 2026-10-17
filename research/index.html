@@ -279,14 +279,7 @@ const pubs = document.getElementById("pubs");
         const review = document.getElementById("under-review");
         if (review) {
           review.innerHTML = (research.under_review || [])
-            .map((p) => {
-              const item = Object.assign({}, p, {
-                note_en: p.venue,
-                note_zh: p.venue,
-                venue: "",
-              });
-              return Site.pubItem(item, lang);
-            })
+            .map((p) => Site.pubItem(p, lang))
             .join("");
         }
 

@@ -65,4 +65,4 @@ GitHub Pages serves `main`.
 - `/tags/` redirects to `/archives/`.
 - Migration Python scripts are gitignored.
 
-CV source of truth for the 2026 refresh: personal CV PDF (research data last noted 2026-07-21).
+CV source of truth: personal CV updated 2026-10-13. Research data synced 2026-10-17, including MRE publication details and the author's PRL status update (final round of review, minor revision). Under-review and in-preparation entries use `venue` for the journal and `note_en` / `note_zh` for their status.

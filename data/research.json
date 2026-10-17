@@ -1,21 +1,29 @@
 {
-  "updated": "2026-08",
+  "updated": "2026-10-17",
   "overview": {
     "zh": "研究聚焦高能量密度与脉冲功率等离子体：可解释的多诊断反演、动理学与混合 PIC 模拟，以及快脉冲功率系统仿真。",
     "en": "I work on high-energy-density and pulsed-power plasmas: multi-diagnostic inversion, kinetic and hybrid PIC simulation, and fast pulsed-power system modeling."
   },
   "interests": [
     {
-      "en": "Diagnostic inversion & ablation physics",
-      "zh": "诊断反演与烧蚀物理"
+      "en": "Plasma simulation",
+      "zh": "等离子体数值模拟"
     },
     {
-      "en": "Kinetic / hybrid PIC",
-      "zh": "全动理学 / 混合 PIC"
+      "en": "AI Harness Engineering",
+      "zh": "科研 AI Harness 工程"
     },
     {
-      "en": "Pulsed-power system simulation",
-      "zh": "快脉冲功率系统仿真"
+      "en": "Kinetic simulations",
+      "zh": "动力学模拟"
+    },
+    {
+      "en": "Physics-informed ML",
+      "zh": "物理约束机器学习"
+    },
+    {
+      "en": "Plasma diagnostics",
+      "zh": "等离子体诊断"
     }
   ],
   "themes": [
@@ -38,11 +46,11 @@
       ],
       "status_zh": [
         "PoP 已发表（特邀专题）",
-        "PRL 第三轮审稿"
+        "PRL 最终轮审稿（小修）"
       ],
       "status_en": [
         "PoP published (invited special topic)",
-        "PRL, 3rd-round review"
+        "PRL, final round of review (minor revision)"
       ],
       "pub_ids": [
         "pop-bayesian",
@@ -68,12 +76,12 @@
         "Hybrid-PIC implicit magnetic diffusion with state-dependent resistivity for plasma–vacuum transitions and long-pulse shear-flow columns"
       ],
       "status_zh": [
-        "MRE 审稿中",
+        "MRE 已发表",
         "NF 撰写中",
         "NVIDIA 合作推进中"
       ],
       "status_en": [
-        "MRE under review",
+        "MRE published",
         "NF in preparation",
         "NVIDIA collaboration ongoing"
       ],
@@ -125,6 +133,23 @@
     }
   ],
   "publications": [
+    {
+      "id": "mre-frc",
+      "year": 2026,
+      "authors": "Zhu, B., & Wu, J.",
+      "title": "Integrated 3D fully kinetic simulation of field-reversed-configuration formation with embedded coils",
+      "venue": "Matter and Radiation at Extremes, 12(1), 017601",
+      "note_en": "Published online 6 October 2026 · January 2027 issue",
+      "note_zh": "2026年10月6日在线发表 · 2027年1月刊",
+      "doi": "https://doi.org/10.1063/5.0347913",
+      "arxiv": "https://arxiv.org/abs/2607.11908",
+      "theme": "kinetic",
+      "tags": [
+        "FRC",
+        "kinetic",
+        "3D"
+      ]
+    },
     {
       "id": "pop-bayesian",
       "year": 2026,
@@ -192,25 +217,13 @@
   ],
   "under_review": [
     {
-      "id": "mre-frc",
-      "year": 2026,
-      "authors": "Zhu, B., & Wu, J.",
-      "title": "Integrated 3D fully kinetic simulation of field-reversed configuration formation with embedded coils",
-      "venue": "Under review at Matter and Radiation at Extremes",
-      "arxiv": "https://arxiv.org/abs/2607.11908",
-      "theme": "kinetic",
-      "tags": [
-        "FRC",
-        "kinetic",
-        "3D"
-      ]
-    },
-    {
       "id": "prl-twofluid",
       "year": 2026,
       "authors": "Zhu, B., Wu, J., Wang, W., Lu, Y., Jiang, Z., et al.",
       "title": "Two-fluid effects in Z-pinch ablation characterized by unified Bayesian inversion",
-      "venue": "Under review at Physical Review Letters (3rd-round review)",
+      "venue": "Physical Review Letters",
+      "note_en": "Final round of review — minor revision",
+      "note_zh": "最终轮审稿（小修）",
       "arxiv": "",
       "theme": "inversion",
       "tags": [
@@ -224,7 +237,9 @@
       "year": 2026,
       "authors": "Zhu, B., et al.",
       "title": "Modeling state-dependent resistivity across plasma–vacuum transitions using an extended hybrid PIC model with implicit magnetic diffusion",
-      "venue": "In preparation for Nuclear Fusion",
+      "venue": "Nuclear Fusion",
+      "note_en": "In preparation",
+      "note_zh": "撰写中",
       "arxiv": "",
       "theme": "kinetic",
       "tags": [
@@ -235,6 +250,13 @@
     }
   ],
   "talks": [
+    {
+      "year": 2026,
+      "title": "Progress in Fully Kinetic Z-Pinch Simulations: Modeling and Computational Developments",
+      "venue": "ICMRE 2026, Xiamen, China",
+      "type": "Oral",
+      "theme": "kinetic"
+    },
     {
       "year": 2025,
       "title": "A Flow-Based Hybrid Approach for Kinetic Plasma Simulations: Bridging Direct Vlasov and Particle Methods",
@@ -329,6 +351,14 @@
   ],
   "scholarships": [
     {
+      "en": "Innovation Leader Scholarship, long-term funding (Jun 2026)",
+      "zh": "创新领军奖学金（长期资助，2026.06）"
+    },
+    {
+      "en": "Second Prize, The 1st “Lighting the Future” Doctoral Forum, Xi'an Jiaotong University (Mar 2026)",
+      "zh": "西安交通大学第一届“电亮未来”博士生论坛二等奖（2026.03）"
+    },
+    {
       "en": "Fusenet funding — fusion research internship at Ghent University (Jun 2023)",
       "zh": "Fusenet 资助 — 根特大学聚变科研实习（2023.06）"
     },
@@ -337,8 +367,8 @@
       "zh": "Fusenet 资助 — Culham 等离子体物理暑期学校（2023.04）"
     },
     {
-      "en": "French Government Eiffel Scholarship, long-term (Apr 2022)",
-      "zh": "法国政府埃菲尔奖学金（长期，2022.04）"
+      "en": "French Government Eiffel Scholarship, 393 recipients globally that year (Apr 2022)",
+      "zh": "法国政府 Eiffel 奖学金（当年全球新获奖者共393人，2022.04）"
     },
     {
       "en": "Xi'an Jiaotong University third-class scholarship (Jun 2021)",

@@ -51,7 +51,7 @@
       section_edu: "教育经历",
       section_exp: "经历与学校",
       section_interests: "研究方向",
-      section_scholarships: "奖学金",
+      section_scholarships: "奖学金与荣誉",
       section_contact: "联系方式",
       section_lang: "语言",
       contact_email: "邮箱",
@@ -104,7 +104,7 @@
       section_edu: "Education",
       section_exp: "Experience & schools",
       section_interests: "Research interests",
-      section_scholarships: "Scholarships",
+      section_scholarships: "Scholarships & awards",
       section_contact: "Contact",
       section_lang: "Languages",
       contact_email: "Email",
@@ -168,7 +168,13 @@
   }
 
   function toggle() {
-    apply(getLang() === "en" ? "zh" : "en");
+    const next = getLang() === "en" ? "zh" : "en";
+    const url = new URL(location.href);
+    if (url.searchParams.has("lang")) {
+      url.searchParams.set("lang", next);
+      history.replaceState(history.state, "", url);
+    }
+    apply(next);
   }
 
   function register(pack) {
