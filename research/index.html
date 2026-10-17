@@ -13,7 +13,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Research interests and publications — Bowen Zhu. Diagnostic inversion, kinetic/hybrid PIC, pulsed-power simulation." />
+  <meta name="description" content="Research interests and publications — Bowen Zhu. Diagnostic inversion, kinetic/hybrid PIC, pulsed-power simulation, and Simjecture for autonomous scientific research." />
   <title>Research · FUSION!</title>
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/assets/css/theme.css" />
@@ -54,7 +54,7 @@
       <p class="meta-line"><span id="cv-updated"></span></p>
     </header>
 
-    <!-- Three interest pillars (narrative first) -->
+    <!-- Research directions -->
     <section class="section">
       <div class="section-header">
         <div>
@@ -184,6 +184,12 @@
         const pointsHtml = (points || [])
           .map((p) => `<li>${Site.escapeHtml(p)}</li>`)
           .join("");
+        const linksHtml = (theme.links || [])
+          .map((link) => {
+            const label = lang === "zh" ? link.label_zh : link.label_en;
+            return `<a href="${Site.escapeHtml(link.href)}" target="_blank" rel="noopener">${Site.escapeHtml(label)}</a>`;
+          })
+          .join(" · ");
 
         const related = (theme.pub_ids || [])
           .map((id) => pubById(id))
@@ -233,6 +239,7 @@
             <p class="theme-lede">${Site.escapeHtml(lede)}</p>
             <div class="theme-status">${statusHtml}</div>
             <ul>${pointsHtml}</ul>
+            ${linksHtml ? `<div class="link-row">${linksHtml}</div>` : ""}
             ${relatedHtml}
             ${videoHtml}
           </article>`;

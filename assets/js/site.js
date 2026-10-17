@@ -188,6 +188,7 @@
     const links = [];
     if (p.doi) links.push(`<a href="${escapeHtml(p.doi)}" target="_blank" rel="noopener">${SiteI18n.t("open_doi", lang)}</a>`);
     if (p.arxiv) links.push(`<a href="${escapeHtml(p.arxiv)}" target="_blank" rel="noopener">${SiteI18n.t("open_arxiv", lang)}</a>`);
+    if (p.code) links.push(`<a href="${escapeHtml(p.code)}" target="_blank" rel="noopener">${SiteI18n.t("open_code", lang)}</a>`);
     const tags = (p.tags || []).map((tg) => `<span class="tag">${escapeHtml(tg)}</span>`).join("");
     return `
       <article class="pub-card">

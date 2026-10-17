@@ -66,3 +66,5 @@ GitHub Pages serves `main`.
 - Migration Python scripts are gitignored.
 
 CV source of truth: personal CV updated 2026-10-13. Research data synced 2026-10-17, including MRE publication details and the author's PRL status update (final round of review, minor revision). Under-review and in-preparation entries use `venue` for the journal and `note_en` / `note_zh` for their status.
+
+Simjecture is the fourth research direction, based on the current manuscript and public project documentation. Its paper is listed as in preparation. Theme `links` provide localized project resources; publication `code` provides a repository link.

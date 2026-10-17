@@ -1,8 +1,8 @@
 {
   "updated": "2026-10-17",
   "overview": {
-    "zh": "研究聚焦高能量密度与脉冲功率等离子体：可解释的多诊断反演、动理学与混合 PIC 模拟，以及快脉冲功率系统仿真。",
-    "en": "I work on high-energy-density and pulsed-power plasmas: multi-diagnostic inversion, kinetic and hybrid PIC simulation, and fast pulsed-power system modeling."
+    "zh": "研究聚焦高能量密度与脉冲功率等离子体：可解释的多诊断反演、动理学与混合 PIC 模拟，以及快脉冲功率系统仿真。同时开发 Simjecture，探索以模拟、反例搜索与假设修正为核心的自主科学研究。",
+    "en": "I work on high-energy-density and pulsed-power plasmas: multi-diagnostic inversion, kinetic and hybrid PIC simulation, and fast pulsed-power system modeling. I also develop Simjecture, an open-source framework for autonomous scientific research through simulation, counterexample search, and hypothesis repair."
   },
   "interests": [
     {
@@ -10,8 +10,8 @@
       "zh": "等离子体数值模拟"
     },
     {
-      "en": "AI Harness Engineering",
-      "zh": "科研 AI Harness 工程"
+      "en": "AI Harness Engineering (Simjecture)",
+      "zh": "科研 AI Harness 工程（Simjecture）"
     },
     {
       "en": "Kinetic simulations",
@@ -130,6 +130,53 @@
         "BV1MfDeBBEF4",
         "BV1RH9QBBEpS"
       ]
+    },
+    {
+      "id": "simjecture",
+      "num": "04",
+      "title_zh": "Simjecture · 自主科学研究",
+      "title_en": "Simjecture · Autonomous scientific research",
+      "lede_zh": "Simjecture 是面向计算物理的开源自主研究框架。研究者定义科学问题、物理范围与预算，智能体设计模拟、开发数值工具、搜索反例，并通过独立评审和新模拟检验修正后的假设。",
+      "lede_en": "Simjecture is an open-source framework for autonomous research in computational physics. Researchers define the scientific question, physical scope, and budget; agents design simulations, develop numerical tools, search for counterexamples, and test revised hypotheses through independent review and fresh simulations.",
+      "points_zh": [
+        "围绕假设检验组织模拟与反例搜索；修正后的预测须经过数值控制与新模拟检验",
+        "支持不同求解器及研究过程中的工具开发，保留源码、输入与结果的关联，分别评审数值方法与科学结论",
+        "案例涵盖 MHD 磁重联、流体—动理学耦合、辐射 Z 箍缩与 FRC 合并；同时研究如何评测智能体的诊断准确性与研究产物交付能力"
+      ],
+      "points_en": [
+        "Simulation and counterexample search organized around hypothesis testing, with numerical controls and fresh tests of revised predictions",
+        "Solver-agnostic tool development with traceable source, inputs, and results, plus separate review of numerical methods and scientific claims",
+        "Studies span MHD reconnection, fluid–kinetic coupling, radiation Z-pinch dynamics, and FRC merging; diagnostic accuracy and artifact delivery also provide benchmarks for research agents"
+      ],
+      "status_zh": [
+        "开源框架",
+        "论文撰写中"
+      ],
+      "status_en": [
+        "Open-source framework",
+        "Manuscript in preparation"
+      ],
+      "pub_ids": [
+        "simjecture-preprint"
+      ],
+      "video_ids": [],
+      "links": [
+        {
+          "href": "https://github.com/tomzhu0225/simjecture",
+          "label_en": "Code",
+          "label_zh": "代码"
+        },
+        {
+          "href": "https://drawingsword.com/simjecture/",
+          "label_en": "Documentation",
+          "label_zh": "文档"
+        },
+        {
+          "href": "https://simjecture.com",
+          "label_en": "Try online",
+          "label_zh": "在线体验"
+        }
+      ]
     }
   ],
   "publications": [
@@ -246,6 +293,22 @@
         "hybrid-PIC",
         "magnetic diffusion",
         "resistivity"
+      ]
+    },
+    {
+      "id": "simjecture-preprint",
+      "year": 2026,
+      "authors": "Zhu, B., & Wu, J.",
+      "title": "Simjecture: Counterexample-driven autonomous research in computational plasma physics and beyond",
+      "venue": "",
+      "note_en": "Manuscript in preparation",
+      "note_zh": "论文撰写中",
+      "code": "https://github.com/tomzhu0225/simjecture",
+      "theme": "simjecture",
+      "tags": [
+        "autonomous science",
+        "hypothesis testing",
+        "computational physics"
       ]
     }
   ],
