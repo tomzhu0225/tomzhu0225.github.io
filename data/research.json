@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-18",
   "overview": {
     "zh": "研究聚焦高能量密度与脉冲功率等离子体：可解释的多诊断反演、动理学与混合 PIC 模拟，以及快脉冲功率系统仿真。同时开发 Simjecture，探索以模拟、反例搜索与假设修正为核心的自主科学研究。",
     "en": "I work on high-energy-density and pulsed-power plasmas: multi-diagnostic inversion, kinetic and hybrid PIC simulation, and fast pulsed-power system modeling. I also develop Simjecture, an open-source framework for autonomous scientific research through simulation, counterexample search, and hypothesis repair."
@@ -46,11 +46,11 @@
       ],
       "status_zh": [
         "PoP 已发表（特邀专题）",
-        "PRL 已接收"
+        "PRL 已发表"
       ],
       "status_en": [
         "PoP published (invited special topic)",
-        "PRL accepted"
+        "PRL published"
       ],
       "pub_ids": [
         "pop-bayesian",
@@ -185,9 +185,9 @@
       "year": 2026,
       "authors": "Zhu, B., Wu, J., Wang, W., Lu, Y., Jiang, Z., et al.",
       "title": "Two-fluid effects in Z-pinch ablation characterized by unified Bayesian inversion",
-      "venue": "Physical Review Letters",
-      "note_en": "Accepted 27 October 2026",
-      "note_zh": "2026年10月27日接收",
+      "venue": "Physical Review Letters, 137(21), 215102",
+      "note_en": "Published 17 November 2026",
+      "note_zh": "2026年11月17日发表",
       "arxiv": "",
       "theme": "inversion",
       "tags": [
